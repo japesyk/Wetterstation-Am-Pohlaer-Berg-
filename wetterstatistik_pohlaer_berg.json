@@ -1,0 +1,6552 @@
+[
+  {
+    "id": "excel-2025-01-01-0-1792461545082",
+    "date": "2025-01-01",
+    "minTemp": -1.2,
+    "maxTemp": 9.3,
+    "avgTemp": 0.64,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-02-1-1792461545082",
+    "date": "2025-01-02",
+    "minTemp": 0.1,
+    "maxTemp": 9.9,
+    "avgTemp": 5.61,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-03-2-1792461545082",
+    "date": "2025-01-03",
+    "minTemp": -2,
+    "maxTemp": 1.2,
+    "avgTemp": 0.16,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-04-3-1792461545082",
+    "date": "2025-01-04",
+    "minTemp": -3.7,
+    "maxTemp": 0.3,
+    "avgTemp": 0.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-05-4-1792461545082",
+    "date": "2025-01-05",
+    "minTemp": -4.3,
+    "maxTemp": 1.6,
+    "avgTemp": 1.44,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-06-5-1792461545082",
+    "date": "2025-01-06",
+    "minTemp": 1.6,
+    "maxTemp": 6.4,
+    "avgTemp": 5.93,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-07-6-1792461545082",
+    "date": "2025-01-07",
+    "minTemp": 1.4,
+    "maxTemp": 5.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-08-7-1792461545082",
+    "date": "2025-01-08",
+    "minTemp": 0,
+    "maxTemp": 2.4,
+    "avgTemp": 1.36,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-09-8-1792461545082",
+    "date": "2025-01-09",
+    "minTemp": 0.1,
+    "maxTemp": 8.2,
+    "avgTemp": 7.22,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-10-9-1792461545082",
+    "date": "2025-01-10",
+    "minTemp": -0.5,
+    "maxTemp": 0.5,
+    "avgTemp": 0.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-11-10-1792461545082",
+    "date": "2025-01-11",
+    "minTemp": -1.9,
+    "maxTemp": -0.4,
+    "avgTemp": 0.08,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-12-11-1792461545082",
+    "date": "2025-01-12",
+    "minTemp": -1.9,
+    "maxTemp": -0.5,
+    "avgTemp": 0.08,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-13-12-1792461545082",
+    "date": "2025-01-13",
+    "minTemp": -5.5,
+    "maxTemp": -0.3,
+    "avgTemp": 0.48,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-14-13-1792461545082",
+    "date": "2025-01-14",
+    "minTemp": -4,
+    "maxTemp": 1.4,
+    "avgTemp": 0.72,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-15-14-1792461545082",
+    "date": "2025-01-15",
+    "minTemp": 0.4,
+    "maxTemp": 3,
+    "avgTemp": 2.49,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-16-15-1792461545082",
+    "date": "2025-01-16",
+    "minTemp": -0.1,
+    "maxTemp": 2.2,
+    "avgTemp": 0.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-17-16-1792461545082",
+    "date": "2025-01-17",
+    "minTemp": -1.3,
+    "maxTemp": 1.6,
+    "avgTemp": 0.08,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-18-17-1792461545082",
+    "date": "2025-01-18",
+    "minTemp": -1.1,
+    "maxTemp": 5.8,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-19-18-1792461545082",
+    "date": "2025-01-19",
+    "minTemp": 1.2,
+    "maxTemp": 11.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-20-19-1792461545082",
+    "date": "2025-01-20",
+    "minTemp": -0.6,
+    "maxTemp": 5.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-21-20-1792461545082",
+    "date": "2025-01-21",
+    "minTemp": -1.6,
+    "maxTemp": 1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-22-21-1792461545082",
+    "date": "2025-01-22",
+    "minTemp": -2.6,
+    "maxTemp": 3.7,
+    "avgTemp": 0.08,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-23-22-1792461545082",
+    "date": "2025-01-23",
+    "minTemp": -2.1,
+    "maxTemp": 2.3,
+    "avgTemp": 5.77,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-24-23-1792461545082",
+    "date": "2025-01-24",
+    "minTemp": 1.2,
+    "maxTemp": 5.4,
+    "avgTemp": 1.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-25-24-1792461545082",
+    "date": "2025-01-25",
+    "minTemp": 4.5,
+    "maxTemp": 7.8,
+    "avgTemp": 0.88,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-26-25-1792461545082",
+    "date": "2025-01-26",
+    "minTemp": 2.9,
+    "maxTemp": 7.4,
+    "avgTemp": 0.24,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-27-26-1792461545082",
+    "date": "2025-01-27",
+    "minTemp": 3.2,
+    "maxTemp": 8.1,
+    "avgTemp": 1.68,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-28-27-1792461545082",
+    "date": "2025-01-28",
+    "minTemp": 3.7,
+    "maxTemp": 7.3,
+    "avgTemp": 6.42,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-29-28-1792461545082",
+    "date": "2025-01-29",
+    "minTemp": 2.7,
+    "maxTemp": 8.1,
+    "avgTemp": 0.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-30-29-1792461545082",
+    "date": "2025-01-30",
+    "minTemp": 1.6,
+    "maxTemp": 9.1,
+    "avgTemp": 0.08,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-01-31-30-1792461545082",
+    "date": "2025-01-31",
+    "minTemp": 0.8,
+    "maxTemp": 5.4,
+    "avgTemp": 3.93,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-01-0-1792461545082",
+    "date": "2025-02-01",
+    "minTemp": -0.3,
+    "maxTemp": 3.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-02-1-1792461545082",
+    "date": "2025-02-02",
+    "minTemp": -2,
+    "maxTemp": 2.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-03-2-1792461545082",
+    "date": "2025-02-03",
+    "minTemp": -3.4,
+    "maxTemp": 4.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-04-3-1792461545082",
+    "date": "2025-02-04",
+    "minTemp": -2.6,
+    "maxTemp": 5.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-05-4-1792461545082",
+    "date": "2025-02-05",
+    "minTemp": -1.7,
+    "maxTemp": 2.5,
+    "avgTemp": 0.24,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-06-5-1792461545082",
+    "date": "2025-02-06",
+    "minTemp": 0.7,
+    "maxTemp": 2.1,
+    "avgTemp": 0.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-07-6-1792461545082",
+    "date": "2025-02-07",
+    "minTemp": -0.3,
+    "maxTemp": 3.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-08-7-1792461545082",
+    "date": "2025-02-08",
+    "minTemp": -1.2,
+    "maxTemp": 5.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-09-8-1792461545082",
+    "date": "2025-02-09",
+    "minTemp": -2.5,
+    "maxTemp": 7.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-10-9-1792461545082",
+    "date": "2025-02-10",
+    "minTemp": -2.3,
+    "maxTemp": 3.8,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-11-10-1792461545082",
+    "date": "2025-02-11",
+    "minTemp": -5,
+    "maxTemp": 2.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-12-11-1792461545082",
+    "date": "2025-02-12",
+    "minTemp": -4.7,
+    "maxTemp": 2.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-13-12-1792461545082",
+    "date": "2025-02-13",
+    "minTemp": -3.3,
+    "maxTemp": 0.7,
+    "avgTemp": 0.24,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-14-13-1792461545082",
+    "date": "2025-02-14",
+    "minTemp": -3.6,
+    "maxTemp": -0.6,
+    "avgTemp": 0.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-15-14-1792461545082",
+    "date": "2025-02-15",
+    "minTemp": -5.7,
+    "maxTemp": 2.6,
+    "avgTemp": 3.53,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-16-15-1792461545082",
+    "date": "2025-02-16",
+    "minTemp": -7.4,
+    "maxTemp": 0,
+    "avgTemp": 0.32,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-17-16-1792461545082",
+    "date": "2025-02-17",
+    "minTemp": -10.3,
+    "maxTemp": -0.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-18-17-1792461545082",
+    "date": "2025-02-18",
+    "minTemp": -10.3,
+    "maxTemp": 1.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-19-18-1792461545082",
+    "date": "2025-02-19",
+    "minTemp": -9.3,
+    "maxTemp": 3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-20-19-1792461545082",
+    "date": "2025-02-20",
+    "minTemp": -5.8,
+    "maxTemp": 2.5,
+    "avgTemp": 0.08,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-21-20-1792461545082",
+    "date": "2025-02-21",
+    "minTemp": 0.8,
+    "maxTemp": 3.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-22-21-1792461545082",
+    "date": "2025-02-22",
+    "minTemp": 0.3,
+    "maxTemp": 6.6,
+    "avgTemp": 1.04,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-23-22-1792461545082",
+    "date": "2025-02-23",
+    "minTemp": 3.2,
+    "maxTemp": 8.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-24-23-1792461545082",
+    "date": "2025-02-24",
+    "minTemp": 2.9,
+    "maxTemp": 12.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-25-24-1792461545082",
+    "date": "2025-02-25",
+    "minTemp": 6,
+    "maxTemp": 10,
+    "avgTemp": 0.16,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-26-25-1792461545082",
+    "date": "2025-02-26",
+    "minTemp": 3.8,
+    "maxTemp": 9.4,
+    "avgTemp": 4.17,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-27-26-1792461545082",
+    "date": "2025-02-27",
+    "minTemp": 4,
+    "maxTemp": 10.5,
+    "avgTemp": 0.48,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-02-28-27-1792461545082",
+    "date": "2025-02-28",
+    "minTemp": 0.4,
+    "maxTemp": 7,
+    "avgTemp": 1.36,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-01-0-1792461545082",
+    "date": "2025-03-01",
+    "minTemp": -0.1,
+    "maxTemp": 4.1,
+    "avgTemp": 3.13,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-02-1-1792461545082",
+    "date": "2025-03-02",
+    "minTemp": -0.9,
+    "maxTemp": 6.2,
+    "avgTemp": 0.08,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-03-2-1792461545082",
+    "date": "2025-03-03",
+    "minTemp": -1.2,
+    "maxTemp": 10.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-04-3-1792461545082",
+    "date": "2025-03-04",
+    "minTemp": -0.7,
+    "maxTemp": 12.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-05-4-1792461545082",
+    "date": "2025-03-05",
+    "minTemp": 0.6,
+    "maxTemp": 17.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-06-5-1792461545082",
+    "date": "2025-03-06",
+    "minTemp": 6.4,
+    "maxTemp": 18.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-07-6-1792461545082",
+    "date": "2025-03-07",
+    "minTemp": 5.4,
+    "maxTemp": 17.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-08-7-1792461545082",
+    "date": "2025-03-08",
+    "minTemp": 4.9,
+    "maxTemp": 15.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-09-8-1792461545082",
+    "date": "2025-03-09",
+    "minTemp": 5.7,
+    "maxTemp": 19.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-10-9-1792461545082",
+    "date": "2025-03-10",
+    "minTemp": 7,
+    "maxTemp": 18.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-11-10-1792461545082",
+    "date": "2025-03-11",
+    "minTemp": 5.8,
+    "maxTemp": 14.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-12-11-1792461545082",
+    "date": "2025-03-12",
+    "minTemp": 2.7,
+    "maxTemp": 6.9,
+    "avgTemp": 1.76,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-13-12-1792461545082",
+    "date": "2025-03-13",
+    "minTemp": 1.3,
+    "maxTemp": 3.9,
+    "avgTemp": 1.44,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-14-13-1792461545082",
+    "date": "2025-03-14",
+    "minTemp": -0.4,
+    "maxTemp": 5.7,
+    "avgTemp": 0.96,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-15-14-1792461545082",
+    "date": "2025-03-15",
+    "minTemp": -1.5,
+    "maxTemp": 6.8,
+    "avgTemp": 0.16,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-16-15-1792461545082",
+    "date": "2025-03-16",
+    "minTemp": -2.7,
+    "maxTemp": 8.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-17-16-1792461545082",
+    "date": "2025-03-17",
+    "minTemp": -1.3,
+    "maxTemp": 4.4,
+    "avgTemp": 0.48,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-18-17-1792461545082",
+    "date": "2025-03-18",
+    "minTemp": -5.9,
+    "maxTemp": 9.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-19-18-1792461545082",
+    "date": "2025-03-19",
+    "minTemp": -1.6,
+    "maxTemp": 14.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-20-19-1792461545082",
+    "date": "2025-03-20",
+    "minTemp": 3.1,
+    "maxTemp": 16.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-21-20-1792461545082",
+    "date": "2025-03-21",
+    "minTemp": 5.5,
+    "maxTemp": 17.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-22-21-1792461545082",
+    "date": "2025-03-22",
+    "minTemp": 3.5,
+    "maxTemp": 14.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-23-22-1792461545082",
+    "date": "2025-03-23",
+    "minTemp": 4.7,
+    "maxTemp": 12.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-24-23-1792461545082",
+    "date": "2025-03-24",
+    "minTemp": 5.9,
+    "maxTemp": 14.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-25-24-1792461545082",
+    "date": "2025-03-25",
+    "minTemp": 6.6,
+    "maxTemp": 14.4,
+    "avgTemp": 0.24,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-26-25-1792461545082",
+    "date": "2025-03-26",
+    "minTemp": 4.5,
+    "maxTemp": 8.7,
+    "avgTemp": 2.57,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-27-26-1792461545082",
+    "date": "2025-03-27",
+    "minTemp": 2.7,
+    "maxTemp": 10,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-28-27-1792461545082",
+    "date": "2025-03-28",
+    "minTemp": 1.4,
+    "maxTemp": 14.7,
+    "avgTemp": 0.08,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-29-28-1792461545082",
+    "date": "2025-03-29",
+    "minTemp": 6.5,
+    "maxTemp": 10,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-30-29-1792461545082",
+    "date": "2025-03-30",
+    "minTemp": 1.7,
+    "maxTemp": 10.4,
+    "avgTemp": 3.61,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-03-31-30-1792461545082",
+    "date": "2025-03-31",
+    "minTemp": 5,
+    "maxTemp": 8.1,
+    "avgTemp": 3.93,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-01-0-1792461545082",
+    "date": "2025-04-01",
+    "minTemp": 3.4,
+    "maxTemp": 10.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-02-1-1792461545082",
+    "date": "2025-04-02",
+    "minTemp": 4.4,
+    "maxTemp": 15.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-03-2-1792461545082",
+    "date": "2025-04-03",
+    "minTemp": 3.5,
+    "maxTemp": 17.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-04-3-1792461545082",
+    "date": "2025-04-04",
+    "minTemp": 6.9,
+    "maxTemp": 19.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-05-4-1792461545082",
+    "date": "2025-04-05",
+    "minTemp": 2.7,
+    "maxTemp": 12.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-06-5-1792461545082",
+    "date": "2025-04-06",
+    "minTemp": -3.7,
+    "maxTemp": 5.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-07-6-1792461545082",
+    "date": "2025-04-07",
+    "minTemp": 0.5,
+    "maxTemp": 9.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-08-7-1792461545082",
+    "date": "2025-04-08",
+    "minTemp": 3.9,
+    "maxTemp": 12.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-09-8-1792461545082",
+    "date": "2025-04-09",
+    "minTemp": 2.9,
+    "maxTemp": 12.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-10-9-1792461545082",
+    "date": "2025-04-10",
+    "minTemp": 4.6,
+    "maxTemp": 11,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-11-10-1792461545082",
+    "date": "2025-04-11",
+    "minTemp": 4.9,
+    "maxTemp": 11.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-12-11-1792461545082",
+    "date": "2025-04-12",
+    "minTemp": 9,
+    "maxTemp": 20.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-13-12-1792461545082",
+    "date": "2025-04-13",
+    "minTemp": 9.3,
+    "maxTemp": 21.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-14-13-1792461545082",
+    "date": "2025-04-14",
+    "minTemp": 10.5,
+    "maxTemp": 21.1,
+    "avgTemp": 0.08,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-15-14-1792461545082",
+    "date": "2025-04-15",
+    "minTemp": 12.1,
+    "maxTemp": 15.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-16-15-1792461545082",
+    "date": "2025-04-16",
+    "minTemp": 10.6,
+    "maxTemp": 25.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-17-16-1792461545082",
+    "date": "2025-04-17",
+    "minTemp": 16.6,
+    "maxTemp": 25.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-18-17-1792461545082",
+    "date": "2025-04-18",
+    "minTemp": 8.2,
+    "maxTemp": 21.5,
+    "avgTemp": 5.85,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-19-18-1792461545082",
+    "date": "2025-04-19",
+    "minTemp": 7.3,
+    "maxTemp": 10.6,
+    "avgTemp": 3.05,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-20-19-1792461545082",
+    "date": "2025-04-20",
+    "minTemp": 5.5,
+    "maxTemp": 22.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-21-20-1792461545082",
+    "date": "2025-04-21",
+    "minTemp": 9.7,
+    "maxTemp": 16.1,
+    "avgTemp": 0.16,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-22-21-1792461545082",
+    "date": "2025-04-22",
+    "minTemp": 7.7,
+    "maxTemp": 18.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-23-22-1792461545082",
+    "date": "2025-04-23",
+    "minTemp": 7.2,
+    "maxTemp": 18.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-24-23-1792461545082",
+    "date": "2025-04-24",
+    "minTemp": 9,
+    "maxTemp": 13.3,
+    "avgTemp": 7.86,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-25-24-1792461545082",
+    "date": "2025-04-25",
+    "minTemp": 8.6,
+    "maxTemp": 13.4,
+    "avgTemp": 2.41,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-26-25-1792461545082",
+    "date": "2025-04-26",
+    "minTemp": 2.8,
+    "maxTemp": 14.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-27-26-1792461545082",
+    "date": "2025-04-27",
+    "minTemp": 2,
+    "maxTemp": 15.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-28-27-1792461545082",
+    "date": "2025-04-28",
+    "minTemp": 6.1,
+    "maxTemp": 21.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-29-28-1792461545082",
+    "date": "2025-04-29",
+    "minTemp": 6.9,
+    "maxTemp": 22,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-04-30-29-1792461545082",
+    "date": "2025-04-30",
+    "minTemp": 10.6,
+    "maxTemp": 22.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-01-0-1792461545082",
+    "date": "2025-05-01",
+    "minTemp": 14.4,
+    "maxTemp": 17.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-02-1-1792461545082",
+    "date": "2025-05-02",
+    "minTemp": 20.1,
+    "maxTemp": 20.1,
+    "avgTemp": 0.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-03-2-1792461545082",
+    "date": "2025-05-03",
+    "minTemp": 16.1,
+    "maxTemp": 16.1,
+    "avgTemp": 10,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-04-3-1792461545082",
+    "date": "2025-05-04",
+    "minTemp": 10.1,
+    "maxTemp": 10.1,
+    "avgTemp": 0.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-05-4-1792461545082",
+    "date": "2025-05-05",
+    "minTemp": 7.5,
+    "maxTemp": 7.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-06-5-1792461545082",
+    "date": "2025-05-06",
+    "minTemp": 8.8,
+    "maxTemp": 8.8,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-07-6-1792461545082",
+    "date": "2025-05-07",
+    "minTemp": 9.4,
+    "maxTemp": 9.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-08-7-1792461545082",
+    "date": "2025-05-08",
+    "minTemp": 8.2,
+    "maxTemp": 8.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-09-8-1792461545082",
+    "date": "2025-05-09",
+    "minTemp": 10,
+    "maxTemp": 10,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-10-9-1792461545082",
+    "date": "2025-05-10",
+    "minTemp": 12.6,
+    "maxTemp": 12.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-11-10-1792461545082",
+    "date": "2025-05-11",
+    "minTemp": 11.7,
+    "maxTemp": 11.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-12-11-1792461545082",
+    "date": "2025-05-12",
+    "minTemp": 10.7,
+    "maxTemp": 10.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-13-12-1792461545082",
+    "date": "2025-05-13",
+    "minTemp": 12.2,
+    "maxTemp": 12.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-14-13-1792461545082",
+    "date": "2025-05-14",
+    "minTemp": 14.8,
+    "maxTemp": 14.8,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-15-14-1792461545082",
+    "date": "2025-05-15",
+    "minTemp": 10.7,
+    "maxTemp": 10.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-16-15-1792461545082",
+    "date": "2025-05-16",
+    "minTemp": 10.2,
+    "maxTemp": 10.2,
+    "avgTemp": 3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-17-16-1792461545082",
+    "date": "2025-05-17",
+    "minTemp": 10.3,
+    "maxTemp": 10.3,
+    "avgTemp": 2.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-18-17-1792461545082",
+    "date": "2025-05-18",
+    "minTemp": 8.9,
+    "maxTemp": 8.9,
+    "avgTemp": 5.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-19-18-1792461545082",
+    "date": "2025-05-19",
+    "minTemp": 10.1,
+    "maxTemp": 10.1,
+    "avgTemp": 1.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-20-19-1792461545082",
+    "date": "2025-05-20",
+    "minTemp": 15.1,
+    "maxTemp": 15.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-21-20-1792461545082",
+    "date": "2025-05-21",
+    "minTemp": 16.1,
+    "maxTemp": 16.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-22-21-1792461545082",
+    "date": "2025-05-22",
+    "minTemp": 11.5,
+    "maxTemp": 11.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-23-22-1792461545082",
+    "date": "2025-05-23",
+    "minTemp": 8.8,
+    "maxTemp": 8.8,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-24-23-1792461545082",
+    "date": "2025-05-24",
+    "minTemp": 10.4,
+    "maxTemp": 10.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-25-24-1792461545082",
+    "date": "2025-05-25",
+    "minTemp": 12.4,
+    "maxTemp": 12.4,
+    "avgTemp": 1.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-26-25-1792461545082",
+    "date": "2025-05-26",
+    "minTemp": 15.2,
+    "maxTemp": 15.2,
+    "avgTemp": 1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-27-26-1792461545082",
+    "date": "2025-05-27",
+    "minTemp": 15.9,
+    "maxTemp": 15.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-28-27-1792461545082",
+    "date": "2025-05-28",
+    "minTemp": 13.9,
+    "maxTemp": 13.9,
+    "avgTemp": 10.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-29-28-1792461545082",
+    "date": "2025-05-29",
+    "minTemp": 13.9,
+    "maxTemp": 13.9,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-30-29-1792461545082",
+    "date": "2025-05-30",
+    "minTemp": 17.6,
+    "maxTemp": 17.6,
+    "avgTemp": 1.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-05-31-30-1792461545082",
+    "date": "2025-05-31",
+    "minTemp": 21.2,
+    "maxTemp": 21.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-01-0-1792461545082",
+    "date": "2025-06-01",
+    "minTemp": 20.2,
+    "maxTemp": 20.2,
+    "avgTemp": 6.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-02-1-1792461545082",
+    "date": "2025-06-02",
+    "minTemp": 17.7,
+    "maxTemp": 17.7,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-03-2-1792461545082",
+    "date": "2025-06-03",
+    "minTemp": 19.1,
+    "maxTemp": 19.1,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-04-3-1792461545082",
+    "date": "2025-06-04",
+    "minTemp": 20,
+    "maxTemp": 20,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-05-4-1792461545082",
+    "date": "2025-06-05",
+    "minTemp": 19.3,
+    "maxTemp": 19.3,
+    "avgTemp": 0.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-06-5-1792461545082",
+    "date": "2025-06-06",
+    "minTemp": 18.3,
+    "maxTemp": 18.3,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-07-6-1792461545082",
+    "date": "2025-06-07",
+    "minTemp": 16.9,
+    "maxTemp": 16.9,
+    "avgTemp": 5.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-08-7-1792461545082",
+    "date": "2025-06-08",
+    "minTemp": 13.8,
+    "maxTemp": 13.8,
+    "avgTemp": 7.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-09-8-1792461545082",
+    "date": "2025-06-09",
+    "minTemp": 12.5,
+    "maxTemp": 12.5,
+    "avgTemp": 3.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-10-9-1792461545082",
+    "date": "2025-06-10",
+    "minTemp": 15,
+    "maxTemp": 15,
+    "avgTemp": 4.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-11-10-1792461545082",
+    "date": "2025-06-11",
+    "minTemp": 14.1,
+    "maxTemp": 14.1,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-12-11-1792461545082",
+    "date": "2025-06-12",
+    "minTemp": 16.2,
+    "maxTemp": 16.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-13-12-1792461545082",
+    "date": "2025-06-13",
+    "minTemp": 17.1,
+    "maxTemp": 17.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-14-13-1792461545082",
+    "date": "2025-06-14",
+    "minTemp": 20.1,
+    "maxTemp": 20.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-15-14-1792461545082",
+    "date": "2025-06-15",
+    "minTemp": 23.6,
+    "maxTemp": 23.6,
+    "avgTemp": 5.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-16-15-1792461545082",
+    "date": "2025-06-16",
+    "minTemp": 16.7,
+    "maxTemp": 16.7,
+    "avgTemp": 5.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-17-16-1792461545082",
+    "date": "2025-06-17",
+    "minTemp": 18.6,
+    "maxTemp": 18.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-18-17-1792461545082",
+    "date": "2025-06-18",
+    "minTemp": 21.2,
+    "maxTemp": 21.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-19-18-1792461545082",
+    "date": "2025-06-19",
+    "minTemp": 18.8,
+    "maxTemp": 18.8,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-20-19-1792461545082",
+    "date": "2025-06-20",
+    "minTemp": 17.4,
+    "maxTemp": 17.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-21-20-1792461545082",
+    "date": "2025-06-21",
+    "minTemp": 19.7,
+    "maxTemp": 19.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-22-21-1792461545082",
+    "date": "2025-06-22",
+    "minTemp": 23.4,
+    "maxTemp": 23.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-23-22-1792461545082",
+    "date": "2025-06-23",
+    "minTemp": 21.9,
+    "maxTemp": 21.9,
+    "avgTemp": 2.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-24-23-1792461545082",
+    "date": "2025-06-24",
+    "minTemp": 18.6,
+    "maxTemp": 18.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-25-24-1792461545082",
+    "date": "2025-06-25",
+    "minTemp": 22,
+    "maxTemp": 22,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-26-25-1792461545082",
+    "date": "2025-06-26",
+    "minTemp": 24.1,
+    "maxTemp": 24.1,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-27-26-1792461545082",
+    "date": "2025-06-27",
+    "minTemp": 19.1,
+    "maxTemp": 19.1,
+    "avgTemp": 2.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-28-27-1792461545082",
+    "date": "2025-06-28",
+    "minTemp": 21.7,
+    "maxTemp": 21.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-29-28-1792461545082",
+    "date": "2025-06-29",
+    "minTemp": 24.7,
+    "maxTemp": 24.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-06-30-29-1792461545082",
+    "date": "2025-06-30",
+    "minTemp": 20.9,
+    "maxTemp": 20.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-01-0-1792461545082",
+    "date": "2025-07-01",
+    "minTemp": 23.6,
+    "maxTemp": 23.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-02-1-1792461545082",
+    "date": "2025-07-02",
+    "minTemp": 27.2,
+    "maxTemp": 27.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-03-2-1792461545082",
+    "date": "2025-07-03",
+    "minTemp": 22.4,
+    "maxTemp": 22.4,
+    "avgTemp": 0.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-04-3-1792461545082",
+    "date": "2025-07-04",
+    "minTemp": 18.8,
+    "maxTemp": 18.8,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-05-4-1792461545082",
+    "date": "2025-07-05",
+    "minTemp": 22.1,
+    "maxTemp": 22.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-06-5-1792461545082",
+    "date": "2025-07-06",
+    "minTemp": 22.7,
+    "maxTemp": 22.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-07-6-1792461545082",
+    "date": "2025-07-07",
+    "minTemp": 19.1,
+    "maxTemp": 19.1,
+    "avgTemp": 1.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-08-7-1792461545082",
+    "date": "2025-07-08",
+    "minTemp": 15.3,
+    "maxTemp": 15.3,
+    "avgTemp": 0.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-09-8-1792461545082",
+    "date": "2025-07-09",
+    "minTemp": 15.7,
+    "maxTemp": 15.7,
+    "avgTemp": 1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-10-9-1792461545082",
+    "date": "2025-07-10",
+    "minTemp": 16.6,
+    "maxTemp": 16.6,
+    "avgTemp": 10.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-11-10-1792461545082",
+    "date": "2025-07-11",
+    "minTemp": 16.5,
+    "maxTemp": 16.5,
+    "avgTemp": 2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-12-11-1792461545082",
+    "date": "2025-07-12",
+    "minTemp": 14.4,
+    "maxTemp": 14.4,
+    "avgTemp": 11.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-13-12-1792461545082",
+    "date": "2025-07-13",
+    "minTemp": 17.5,
+    "maxTemp": 17.5,
+    "avgTemp": 9.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-14-13-1792461545082",
+    "date": "2025-07-14",
+    "minTemp": 21.3,
+    "maxTemp": 21.3,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-15-14-1792461545082",
+    "date": "2025-07-15",
+    "minTemp": 19.5,
+    "maxTemp": 19.5,
+    "avgTemp": 1.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-16-15-1792461545082",
+    "date": "2025-07-16",
+    "minTemp": 16.8,
+    "maxTemp": 16.8,
+    "avgTemp": 1.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-17-16-1792461545082",
+    "date": "2025-07-17",
+    "minTemp": 16.4,
+    "maxTemp": 16.4,
+    "avgTemp": 7.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-18-17-1792461545082",
+    "date": "2025-07-18",
+    "minTemp": 18.1,
+    "maxTemp": 18.1,
+    "avgTemp": 11.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-19-18-1792461545082",
+    "date": "2025-07-19",
+    "minTemp": 20.4,
+    "maxTemp": 20.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-20-19-1792461545082",
+    "date": "2025-07-20",
+    "minTemp": 24.1,
+    "maxTemp": 24.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-21-20-1792461545082",
+    "date": "2025-07-21",
+    "minTemp": 20.1,
+    "maxTemp": 20.1,
+    "avgTemp": 22.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-22-21-1792461545082",
+    "date": "2025-07-22",
+    "minTemp": 17.1,
+    "maxTemp": 17.1,
+    "avgTemp": 5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-23-22-1792461545082",
+    "date": "2025-07-23",
+    "minTemp": 19,
+    "maxTemp": 19,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-24-23-1792461545082",
+    "date": "2025-07-24",
+    "minTemp": 19.2,
+    "maxTemp": 19.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-25-24-1792461545082",
+    "date": "2025-07-25",
+    "minTemp": 21.6,
+    "maxTemp": 21.6,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-26-25-1792461545082",
+    "date": "2025-07-26",
+    "minTemp": 18.7,
+    "maxTemp": 18.7,
+    "avgTemp": 3.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-27-26-1792461545082",
+    "date": "2025-07-27",
+    "minTemp": 18.4,
+    "maxTemp": 18.4,
+    "avgTemp": 2.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-28-27-1792461545082",
+    "date": "2025-07-28",
+    "minTemp": 17.9,
+    "maxTemp": 17.9,
+    "avgTemp": 3.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-29-28-1792461545082",
+    "date": "2025-07-29",
+    "minTemp": 16.8,
+    "maxTemp": 16.8,
+    "avgTemp": 0.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-30-29-1792461545082",
+    "date": "2025-07-30",
+    "minTemp": 16,
+    "maxTemp": 16,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-07-31-30-1792461545082",
+    "date": "2025-07-31",
+    "minTemp": 16.2,
+    "maxTemp": 16.2,
+    "avgTemp": 0.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-01-0-1792461545082",
+    "date": "2025-08-01",
+    "minTemp": 16.8,
+    "maxTemp": 16.8,
+    "avgTemp": 6.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-02-1-1792461545082",
+    "date": "2025-08-02",
+    "minTemp": 17.6,
+    "maxTemp": 17.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-03-2-1792461545082",
+    "date": "2025-08-03",
+    "minTemp": 17,
+    "maxTemp": 17,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-04-3-1792461545082",
+    "date": "2025-08-04",
+    "minTemp": 16.8,
+    "maxTemp": 16.8,
+    "avgTemp": 0.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-05-4-1792461545082",
+    "date": "2025-08-05",
+    "minTemp": 16.1,
+    "maxTemp": 16.1,
+    "avgTemp": 11.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-06-5-1792461545082",
+    "date": "2025-08-06",
+    "minTemp": 15.7,
+    "maxTemp": 15.7,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-07-6-1792461545082",
+    "date": "2025-08-07",
+    "minTemp": 18,
+    "maxTemp": 18,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-08-7-1792461545082",
+    "date": "2025-08-08",
+    "minTemp": 19.8,
+    "maxTemp": 19.8,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-09-8-1792461545082",
+    "date": "2025-08-09",
+    "minTemp": 22.2,
+    "maxTemp": 22.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-10-9-1792461545082",
+    "date": "2025-08-10",
+    "minTemp": 20.1,
+    "maxTemp": 20.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-11-10-1792461545082",
+    "date": "2025-08-11",
+    "minTemp": 18.9,
+    "maxTemp": 18.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-12-11-1792461545082",
+    "date": "2025-08-12",
+    "minTemp": 21.7,
+    "maxTemp": 21.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-13-12-1792461545082",
+    "date": "2025-08-13",
+    "minTemp": 24.1,
+    "maxTemp": 24.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-14-13-1792461545082",
+    "date": "2025-08-14",
+    "minTemp": 26,
+    "maxTemp": 26,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-15-14-1792461545082",
+    "date": "2025-08-15",
+    "minTemp": 27,
+    "maxTemp": 27,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-16-15-1792461545082",
+    "date": "2025-08-16",
+    "minTemp": 21.5,
+    "maxTemp": 21.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-17-16-1792461545082",
+    "date": "2025-08-17",
+    "minTemp": 16.5,
+    "maxTemp": 16.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-18-17-1792461545082",
+    "date": "2025-08-18",
+    "minTemp": 17.5,
+    "maxTemp": 17.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-19-18-1792461545082",
+    "date": "2025-08-19",
+    "minTemp": 19.4,
+    "maxTemp": 19.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-20-19-1792461545082",
+    "date": "2025-08-20",
+    "minTemp": 20.1,
+    "maxTemp": 20.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-21-20-1792461545082",
+    "date": "2025-08-21",
+    "minTemp": 18.3,
+    "maxTemp": 18.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-22-21-1792461545082",
+    "date": "2025-08-22",
+    "minTemp": 15.1,
+    "maxTemp": 15.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-23-22-1792461545082",
+    "date": "2025-08-23",
+    "minTemp": 12.7,
+    "maxTemp": 12.7,
+    "avgTemp": 5.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-24-23-1792461545082",
+    "date": "2025-08-24",
+    "minTemp": 12.9,
+    "maxTemp": 12.9,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-25-24-1792461545082",
+    "date": "2025-08-25",
+    "minTemp": 14.7,
+    "maxTemp": 14.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-26-25-1792461545082",
+    "date": "2025-08-26",
+    "minTemp": 15.9,
+    "maxTemp": 15.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-27-26-1792461545082",
+    "date": "2025-08-27",
+    "minTemp": 19.8,
+    "maxTemp": 19.8,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-28-27-1792461545082",
+    "date": "2025-08-28",
+    "minTemp": 22.4,
+    "maxTemp": 22.4,
+    "avgTemp": 1.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-29-28-1792461545082",
+    "date": "2025-08-29",
+    "minTemp": 18.2,
+    "maxTemp": 18.2,
+    "avgTemp": 2.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-30-29-1792461545082",
+    "date": "2025-08-30",
+    "minTemp": 17.9,
+    "maxTemp": 17.9,
+    "avgTemp": 8.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-08-31-30-1792461545082",
+    "date": "2025-08-31",
+    "minTemp": 18.2,
+    "maxTemp": 18.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-01-0-1792461545082",
+    "date": "2025-09-01",
+    "minTemp": 20.3,
+    "maxTemp": 20.3,
+    "avgTemp": 20.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-02-1-1792461545082",
+    "date": "2025-09-02",
+    "minTemp": 17.1,
+    "maxTemp": 17.1,
+    "avgTemp": 17.1,
+    "rain": 5.9,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-03-2-1792461545082",
+    "date": "2025-09-03",
+    "minTemp": 18,
+    "maxTemp": 18,
+    "avgTemp": 18,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-04-3-1792461545082",
+    "date": "2025-09-04",
+    "minTemp": 20.9,
+    "maxTemp": 20.9,
+    "avgTemp": 20.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-05-4-1792461545082",
+    "date": "2025-09-05",
+    "minTemp": 18.1,
+    "maxTemp": 18.1,
+    "avgTemp": 18.1,
+    "rain": 2.2,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-06-5-1792461545082",
+    "date": "2025-09-06",
+    "minTemp": 16.4,
+    "maxTemp": 16.4,
+    "avgTemp": 16.4,
+    "rain": 0.4,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-07-6-1792461545082",
+    "date": "2025-09-07",
+    "minTemp": 16.1,
+    "maxTemp": 16.1,
+    "avgTemp": 16.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-08-7-1792461545082",
+    "date": "2025-09-08",
+    "minTemp": 16.3,
+    "maxTemp": 16.3,
+    "avgTemp": 16.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-09-8-1792461545082",
+    "date": "2025-09-09",
+    "minTemp": 17.6,
+    "maxTemp": 17.6,
+    "avgTemp": 17.6,
+    "rain": 0.1,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-10-9-1792461545082",
+    "date": "2025-09-10",
+    "minTemp": 18.4,
+    "maxTemp": 18.4,
+    "avgTemp": 18.4,
+    "rain": 42.5,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-11-10-1792461545082",
+    "date": "2025-09-11",
+    "minTemp": 16.8,
+    "maxTemp": 16.8,
+    "avgTemp": 16.8,
+    "rain": 0.2,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-12-11-1792461545082",
+    "date": "2025-09-12",
+    "minTemp": 14.8,
+    "maxTemp": 14.8,
+    "avgTemp": 14.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-13-12-1792461545082",
+    "date": "2025-09-13",
+    "minTemp": 15.3,
+    "maxTemp": 15.3,
+    "avgTemp": 15.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-14-13-1792461545082",
+    "date": "2025-09-14",
+    "minTemp": 14.9,
+    "maxTemp": 14.9,
+    "avgTemp": 14.9,
+    "rain": 1.1,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-15-14-1792461545082",
+    "date": "2025-09-15",
+    "minTemp": 15.3,
+    "maxTemp": 15.3,
+    "avgTemp": 15.3,
+    "rain": 2.8,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-16-15-1792461545082",
+    "date": "2025-09-16",
+    "minTemp": 14.7,
+    "maxTemp": 14.7,
+    "avgTemp": 14.7,
+    "rain": 1.8,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-17-16-1792461545082",
+    "date": "2025-09-17",
+    "minTemp": 13.2,
+    "maxTemp": 13.2,
+    "avgTemp": 13.2,
+    "rain": 1.1,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-18-17-1792461545082",
+    "date": "2025-09-18",
+    "minTemp": 16.1,
+    "maxTemp": 16.1,
+    "avgTemp": 16.1,
+    "rain": 0.9,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-19-18-1792461545082",
+    "date": "2025-09-19",
+    "minTemp": 18.9,
+    "maxTemp": 18.9,
+    "avgTemp": 18.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-20-19-1792461545082",
+    "date": "2025-09-20",
+    "minTemp": 22,
+    "maxTemp": 22,
+    "avgTemp": 22,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-21-20-1792461545082",
+    "date": "2025-09-21",
+    "minTemp": 21.7,
+    "maxTemp": 21.7,
+    "avgTemp": 21.7,
+    "rain": 22.1,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-22-21-1792461545082",
+    "date": "2025-09-22",
+    "minTemp": 10.7,
+    "maxTemp": 10.7,
+    "avgTemp": 10.7,
+    "rain": 9,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-23-22-1792461545082",
+    "date": "2025-09-23",
+    "minTemp": 11.3,
+    "maxTemp": 11.3,
+    "avgTemp": 11.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-24-23-1792461545082",
+    "date": "2025-09-24",
+    "minTemp": 9.9,
+    "maxTemp": 9.9,
+    "avgTemp": 9.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-25-24-1792461545082",
+    "date": "2025-09-25",
+    "minTemp": 8.2,
+    "maxTemp": 8.2,
+    "avgTemp": 8.2,
+    "rain": 7.5,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-26-25-1792461545082",
+    "date": "2025-09-26",
+    "minTemp": 10.2,
+    "maxTemp": 10.2,
+    "avgTemp": 10.2,
+    "rain": 0.3,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-27-26-1792461545082",
+    "date": "2025-09-27",
+    "minTemp": 13.5,
+    "maxTemp": 13.5,
+    "avgTemp": 13.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-28-27-1792461545082",
+    "date": "2025-09-28",
+    "minTemp": 13,
+    "maxTemp": 13,
+    "avgTemp": 13,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-29-28-1792461545082",
+    "date": "2025-09-29",
+    "minTemp": 10.1,
+    "maxTemp": 10.1,
+    "avgTemp": 10.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-09-30-29-1792461545082",
+    "date": "2025-09-30",
+    "minTemp": 8,
+    "maxTemp": 8,
+    "avgTemp": 8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-01-0-1792461545082",
+    "date": "2025-10-01",
+    "minTemp": 7.7,
+    "maxTemp": 7.7,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-02-1-1792461545082",
+    "date": "2025-10-02",
+    "minTemp": 7.8,
+    "maxTemp": 7.8,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-03-2-1792461545082",
+    "date": "2025-10-03",
+    "minTemp": 7.7,
+    "maxTemp": 7.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-04-3-1792461545082",
+    "date": "2025-10-04",
+    "minTemp": 7.6,
+    "maxTemp": 7.6,
+    "avgTemp": 3.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-05-4-1792461545082",
+    "date": "2025-10-05",
+    "minTemp": 9.6,
+    "maxTemp": 9.6,
+    "avgTemp": 0.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-06-5-1792461545082",
+    "date": "2025-10-06",
+    "minTemp": 10.1,
+    "maxTemp": 10.1,
+    "avgTemp": 2.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-07-6-1792461545082",
+    "date": "2025-10-07",
+    "minTemp": 11.4,
+    "maxTemp": 11.4,
+    "avgTemp": 0.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-08-7-1792461545082",
+    "date": "2025-10-08",
+    "minTemp": 12.8,
+    "maxTemp": 12.8,
+    "avgTemp": 3.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-09-8-1792461545082",
+    "date": "2025-10-09",
+    "minTemp": 11.9,
+    "maxTemp": 11.9,
+    "avgTemp": 2.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-10-9-1792461545082",
+    "date": "2025-10-10",
+    "minTemp": 11.2,
+    "maxTemp": 11.2,
+    "avgTemp": 1.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-11-10-1792461545082",
+    "date": "2025-10-11",
+    "minTemp": 11.9,
+    "maxTemp": 11.9,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-12-11-1792461545082",
+    "date": "2025-10-12",
+    "minTemp": 11.3,
+    "maxTemp": 11.3,
+    "avgTemp": 0.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-13-12-1792461545082",
+    "date": "2025-10-13",
+    "minTemp": 10.9,
+    "maxTemp": 10.9,
+    "avgTemp": 0.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-14-13-1792461545082",
+    "date": "2025-10-14",
+    "minTemp": 7.9,
+    "maxTemp": 7.9,
+    "avgTemp": 2.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-15-14-1792461545082",
+    "date": "2025-10-15",
+    "minTemp": 10.2,
+    "maxTemp": 10.2,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-16-15-1792461545082",
+    "date": "2025-10-16",
+    "minTemp": 10.3,
+    "maxTemp": 10.3,
+    "avgTemp": 1.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-17-16-1792461545082",
+    "date": "2025-10-17",
+    "minTemp": 9.7,
+    "maxTemp": 9.7,
+    "avgTemp": 3.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-18-17-1792461545082",
+    "date": "2025-10-18",
+    "minTemp": 6.3,
+    "maxTemp": 6.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-19-18-1792461545082",
+    "date": "2025-10-19",
+    "minTemp": 4.7,
+    "maxTemp": 4.7,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-20-19-1792461545082",
+    "date": "2025-10-20",
+    "minTemp": 8.4,
+    "maxTemp": 8.4,
+    "avgTemp": 0.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-21-20-1792461545082",
+    "date": "2025-10-21",
+    "minTemp": 10.9,
+    "maxTemp": 10.9,
+    "avgTemp": 0.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-22-21-1792461545082",
+    "date": "2025-10-22",
+    "minTemp": 10.6,
+    "maxTemp": 10.6,
+    "avgTemp": 1.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-23-22-1792461545082",
+    "date": "2025-10-23",
+    "minTemp": 12,
+    "maxTemp": 12,
+    "avgTemp": 4.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-24-23-1792461545082",
+    "date": "2025-10-24",
+    "minTemp": 8.6,
+    "maxTemp": 8.6,
+    "avgTemp": 0.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-25-24-1792461545082",
+    "date": "2025-10-25",
+    "minTemp": 7.7,
+    "maxTemp": 7.7,
+    "avgTemp": 2.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-26-25-1792461545082",
+    "date": "2025-10-26",
+    "minTemp": 6.8,
+    "maxTemp": 6.8,
+    "avgTemp": 3.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-27-26-1792461545082",
+    "date": "2025-10-27",
+    "minTemp": 5.9,
+    "maxTemp": 5.9,
+    "avgTemp": 4.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-28-27-1792461545082",
+    "date": "2025-10-28",
+    "minTemp": 7.7,
+    "maxTemp": 7.7,
+    "avgTemp": 10.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-29-28-1792461545082",
+    "date": "2025-10-29",
+    "minTemp": 9.1,
+    "maxTemp": 9.1,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-30-29-1792461545082",
+    "date": "2025-10-30",
+    "minTemp": 9.3,
+    "maxTemp": 9.3,
+    "avgTemp": 2.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-10-31-30-1792461545082",
+    "date": "2025-10-31",
+    "minTemp": 7.3,
+    "maxTemp": 7.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-01-0-1792461545082",
+    "date": "2025-11-01",
+    "minTemp": 10.7,
+    "maxTemp": 10.7,
+    "avgTemp": 0.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-02-1-1792461545082",
+    "date": "2025-11-02",
+    "minTemp": 10.6,
+    "maxTemp": 10.6,
+    "avgTemp": 1.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-03-2-1792461545082",
+    "date": "2025-11-03",
+    "minTemp": 8.6,
+    "maxTemp": 8.6,
+    "avgTemp": 3.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-04-3-1792461545082",
+    "date": "2025-11-04",
+    "minTemp": 8.9,
+    "maxTemp": 8.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-05-4-1792461545082",
+    "date": "2025-11-05",
+    "minTemp": 9.3,
+    "maxTemp": 9.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-06-5-1792461545082",
+    "date": "2025-11-06",
+    "minTemp": 10.1,
+    "maxTemp": 10.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-07-6-1792461545082",
+    "date": "2025-11-07",
+    "minTemp": 9.4,
+    "maxTemp": 9.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-08-7-1792461545082",
+    "date": "2025-11-08",
+    "minTemp": 7.8,
+    "maxTemp": 7.8,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-09-8-1792461545082",
+    "date": "2025-11-09",
+    "minTemp": 6.7,
+    "maxTemp": 6.7,
+    "avgTemp": 1.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-10-9-1792461545082",
+    "date": "2025-11-10",
+    "minTemp": 7.5,
+    "maxTemp": 7.5,
+    "avgTemp": 3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-11-10-1792461545082",
+    "date": "2025-11-11",
+    "minTemp": 6.5,
+    "maxTemp": 6.5,
+    "avgTemp": 0.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-12-11-1792461545082",
+    "date": "2025-11-12",
+    "minTemp": 6.8,
+    "maxTemp": 6.8,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-13-12-1792461545082",
+    "date": "2025-11-13",
+    "minTemp": 7.9,
+    "maxTemp": 7.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-14-13-1792461545082",
+    "date": "2025-11-14",
+    "minTemp": 8.4,
+    "maxTemp": 8.4,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-15-14-1792461545082",
+    "date": "2025-11-15",
+    "minTemp": 6.2,
+    "maxTemp": 6.2,
+    "avgTemp": 1.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-16-15-1792461545082",
+    "date": "2025-11-16",
+    "minTemp": 8,
+    "maxTemp": 8,
+    "avgTemp": 0.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-17-16-1792461545082",
+    "date": "2025-11-17",
+    "minTemp": 3.4,
+    "maxTemp": 3.4,
+    "avgTemp": 2.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-18-17-1792461545082",
+    "date": "2025-11-18",
+    "minTemp": 1.9,
+    "maxTemp": 1.9,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-19-18-1792461545082",
+    "date": "2025-11-19",
+    "minTemp": 1.2,
+    "maxTemp": 1.2,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-20-19-1792461545082",
+    "date": "2025-11-20",
+    "minTemp": 1,
+    "maxTemp": 1,
+    "avgTemp": 1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-21-20-1792461545082",
+    "date": "2025-11-21",
+    "minTemp": -3.1,
+    "maxTemp": -3.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-22-21-1792461545082",
+    "date": "2025-11-22",
+    "minTemp": -4.4,
+    "maxTemp": -4.4,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-23-22-1792461545082",
+    "date": "2025-11-23",
+    "minTemp": -4.4,
+    "maxTemp": -4.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-24-23-1792461545082",
+    "date": "2025-11-24",
+    "minTemp": -1.5,
+    "maxTemp": -1.5,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-25-24-1792461545082",
+    "date": "2025-11-25",
+    "minTemp": 0.6,
+    "maxTemp": 0.6,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-26-25-1792461545082",
+    "date": "2025-11-26",
+    "minTemp": -0.1,
+    "maxTemp": -0.1,
+    "avgTemp": 0.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-27-26-1792461545082",
+    "date": "2025-11-27",
+    "minTemp": 0.3,
+    "maxTemp": 0.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-28-27-1792461545082",
+    "date": "2025-11-28",
+    "minTemp": 1.3,
+    "maxTemp": 1.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-29-28-1792461545082",
+    "date": "2025-11-29",
+    "minTemp": 2.4,
+    "maxTemp": 2.4,
+    "avgTemp": 1.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-11-30-29-1792461545082",
+    "date": "2025-11-30",
+    "minTemp": 3.5,
+    "maxTemp": 3.5,
+    "avgTemp": 0.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-01-0-1792461545082",
+    "date": "2025-12-01",
+    "minTemp": 3.3,
+    "maxTemp": 3.3,
+    "avgTemp": 0.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-02-1-1792461545082",
+    "date": "2025-12-02",
+    "minTemp": 2.1,
+    "maxTemp": 2.1,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-03-2-1792461545082",
+    "date": "2025-12-03",
+    "minTemp": 1.7,
+    "maxTemp": 1.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-04-3-1792461545082",
+    "date": "2025-12-04",
+    "minTemp": 3.1,
+    "maxTemp": 3.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-05-4-1792461545082",
+    "date": "2025-12-05",
+    "minTemp": 2.9,
+    "maxTemp": 2.9,
+    "avgTemp": 4.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-06-5-1792461545082",
+    "date": "2025-12-06",
+    "minTemp": 1.4,
+    "maxTemp": 1.4,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-07-6-1792461545082",
+    "date": "2025-12-07",
+    "minTemp": 5.5,
+    "maxTemp": 5.5,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-08-7-1792461545082",
+    "date": "2025-12-08",
+    "minTemp": 9.8,
+    "maxTemp": 9.8,
+    "avgTemp": 1.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-09-8-1792461545082",
+    "date": "2025-12-09",
+    "minTemp": 11.6,
+    "maxTemp": 11.6,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-10-9-1792461545082",
+    "date": "2025-12-10",
+    "minTemp": 9.9,
+    "maxTemp": 9.9,
+    "avgTemp": 1.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-11-10-1792461545082",
+    "date": "2025-12-11",
+    "minTemp": 8,
+    "maxTemp": 8,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-12-11-1792461545082",
+    "date": "2025-12-12",
+    "minTemp": 4.9,
+    "maxTemp": 4.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-13-12-1792461545082",
+    "date": "2025-12-13",
+    "minTemp": 2.6,
+    "maxTemp": 2.6,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-14-13-1792461545082",
+    "date": "2025-12-14",
+    "minTemp": 3.3,
+    "maxTemp": 3.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-15-14-1792461545082",
+    "date": "2025-12-15",
+    "minTemp": 1.3,
+    "maxTemp": 1.3,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-16-15-1792461545082",
+    "date": "2025-12-16",
+    "minTemp": 0.1,
+    "maxTemp": 0.1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-17-16-1792461545082",
+    "date": "2025-12-17",
+    "minTemp": 1,
+    "maxTemp": 1,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-18-17-1792461545082",
+    "date": "2025-12-18",
+    "minTemp": 3.3,
+    "maxTemp": 3.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-19-18-1792461545082",
+    "date": "2025-12-19",
+    "minTemp": 2.7,
+    "maxTemp": 2.7,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-20-19-1792461545082",
+    "date": "2025-12-20",
+    "minTemp": 3.8,
+    "maxTemp": 3.8,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-21-20-1792461545082",
+    "date": "2025-12-21",
+    "minTemp": 3.2,
+    "maxTemp": 3.2,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-22-21-1792461545082",
+    "date": "2025-12-22",
+    "minTemp": 2.8,
+    "maxTemp": 2.8,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-23-22-1792461545082",
+    "date": "2025-12-23",
+    "minTemp": 0.9,
+    "maxTemp": 0.9,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-24-23-1792461545082",
+    "date": "2025-12-24",
+    "minTemp": -2.9,
+    "maxTemp": -2.9,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-25-24-1792461545082",
+    "date": "2025-12-25",
+    "minTemp": -6.4,
+    "maxTemp": -6.4,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-26-25-1792461545082",
+    "date": "2025-12-26",
+    "minTemp": -5.3,
+    "maxTemp": -5.3,
+    "avgTemp": 0,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-27-26-1792461545082",
+    "date": "2025-12-27",
+    "minTemp": -3.2,
+    "maxTemp": -3.2,
+    "avgTemp": 0.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-28-27-1792461545082",
+    "date": "2025-12-28",
+    "minTemp": -1.4,
+    "maxTemp": -1.4,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-29-28-1792461545083",
+    "date": "2025-12-29",
+    "minTemp": 0.1,
+    "maxTemp": 0.1,
+    "avgTemp": 1.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-30-29-1792461545083",
+    "date": "2025-12-30",
+    "minTemp": -1.9,
+    "maxTemp": -1.9,
+    "avgTemp": 0.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2025-12-31-30-1792461545083",
+    "date": "2025-12-31",
+    "minTemp": -2,
+    "maxTemp": -2,
+    "avgTemp": 1.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-01-0-1792465151071",
+    "date": "2026-01-01",
+    "minTemp": 0.3,
+    "maxTemp": 1.6,
+    "avgTemp": 0.95,
+    "rain": 3.69,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-02-1-1792465151071",
+    "date": "2026-01-02",
+    "minTemp": -0.6,
+    "maxTemp": 1.9,
+    "avgTemp": 0.65,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-03-2-1792465151071",
+    "date": "2026-01-03",
+    "minTemp": -2.7,
+    "maxTemp": 1.3,
+    "avgTemp": -0.7,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-04-3-1792465151071",
+    "date": "2026-01-04",
+    "minTemp": -2.9,
+    "maxTemp": -0.4,
+    "avgTemp": -1.65,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-05-4-1792465151071",
+    "date": "2026-01-05",
+    "minTemp": -5.1,
+    "maxTemp": -0.5,
+    "avgTemp": -2.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-06-5-1792465151071",
+    "date": "2026-01-06",
+    "minTemp": -8.7,
+    "maxTemp": -2.4,
+    "avgTemp": -5.55,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-07-6-1792465151071",
+    "date": "2026-01-07",
+    "minTemp": -8.2,
+    "maxTemp": -2.1,
+    "avgTemp": -5.15,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-08-7-1792465151071",
+    "date": "2026-01-08",
+    "minTemp": -9.4,
+    "maxTemp": -3.3,
+    "avgTemp": -6.35,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-09-8-1792465151071",
+    "date": "2026-01-09",
+    "minTemp": -5.1,
+    "maxTemp": -3,
+    "avgTemp": -4.05,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-10-9-1792465151071",
+    "date": "2026-01-10",
+    "minTemp": -9.1,
+    "maxTemp": -4.1,
+    "avgTemp": -6.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-11-10-1792465151071",
+    "date": "2026-01-11",
+    "minTemp": -8.3,
+    "maxTemp": -4.8,
+    "avgTemp": -6.55,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-13-12-1792465151071",
+    "date": "2026-01-13",
+    "minTemp": 2.7,
+    "maxTemp": 19.6,
+    "avgTemp": 11.15,
+    "rain": 1.36,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-14-13-1792465151071",
+    "date": "2026-01-14",
+    "minTemp": 2.5,
+    "maxTemp": 4.4,
+    "avgTemp": 3.45,
+    "rain": 2.25,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-15-14-1792465151071",
+    "date": "2026-01-15",
+    "minTemp": 3,
+    "maxTemp": 6,
+    "avgTemp": 4.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-16-15-1792465151071",
+    "date": "2026-01-16",
+    "minTemp": 0.9,
+    "maxTemp": 5.1,
+    "avgTemp": 3,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-17-16-1792465151071",
+    "date": "2026-01-17",
+    "minTemp": 1.5,
+    "maxTemp": 5.1,
+    "avgTemp": 3.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-18-17-1792465151071",
+    "date": "2026-01-18",
+    "minTemp": 0.7,
+    "maxTemp": 6.7,
+    "avgTemp": 3.7,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-19-18-1792465151071",
+    "date": "2026-01-19",
+    "minTemp": -1.4,
+    "maxTemp": 3.2,
+    "avgTemp": 0.9,
+    "rain": 1.36,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-20-19-1792465151071",
+    "date": "2026-01-20",
+    "minTemp": -4.3,
+    "maxTemp": 0,
+    "avgTemp": -2.15,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-21-20-1792465151071",
+    "date": "2026-01-21",
+    "minTemp": -5.3,
+    "maxTemp": -1,
+    "avgTemp": -3.15,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-22-21-1792465151071",
+    "date": "2026-01-22",
+    "minTemp": -5.4,
+    "maxTemp": 2.7,
+    "avgTemp": -1.35,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-23-22-1792465151071",
+    "date": "2026-01-23",
+    "minTemp": -5.3,
+    "maxTemp": -2.7,
+    "avgTemp": -4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-24-23-1792465151071",
+    "date": "2026-01-24",
+    "minTemp": -4.4,
+    "maxTemp": -1.4,
+    "avgTemp": -2.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-25-24-1792465151071",
+    "date": "2026-01-25",
+    "minTemp": -3.1,
+    "maxTemp": -1.4,
+    "avgTemp": -2.25,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-26-25-1792465151071",
+    "date": "2026-01-26",
+    "minTemp": -2.5,
+    "maxTemp": 1.9,
+    "avgTemp": -0.3,
+    "rain": 1.52,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-27-26-1792465151071",
+    "date": "2026-01-27",
+    "minTemp": -2.5,
+    "maxTemp": 0.4,
+    "avgTemp": -1.05,
+    "rain": 0.4,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-28-27-1792465151071",
+    "date": "2026-01-28",
+    "minTemp": -1.6,
+    "maxTemp": -0.1,
+    "avgTemp": -0.85,
+    "rain": 0.24,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-29-28-1792465151071",
+    "date": "2026-01-29",
+    "minTemp": -2.9,
+    "maxTemp": -1.3,
+    "avgTemp": -2.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-30-29-1792465151071",
+    "date": "2026-01-30",
+    "minTemp": -2.7,
+    "maxTemp": 0,
+    "avgTemp": -1.35,
+    "rain": 0.56,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-01-31-30-1792465151071",
+    "date": "2026-01-31",
+    "minTemp": -6,
+    "maxTemp": -1.4,
+    "avgTemp": -3.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-01-0-1792465151071",
+    "date": "2026-02-01",
+    "minTemp": -8.1,
+    "maxTemp": -6,
+    "avgTemp": -7.05,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-02-1-1792465151071",
+    "date": "2026-02-02",
+    "minTemp": -7.8,
+    "maxTemp": -6,
+    "avgTemp": -6.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-03-2-1792465151071",
+    "date": "2026-02-03",
+    "minTemp": -7.4,
+    "maxTemp": -5,
+    "avgTemp": -6.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-04-3-1792465151071",
+    "date": "2026-02-04",
+    "minTemp": -5.5,
+    "maxTemp": 2,
+    "avgTemp": -1.75,
+    "rain": 0.24,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-05-4-1792465151071",
+    "date": "2026-02-05",
+    "minTemp": -2.7,
+    "maxTemp": 0.4,
+    "avgTemp": -1.15,
+    "rain": 1.76,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-06-5-1792465151071",
+    "date": "2026-02-06",
+    "minTemp": -0.1,
+    "maxTemp": 2.9,
+    "avgTemp": 1.4,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-07-6-1792465151071",
+    "date": "2026-02-07",
+    "minTemp": 1,
+    "maxTemp": 4.7,
+    "avgTemp": 2.85,
+    "rain": 0.64,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-08-7-1792465151071",
+    "date": "2026-02-08",
+    "minTemp": -0.6,
+    "maxTemp": 2.6,
+    "avgTemp": 1,
+    "rain": 1.2,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-09-8-1792465151071",
+    "date": "2026-02-09",
+    "minTemp": -1,
+    "maxTemp": 1.7,
+    "avgTemp": 0.35,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-10-9-1792465151071",
+    "date": "2026-02-10",
+    "minTemp": 0.2,
+    "maxTemp": 5.2,
+    "avgTemp": 2.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-11-10-1792465151071",
+    "date": "2026-02-11",
+    "minTemp": 1.7,
+    "maxTemp": 5.4,
+    "avgTemp": 3.55,
+    "rain": 1.52,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-12-11-1792465151071",
+    "date": "2026-02-12",
+    "minTemp": 5.3,
+    "maxTemp": 8.8,
+    "avgTemp": 7.05,
+    "rain": 2.57,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-13-12-1792465151071",
+    "date": "2026-02-13",
+    "minTemp": 1.1,
+    "maxTemp": 6.5,
+    "avgTemp": 3.8,
+    "rain": 1.92,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-14-13-1792465151071",
+    "date": "2026-02-14",
+    "minTemp": -1.8,
+    "maxTemp": 1.1,
+    "avgTemp": -0.35,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-15-14-1792465151071",
+    "date": "2026-02-15",
+    "minTemp": -6.5,
+    "maxTemp": -1.8,
+    "avgTemp": -4.15,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-16-15-1792465151071",
+    "date": "2026-02-16",
+    "minTemp": -6.8,
+    "maxTemp": -1.7,
+    "avgTemp": -4.25,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-17-16-1792465151071",
+    "date": "2026-02-17",
+    "minTemp": -1.9,
+    "maxTemp": 2.3,
+    "avgTemp": 0.2,
+    "rain": 3.93,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-18-17-1792465151071",
+    "date": "2026-02-18",
+    "minTemp": -3.2,
+    "maxTemp": 0.9,
+    "avgTemp": -1.15,
+    "rain": 1.6,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-19-18-1792465151071",
+    "date": "2026-02-19",
+    "minTemp": -6.9,
+    "maxTemp": -1.2,
+    "avgTemp": -4.05,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-20-19-1792465151071",
+    "date": "2026-02-20",
+    "minTemp": -9.2,
+    "maxTemp": 1.6,
+    "avgTemp": -3.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-21-20-1792465151071",
+    "date": "2026-02-21",
+    "minTemp": -2.4,
+    "maxTemp": 6,
+    "avgTemp": 1.8,
+    "rain": 3.61,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-22-21-1792465151071",
+    "date": "2026-02-22",
+    "minTemp": 4.2,
+    "maxTemp": 9.6,
+    "avgTemp": 6.9,
+    "rain": 6.9,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-23-22-1792465151071",
+    "date": "2026-02-23",
+    "minTemp": 5.5,
+    "maxTemp": 10.5,
+    "avgTemp": 8,
+    "rain": 10.26,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-24-23-1792465151071",
+    "date": "2026-02-24",
+    "minTemp": 3.9,
+    "maxTemp": 6.8,
+    "avgTemp": 5.35,
+    "rain": 4.09,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-25-24-1792465151071",
+    "date": "2026-02-25",
+    "minTemp": 1.9,
+    "maxTemp": 12.5,
+    "avgTemp": 7.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-26-25-1792465151071",
+    "date": "2026-02-26",
+    "minTemp": 4.2,
+    "maxTemp": 12.9,
+    "avgTemp": 8.55,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-27-26-1792465151071",
+    "date": "2026-02-27",
+    "minTemp": 5.3,
+    "maxTemp": 14.8,
+    "avgTemp": 10.05,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-02-28-27-1792465151071",
+    "date": "2026-02-28",
+    "minTemp": 7,
+    "maxTemp": 15.2,
+    "avgTemp": 11.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-01-0-1792465151071",
+    "date": "2026-03-01",
+    "minTemp": 3.7,
+    "maxTemp": 10.4,
+    "avgTemp": 7.05,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-02-1-1792465151071",
+    "date": "2026-03-02",
+    "minTemp": 2.3,
+    "maxTemp": 11.8,
+    "avgTemp": 7.05,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-03-2-1792465151071",
+    "date": "2026-03-03",
+    "minTemp": 3.7,
+    "maxTemp": 16.8,
+    "avgTemp": 10.25,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-04-3-1792465151071",
+    "date": "2026-03-04",
+    "minTemp": 2.8,
+    "maxTemp": 12.8,
+    "avgTemp": 7.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-05-4-1792465151071",
+    "date": "2026-03-05",
+    "minTemp": 0.2,
+    "maxTemp": 13.6,
+    "avgTemp": 6.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-06-5-1792465151071",
+    "date": "2026-03-06",
+    "minTemp": 3,
+    "maxTemp": 16.6,
+    "avgTemp": 9.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-07-6-1792465151071",
+    "date": "2026-03-07",
+    "minTemp": 5.4,
+    "maxTemp": 17.5,
+    "avgTemp": 11.45,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-08-7-1792465151071",
+    "date": "2026-03-08",
+    "minTemp": 5.5,
+    "maxTemp": 14.6,
+    "avgTemp": 10.05,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-09-8-1792465151071",
+    "date": "2026-03-09",
+    "minTemp": 6.5,
+    "maxTemp": 14.9,
+    "avgTemp": 10.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-10-9-1792465151071",
+    "date": "2026-03-10",
+    "minTemp": 6.9,
+    "maxTemp": 16.5,
+    "avgTemp": 11.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-11-10-1792465151071",
+    "date": "2026-03-11",
+    "minTemp": 6.9,
+    "maxTemp": 14.4,
+    "avgTemp": 10.65,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-12-11-1792465151071",
+    "date": "2026-03-12",
+    "minTemp": 5.9,
+    "maxTemp": 13.2,
+    "avgTemp": 9.55,
+    "rain": 1.2,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-13-12-1792465151071",
+    "date": "2026-03-13",
+    "minTemp": 4.5,
+    "maxTemp": 14.9,
+    "avgTemp": 9.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-14-13-1792465151071",
+    "date": "2026-03-14",
+    "minTemp": 7,
+    "maxTemp": 15.7,
+    "avgTemp": 11.35,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-15-14-1792465151071",
+    "date": "2026-03-15",
+    "minTemp": 4.3,
+    "maxTemp": 6.9,
+    "avgTemp": 5.6,
+    "rain": 0.24,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-16-15-1792465151071",
+    "date": "2026-03-16",
+    "minTemp": 2.9,
+    "maxTemp": 7.4,
+    "avgTemp": 5.15,
+    "rain": 2.57,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-17-16-1792465151071",
+    "date": "2026-03-17",
+    "minTemp": -0.6,
+    "maxTemp": 10.7,
+    "avgTemp": 5.05,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-18-17-1792465151071",
+    "date": "2026-03-18",
+    "minTemp": 0.3,
+    "maxTemp": 12.8,
+    "avgTemp": 6.55,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-19-18-1792465151071",
+    "date": "2026-03-19",
+    "minTemp": 3.1,
+    "maxTemp": 13.3,
+    "avgTemp": 8.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-20-19-1792465151071",
+    "date": "2026-03-20",
+    "minTemp": 3.8,
+    "maxTemp": 9.1,
+    "avgTemp": 6.45,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-21-20-1792465151071",
+    "date": "2026-03-21",
+    "minTemp": 0.9,
+    "maxTemp": 8.9,
+    "avgTemp": 4.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-22-21-1792465151071",
+    "date": "2026-03-22",
+    "minTemp": 0.5,
+    "maxTemp": 12.9,
+    "avgTemp": 6.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-23-22-1792465151071",
+    "date": "2026-03-23",
+    "minTemp": 5.1,
+    "maxTemp": 16,
+    "avgTemp": 10.55,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-24-23-1792465151071",
+    "date": "2026-03-24",
+    "minTemp": 3.4,
+    "maxTemp": 16.4,
+    "avgTemp": 9.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-25-24-1792465151071",
+    "date": "2026-03-25",
+    "minTemp": 4.8,
+    "maxTemp": 11.4,
+    "avgTemp": 8.1,
+    "rain": 1.76,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-26-25-1792465151071",
+    "date": "2026-03-26",
+    "minTemp": 1.5,
+    "maxTemp": 6.9,
+    "avgTemp": 4.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-27-26-1792465151071",
+    "date": "2026-03-27",
+    "minTemp": -2.6,
+    "maxTemp": 6.4,
+    "avgTemp": 1.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-28-27-1792465151071",
+    "date": "2026-03-28",
+    "minTemp": -2.1,
+    "maxTemp": 11.9,
+    "avgTemp": 4.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-29-28-1792465151071",
+    "date": "2026-03-29",
+    "minTemp": 2,
+    "maxTemp": 8.8,
+    "avgTemp": 5.4,
+    "rain": 0.64,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-30-29-1792465151071",
+    "date": "2026-03-30",
+    "minTemp": 1.2,
+    "maxTemp": 5.1,
+    "avgTemp": 3.15,
+    "rain": 3.53,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-03-31-30-1792465151071",
+    "date": "2026-03-31",
+    "minTemp": 1.4,
+    "maxTemp": 7.6,
+    "avgTemp": 4.5,
+    "rain": 0.56,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-01-0-1792465151071",
+    "date": "2026-04-01",
+    "minTemp": 2.8,
+    "maxTemp": 9,
+    "avgTemp": 5.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-02-1-1792465151071",
+    "date": "2026-04-02",
+    "minTemp": -0.2,
+    "maxTemp": 11.9,
+    "avgTemp": 5.85,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-03-2-1792465151071",
+    "date": "2026-04-03",
+    "minTemp": 2.2,
+    "maxTemp": 9.7,
+    "avgTemp": 5.95,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-04-3-1792465151071",
+    "date": "2026-04-04",
+    "minTemp": 6.5,
+    "maxTemp": 13.9,
+    "avgTemp": 10.2,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-05-4-1792465151071",
+    "date": "2026-04-05",
+    "minTemp": 7.8,
+    "maxTemp": 21.3,
+    "avgTemp": 14.55,
+    "rain": 0.8,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-06-5-1792465151071",
+    "date": "2026-04-06",
+    "minTemp": 4.6,
+    "maxTemp": 11.5,
+    "avgTemp": 8.05,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-07-6-1792465151071",
+    "date": "2026-04-07",
+    "minTemp": 0.2,
+    "maxTemp": 12.6,
+    "avgTemp": 6.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-08-7-1792465151071",
+    "date": "2026-04-08",
+    "minTemp": -0.7,
+    "maxTemp": 12.4,
+    "avgTemp": 5.85,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-09-8-1792465151071",
+    "date": "2026-04-09",
+    "minTemp": -0.1,
+    "maxTemp": 10.5,
+    "avgTemp": 5.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-10-9-1792465151071",
+    "date": "2026-04-10",
+    "minTemp": 0.7,
+    "maxTemp": 5.5,
+    "avgTemp": 3.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-11-10-1792465151071",
+    "date": "2026-04-11",
+    "minTemp": -1.4,
+    "maxTemp": 13.1,
+    "avgTemp": 5.85,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-12-11-1792465151071",
+    "date": "2026-04-12",
+    "minTemp": 4.5,
+    "maxTemp": 12.1,
+    "avgTemp": 8.3,
+    "rain": 0.88,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-13-12-1792465151071",
+    "date": "2026-04-13",
+    "minTemp": 6.1,
+    "maxTemp": 14.2,
+    "avgTemp": 10.15,
+    "rain": 1.2,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-14-13-1792465151071",
+    "date": "2026-04-14",
+    "minTemp": 7.3,
+    "maxTemp": 13.9,
+    "avgTemp": 10.6,
+    "rain": 1.76,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-15-14-1792465151071",
+    "date": "2026-04-15",
+    "minTemp": 6.8,
+    "maxTemp": 16.4,
+    "avgTemp": 11.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-16-15-1792465151071",
+    "date": "2026-04-16",
+    "minTemp": 8.8,
+    "maxTemp": 19.7,
+    "avgTemp": 14.25,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-17-16-1792465151071",
+    "date": "2026-04-17",
+    "minTemp": 7.5,
+    "maxTemp": 19.1,
+    "avgTemp": 13.3,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-18-17-1792465151071",
+    "date": "2026-04-18",
+    "minTemp": 7.1,
+    "maxTemp": 17.7,
+    "avgTemp": 12.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-20-19-1792465151071",
+    "date": "2026-04-20",
+    "minTemp": 5.3,
+    "maxTemp": 12.7,
+    "avgTemp": 9,
+    "rain": 10.83,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-21-20-1792465151071",
+    "date": "2026-04-21",
+    "minTemp": 3.3,
+    "maxTemp": 11.7,
+    "avgTemp": 7.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-22-21-1792465151071",
+    "date": "2026-04-22",
+    "minTemp": 2.5,
+    "maxTemp": 15.3,
+    "avgTemp": 8.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-23-22-1792465151071",
+    "date": "2026-04-23",
+    "minTemp": 4.2,
+    "maxTemp": 16.7,
+    "avgTemp": 10.45,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-24-23-1792465151071",
+    "date": "2026-04-24",
+    "minTemp": 4.9,
+    "maxTemp": 9.6,
+    "avgTemp": 7.25,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-25-24-1792465151071",
+    "date": "2026-04-25",
+    "minTemp": 5,
+    "maxTemp": 17.3,
+    "avgTemp": 11.15,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-26-25-1792465151071",
+    "date": "2026-04-26",
+    "minTemp": 3.5,
+    "maxTemp": 13.7,
+    "avgTemp": 8.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-27-26-1792465151071",
+    "date": "2026-04-27",
+    "minTemp": 1.1,
+    "maxTemp": 16.3,
+    "avgTemp": 8.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-28-27-1792465151071",
+    "date": "2026-04-28",
+    "minTemp": 3.3,
+    "maxTemp": 15,
+    "avgTemp": 9.15,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-29-28-1792465151071",
+    "date": "2026-04-29",
+    "minTemp": 0.7,
+    "maxTemp": 11.9,
+    "avgTemp": 6.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-04-30-29-1792465151071",
+    "date": "2026-04-30",
+    "minTemp": 0.2,
+    "maxTemp": 15.8,
+    "avgTemp": 8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-01-0-1792465151071",
+    "date": "2026-05-01",
+    "minTemp": 4.8,
+    "maxTemp": 21.7,
+    "avgTemp": 13.25,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-02-1-1792465151071",
+    "date": "2026-05-02",
+    "minTemp": 9,
+    "maxTemp": 25.4,
+    "avgTemp": 17.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-03-2-1792465151071",
+    "date": "2026-05-03",
+    "minTemp": 13.7,
+    "maxTemp": 26.5,
+    "avgTemp": 20.1,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-04-3-1792465151071",
+    "date": "2026-05-04",
+    "minTemp": 15.2,
+    "maxTemp": 24.5,
+    "avgTemp": 19.85,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-05-4-1792465151071",
+    "date": "2026-05-05",
+    "minTemp": 14.3,
+    "maxTemp": 21.5,
+    "avgTemp": 17.9,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-06-5-1792465151071",
+    "date": "2026-05-06",
+    "minTemp": 11.6,
+    "maxTemp": 20.3,
+    "avgTemp": 15.95,
+    "rain": 5.61,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-07-6-1792465151071",
+    "date": "2026-05-07",
+    "minTemp": 7.6,
+    "maxTemp": 13.3,
+    "avgTemp": 10.45,
+    "rain": 21.97,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-08-7-1792465151071",
+    "date": "2026-05-08",
+    "minTemp": 7,
+    "maxTemp": 11.1,
+    "avgTemp": 9.05,
+    "rain": 1.28,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-09-8-1792465151071",
+    "date": "2026-05-09",
+    "minTemp": 8.4,
+    "maxTemp": 15.4,
+    "avgTemp": 11.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-10-9-1792465151071",
+    "date": "2026-05-10",
+    "minTemp": 6.7,
+    "maxTemp": 20.9,
+    "avgTemp": 13.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-11-10-1792465151071",
+    "date": "2026-05-11",
+    "minTemp": 8.2,
+    "maxTemp": 19.7,
+    "avgTemp": 13.95,
+    "rain": 1.84,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-12-11-1792465151071",
+    "date": "2026-05-12",
+    "minTemp": 5,
+    "maxTemp": 9.8,
+    "avgTemp": 7.4,
+    "rain": 1.6,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-13-12-1792465151071",
+    "date": "2026-05-13",
+    "minTemp": 3.9,
+    "maxTemp": 11.8,
+    "avgTemp": 7.85,
+    "rain": 0.56,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-14-13-1792465151071",
+    "date": "2026-05-14",
+    "minTemp": 6.3,
+    "maxTemp": 14.9,
+    "avgTemp": 10.6,
+    "rain": 1.68,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-15-14-1792465151071",
+    "date": "2026-05-15",
+    "minTemp": 5.5,
+    "maxTemp": 15.1,
+    "avgTemp": 10.3,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-16-15-1792465151071",
+    "date": "2026-05-16",
+    "minTemp": 5.9,
+    "maxTemp": 14.3,
+    "avgTemp": 10.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-17-16-1792465151071",
+    "date": "2026-05-17",
+    "minTemp": 3.9,
+    "maxTemp": 16.8,
+    "avgTemp": 10.35,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-18-17-1792465151071",
+    "date": "2026-05-18",
+    "minTemp": 7.3,
+    "maxTemp": 18.9,
+    "avgTemp": 13.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-19-18-1792465151071",
+    "date": "2026-05-19",
+    "minTemp": 9,
+    "maxTemp": 20.7,
+    "avgTemp": 14.85,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-20-19-1792465151071",
+    "date": "2026-05-20",
+    "minTemp": 10.1,
+    "maxTemp": 21.1,
+    "avgTemp": 15.6,
+    "rain": 0.32,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-21-20-1792465151071",
+    "date": "2026-05-21",
+    "minTemp": 10.4,
+    "maxTemp": 19.9,
+    "avgTemp": 15.15,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-22-21-1792465151071",
+    "date": "2026-05-22",
+    "minTemp": 10,
+    "maxTemp": 23.3,
+    "avgTemp": 16.65,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-23-22-1792465151071",
+    "date": "2026-05-23",
+    "minTemp": 11.8,
+    "maxTemp": 27.5,
+    "avgTemp": 19.65,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-24-23-1792465151071",
+    "date": "2026-05-24",
+    "minTemp": 15.3,
+    "maxTemp": 28.9,
+    "avgTemp": 22.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-25-24-1792465151071",
+    "date": "2026-05-25",
+    "minTemp": 12.5,
+    "maxTemp": 26.1,
+    "avgTemp": 19.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-26-25-1792465151071",
+    "date": "2026-05-26",
+    "minTemp": 12.4,
+    "maxTemp": 28.3,
+    "avgTemp": 20.35,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-27-26-1792465151071",
+    "date": "2026-05-27",
+    "minTemp": 15.5,
+    "maxTemp": 24,
+    "avgTemp": 19.75,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-28-27-1792465151071",
+    "date": "2026-05-28",
+    "minTemp": 9.3,
+    "maxTemp": 21.6,
+    "avgTemp": 15.45,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-29-28-1792465151071",
+    "date": "2026-05-29",
+    "minTemp": 7.2,
+    "maxTemp": 25.4,
+    "avgTemp": 16.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-30-29-1792465151071",
+    "date": "2026-05-30",
+    "minTemp": 15.7,
+    "maxTemp": 23.9,
+    "avgTemp": 19.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-05-31-30-1792465151071",
+    "date": "2026-05-31",
+    "minTemp": 12.5,
+    "maxTemp": 24.4,
+    "avgTemp": 18.45,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-01-0-1792465151072",
+    "date": "2026-06-01",
+    "minTemp": 14,
+    "maxTemp": 22.4,
+    "avgTemp": 18.2,
+    "rain": 0.8,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-02-1-1792465151072",
+    "date": "2026-06-02",
+    "minTemp": 11.6,
+    "maxTemp": 25.7,
+    "avgTemp": 18.65,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-03-2-1792465151072",
+    "date": "2026-06-03",
+    "minTemp": 14.4,
+    "maxTemp": 19.1,
+    "avgTemp": 16.75,
+    "rain": 1.44,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-04-3-1792465151072",
+    "date": "2026-06-04",
+    "minTemp": 11,
+    "maxTemp": 23.8,
+    "avgTemp": 17.4,
+    "rain": 3.61,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-05-4-1792465151072",
+    "date": "2026-06-05",
+    "minTemp": 12.4,
+    "maxTemp": 18.9,
+    "avgTemp": 15.65,
+    "rain": 4.09,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-06-5-1792465151072",
+    "date": "2026-06-06",
+    "minTemp": 10.1,
+    "maxTemp": 24.5,
+    "avgTemp": 17.3,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-07-6-1792465151072",
+    "date": "2026-06-07",
+    "minTemp": 13.6,
+    "maxTemp": 21.8,
+    "avgTemp": 17.7,
+    "rain": 2.89,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-08-7-1792465151072",
+    "date": "2026-06-08",
+    "minTemp": 10.4,
+    "maxTemp": 25.6,
+    "avgTemp": 18,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-09-8-1792465151072",
+    "date": "2026-06-09",
+    "minTemp": 14.5,
+    "maxTemp": 19.9,
+    "avgTemp": 17.2,
+    "rain": 3.29,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-10-9-1792465151072",
+    "date": "2026-06-10",
+    "minTemp": 10.2,
+    "maxTemp": 19.2,
+    "avgTemp": 14.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-11-10-1792465151072",
+    "date": "2026-06-11",
+    "minTemp": 10.7,
+    "maxTemp": 17.1,
+    "avgTemp": 13.9,
+    "rain": 0.96,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-12-11-1792465151072",
+    "date": "2026-06-12",
+    "minTemp": 8.4,
+    "maxTemp": 15.8,
+    "avgTemp": 12.1,
+    "rain": 2.09,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-13-12-1792465151072",
+    "date": "2026-06-13",
+    "minTemp": 13.1,
+    "maxTemp": 19.3,
+    "avgTemp": 16.2,
+    "rain": 2.97,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-14-13-1792465151072",
+    "date": "2026-06-14",
+    "minTemp": 10.9,
+    "maxTemp": 16.4,
+    "avgTemp": 13.65,
+    "rain": 4.65,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-15-14-1792465151072",
+    "date": "2026-06-15",
+    "minTemp": 10,
+    "maxTemp": 15.2,
+    "avgTemp": 12.6,
+    "rain": 0.24,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-16-15-1792465151072",
+    "date": "2026-06-16",
+    "minTemp": 8.9,
+    "maxTemp": 21.8,
+    "avgTemp": 15.35,
+    "rain": 2.25,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-17-16-1792465151072",
+    "date": "2026-06-17",
+    "minTemp": 14.2,
+    "maxTemp": 24.6,
+    "avgTemp": 19.4,
+    "rain": 1.04,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-18-17-1792465151072",
+    "date": "2026-06-18",
+    "minTemp": 17.6,
+    "maxTemp": 29,
+    "avgTemp": 23.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-19-18-1792465151072",
+    "date": "2026-06-19",
+    "minTemp": 19,
+    "maxTemp": 32.6,
+    "avgTemp": 25.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-20-19-1792465151072",
+    "date": "2026-06-20",
+    "minTemp": 21.1,
+    "maxTemp": 32,
+    "avgTemp": 26.55,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-21-20-1792465151072",
+    "date": "2026-06-21",
+    "minTemp": 19.2,
+    "maxTemp": 32.6,
+    "avgTemp": 25.9,
+    "rain": 8.34,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-22-21-1792465151072",
+    "date": "2026-06-22",
+    "minTemp": 17,
+    "maxTemp": 27.5,
+    "avgTemp": 22.25,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-23-22-1792465151072",
+    "date": "2026-06-23",
+    "minTemp": 16.1,
+    "maxTemp": 27.4,
+    "avgTemp": 21.75,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-24-23-1792465151072",
+    "date": "2026-06-24",
+    "minTemp": 17.1,
+    "maxTemp": 31.9,
+    "avgTemp": 24.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-25-24-1792465151072",
+    "date": "2026-06-25",
+    "minTemp": 19.2,
+    "maxTemp": 34.7,
+    "avgTemp": 26.95,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-26-25-1792465151072",
+    "date": "2026-06-26",
+    "minTemp": 21.2,
+    "maxTemp": 34.2,
+    "avgTemp": 27.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-27-26-1792465151072",
+    "date": "2026-06-27",
+    "minTemp": 21.8,
+    "maxTemp": 37.9,
+    "avgTemp": 29.85,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-28-27-1792465151072",
+    "date": "2026-06-28",
+    "minTemp": 26,
+    "maxTemp": 39,
+    "avgTemp": 32.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-29-28-1792465151072",
+    "date": "2026-06-29",
+    "minTemp": 20.9,
+    "maxTemp": 30.6,
+    "avgTemp": 25.75,
+    "rain": 10.67,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-06-30-29-1792465151072",
+    "date": "2026-06-30",
+    "minTemp": 19.2,
+    "maxTemp": 23.5,
+    "avgTemp": 21.35,
+    "rain": 2.49,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-01-0-1792465151072",
+    "date": "2026-07-01",
+    "minTemp": 18.2,
+    "maxTemp": 20.7,
+    "avgTemp": 19.45,
+    "rain": 6.34,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-02-1-1792465151072",
+    "date": "2026-07-02",
+    "minTemp": 14.5,
+    "maxTemp": 26.5,
+    "avgTemp": 20.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-03-2-1792465151072",
+    "date": "2026-07-03",
+    "minTemp": 13.5,
+    "maxTemp": 22.3,
+    "avgTemp": 17.9,
+    "rain": 0.56,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-04-3-1792465151072",
+    "date": "2026-07-04",
+    "minTemp": 11.4,
+    "maxTemp": 20,
+    "avgTemp": 15.7,
+    "rain": 0.8,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-05-4-1792465151072",
+    "date": "2026-07-05",
+    "minTemp": 14.5,
+    "maxTemp": 22.5,
+    "avgTemp": 18.5,
+    "rain": 5.69,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-06-5-1792465151072",
+    "date": "2026-07-06",
+    "minTemp": 15.8,
+    "maxTemp": 19.5,
+    "avgTemp": 17.65,
+    "rain": 1.68,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-07-6-1792465151072",
+    "date": "2026-07-07",
+    "minTemp": 16.3,
+    "maxTemp": 24.6,
+    "avgTemp": 20.45,
+    "rain": 3.29,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-08-7-1792465151072",
+    "date": "2026-07-08",
+    "minTemp": 12.7,
+    "maxTemp": 21.6,
+    "avgTemp": 17.15,
+    "rain": 0.48,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-09-8-1792465151072",
+    "date": "2026-07-09",
+    "minTemp": 11.8,
+    "maxTemp": 23.6,
+    "avgTemp": 17.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-10-9-1792465151072",
+    "date": "2026-07-10",
+    "minTemp": 11.9,
+    "maxTemp": 26.4,
+    "avgTemp": 19.15,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-11-10-1792465151072",
+    "date": "2026-07-11",
+    "minTemp": 13.7,
+    "maxTemp": 25.3,
+    "avgTemp": 19.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-12-11-1792465151072",
+    "date": "2026-07-12",
+    "minTemp": 16.7,
+    "maxTemp": 27.7,
+    "avgTemp": 22.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-13-12-1792465151072",
+    "date": "2026-07-13",
+    "minTemp": 16.1,
+    "maxTemp": 28.7,
+    "avgTemp": 22.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-14-13-1792465151072",
+    "date": "2026-07-14",
+    "minTemp": 17.8,
+    "maxTemp": 26.4,
+    "avgTemp": 22.1,
+    "rain": 7.86,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-15-14-1792465151072",
+    "date": "2026-07-15",
+    "minTemp": 15.1,
+    "maxTemp": 24,
+    "avgTemp": 19.55,
+    "rain": 2.97,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-16-15-1792465151072",
+    "date": "2026-07-16",
+    "minTemp": 14.3,
+    "maxTemp": 27.9,
+    "avgTemp": 21.1,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-17-16-1792465151072",
+    "date": "2026-07-17",
+    "minTemp": 19.4,
+    "maxTemp": 29.3,
+    "avgTemp": 24.35,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-18-17-1792465151072",
+    "date": "2026-07-18",
+    "minTemp": 18.3,
+    "maxTemp": 26,
+    "avgTemp": 22.15,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-19-18-1792465151072",
+    "date": "2026-07-19",
+    "minTemp": 14.2,
+    "maxTemp": 19.7,
+    "avgTemp": 16.95,
+    "rain": 13.31,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-20-19-1792465151072",
+    "date": "2026-07-20",
+    "minTemp": 11.4,
+    "maxTemp": 18.9,
+    "avgTemp": 15.15,
+    "rain": 2.41,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-21-20-1792465151072",
+    "date": "2026-07-21",
+    "minTemp": 12.2,
+    "maxTemp": 20.8,
+    "avgTemp": 16.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-22-21-1792465151072",
+    "date": "2026-07-22",
+    "minTemp": 11.4,
+    "maxTemp": 20.4,
+    "avgTemp": 15.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-23-22-1792465151072",
+    "date": "2026-07-23",
+    "minTemp": 12.8,
+    "maxTemp": 17.6,
+    "avgTemp": 15.2,
+    "rain": 4.49,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-24-23-1792465151072",
+    "date": "2026-07-24",
+    "minTemp": 11.7,
+    "maxTemp": 22.3,
+    "avgTemp": 17,
+    "rain": 0.32,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-25-24-1792465151072",
+    "date": "2026-07-25",
+    "minTemp": 12.5,
+    "maxTemp": 28.5,
+    "avgTemp": 20.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-26-25-1792465151072",
+    "date": "2026-07-26",
+    "minTemp": 16.8,
+    "maxTemp": 29.8,
+    "avgTemp": 23.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-27-26-1792465151072",
+    "date": "2026-07-27",
+    "minTemp": 16.8,
+    "maxTemp": 21.6,
+    "avgTemp": 19.2,
+    "rain": 4.25,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-28-27-1792465151072",
+    "date": "2026-07-28",
+    "minTemp": 12.7,
+    "maxTemp": 24.4,
+    "avgTemp": 18.55,
+    "rain": 0.72,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-29-28-1792465151072",
+    "date": "2026-07-29",
+    "minTemp": 13.2,
+    "maxTemp": 31.2,
+    "avgTemp": 22.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-30-29-1792465151072",
+    "date": "2026-07-30",
+    "minTemp": 20.8,
+    "maxTemp": 36.4,
+    "avgTemp": 28.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-07-31-30-1792465151072",
+    "date": "2026-07-31",
+    "minTemp": 19.6,
+    "maxTemp": 33.1,
+    "avgTemp": 26.35,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-01-0-1792465151072",
+    "date": "2026-08-01",
+    "minTemp": 16.9,
+    "maxTemp": 24.8,
+    "avgTemp": 20.85,
+    "rain": 15.56,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-02-1-1792465151072",
+    "date": "2026-08-02",
+    "minTemp": 14,
+    "maxTemp": 23.7,
+    "avgTemp": 18.85,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-03-2-1792465151072",
+    "date": "2026-08-03",
+    "minTemp": 14.3,
+    "maxTemp": 31,
+    "avgTemp": 22.65,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-04-3-1792465151072",
+    "date": "2026-08-04",
+    "minTemp": 20.5,
+    "maxTemp": 34.5,
+    "avgTemp": 27.5,
+    "rain": 2.57,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-05-4-1792465151072",
+    "date": "2026-08-05",
+    "minTemp": 20.3,
+    "maxTemp": 32.5,
+    "avgTemp": 26.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-06-5-1792465151072",
+    "date": "2026-08-06",
+    "minTemp": 21.8,
+    "maxTemp": 29.6,
+    "avgTemp": 25.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-07-6-1792465151072",
+    "date": "2026-08-07",
+    "minTemp": 15.5,
+    "maxTemp": 23.7,
+    "avgTemp": 19.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-08-7-1792465151072",
+    "date": "2026-08-08",
+    "minTemp": 12,
+    "maxTemp": 24.6,
+    "avgTemp": 18.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-09-8-1792465151072",
+    "date": "2026-08-09",
+    "minTemp": 13.1,
+    "maxTemp": 30.8,
+    "avgTemp": 21.95,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-10-9-1792465151072",
+    "date": "2026-08-10",
+    "minTemp": 20.8,
+    "maxTemp": 32.8,
+    "avgTemp": 26.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-11-10-1792465151072",
+    "date": "2026-08-11",
+    "minTemp": 14.5,
+    "maxTemp": 23.3,
+    "avgTemp": 18.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-12-11-1792465151072",
+    "date": "2026-08-12",
+    "minTemp": 9.2,
+    "maxTemp": 24.9,
+    "avgTemp": 17.05,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-13-12-1792465151072",
+    "date": "2026-08-13",
+    "minTemp": 12.1,
+    "maxTemp": 27.1,
+    "avgTemp": 19.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-14-13-1792465151072",
+    "date": "2026-08-14",
+    "minTemp": 14,
+    "maxTemp": 31.8,
+    "avgTemp": 22.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-15-14-1792465151072",
+    "date": "2026-08-15",
+    "minTemp": 17.9,
+    "maxTemp": 35.7,
+    "avgTemp": 26.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-16-15-1792465151072",
+    "date": "2026-08-16",
+    "minTemp": 18.5,
+    "maxTemp": 25.9,
+    "avgTemp": 22.2,
+    "rain": 3.21,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-17-16-1792465151072",
+    "date": "2026-08-17",
+    "minTemp": 14.2,
+    "maxTemp": 22.6,
+    "avgTemp": 18.4,
+    "rain": 12.59,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-18-17-1792465151072",
+    "date": "2026-08-18",
+    "minTemp": 12.9,
+    "maxTemp": 20.2,
+    "avgTemp": 16.55,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-19-18-1792465151072",
+    "date": "2026-08-19",
+    "minTemp": 15.4,
+    "maxTemp": 24.1,
+    "avgTemp": 19.75,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-20-19-1792465151072",
+    "date": "2026-08-20",
+    "minTemp": 15.7,
+    "maxTemp": 25.2,
+    "avgTemp": 20.45,
+    "rain": 18.04,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-21-20-1792465151072",
+    "date": "2026-08-21",
+    "minTemp": 13.7,
+    "maxTemp": 25.8,
+    "avgTemp": 19.75,
+    "rain": 7.54,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-22-21-1792465151072",
+    "date": "2026-08-22",
+    "minTemp": 13.3,
+    "maxTemp": 16.9,
+    "avgTemp": 15.1,
+    "rain": 16.92,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-23-22-1792465151072",
+    "date": "2026-08-23",
+    "minTemp": 10.2,
+    "maxTemp": 18.4,
+    "avgTemp": 14.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-24-23-1792465151072",
+    "date": "2026-08-24",
+    "minTemp": 9.1,
+    "maxTemp": 19.9,
+    "avgTemp": 14.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-25-24-1792465151072",
+    "date": "2026-08-25",
+    "minTemp": 11.4,
+    "maxTemp": 22,
+    "avgTemp": 16.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-26-25-1792465151072",
+    "date": "2026-08-26",
+    "minTemp": 12.5,
+    "maxTemp": 17.2,
+    "avgTemp": 14.85,
+    "rain": 2.49,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-27-26-1792465151072",
+    "date": "2026-08-27",
+    "minTemp": 12.3,
+    "maxTemp": 26.2,
+    "avgTemp": 19.25,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-28-27-1792465151072",
+    "date": "2026-08-28",
+    "minTemp": 18.4,
+    "maxTemp": 24.1,
+    "avgTemp": 21.25,
+    "rain": 0.72,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-29-28-1792465151072",
+    "date": "2026-08-29",
+    "minTemp": 15.1,
+    "maxTemp": 23.7,
+    "avgTemp": 19.4,
+    "rain": 3.13,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-30-29-1792465151072",
+    "date": "2026-08-30",
+    "minTemp": 16.2,
+    "maxTemp": 25.8,
+    "avgTemp": 21,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-08-31-30-1792465151072",
+    "date": "2026-08-31",
+    "minTemp": 14.8,
+    "maxTemp": 23.9,
+    "avgTemp": 19.35,
+    "rain": 1.28,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-01-0-1792465151072",
+    "date": "2026-09-01",
+    "minTemp": 14.2,
+    "maxTemp": 22.6,
+    "avgTemp": 18.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-02-1-1792465151072",
+    "date": "2026-09-02",
+    "minTemp": 13,
+    "maxTemp": 22.3,
+    "avgTemp": 17.65,
+    "rain": 3.29,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-03-2-1792465151072",
+    "date": "2026-09-03",
+    "minTemp": 12.5,
+    "maxTemp": 22.6,
+    "avgTemp": 17.55,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-04-3-1792465151072",
+    "date": "2026-09-04",
+    "minTemp": 16.4,
+    "maxTemp": 24.8,
+    "avgTemp": 20.6,
+    "rain": 3.61,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-05-4-1792465151072",
+    "date": "2026-09-05",
+    "minTemp": 13.5,
+    "maxTemp": 20.9,
+    "avgTemp": 17.2,
+    "rain": 5.13,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-06-5-1792465151072",
+    "date": "2026-09-06",
+    "minTemp": 10.8,
+    "maxTemp": 19,
+    "avgTemp": 14.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-07-6-1792465151072",
+    "date": "2026-09-07",
+    "minTemp": 10.1,
+    "maxTemp": 20.5,
+    "avgTemp": 15.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-08-7-1792465151072",
+    "date": "2026-09-08",
+    "minTemp": 15.9,
+    "maxTemp": 29.1,
+    "avgTemp": 22.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-09-8-1792465151072",
+    "date": "2026-09-09",
+    "minTemp": 14.3,
+    "maxTemp": 22.7,
+    "avgTemp": 18.5,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-10-9-1792465151072",
+    "date": "2026-09-10",
+    "minTemp": 11.6,
+    "maxTemp": 18,
+    "avgTemp": 14.8,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-11-10-1792465151072",
+    "date": "2026-09-11",
+    "minTemp": 8.9,
+    "maxTemp": 19.1,
+    "avgTemp": 14,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-12-11-1792465151072",
+    "date": "2026-09-12",
+    "minTemp": 11.3,
+    "maxTemp": 21.3,
+    "avgTemp": 16.3,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-13-12-1792465151072",
+    "date": "2026-09-13",
+    "minTemp": 13.3,
+    "maxTemp": 17.5,
+    "avgTemp": 15.4,
+    "rain": 2.73,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-14-13-1792465151072",
+    "date": "2026-09-14",
+    "minTemp": 12.5,
+    "maxTemp": 20.3,
+    "avgTemp": 16.4,
+    "rain": 1.12,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-15-14-1792465151072",
+    "date": "2026-09-15",
+    "minTemp": 10.6,
+    "maxTemp": 24.4,
+    "avgTemp": 17.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-16-15-1792465151072",
+    "date": "2026-09-16",
+    "minTemp": 12.1,
+    "maxTemp": 24.5,
+    "avgTemp": 18.3,
+    "rain": 9.38,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-17-16-1792465151072",
+    "date": "2026-09-17",
+    "minTemp": 11.2,
+    "maxTemp": 19.1,
+    "avgTemp": 15.15,
+    "rain": 0.4,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-18-17-1792465151072",
+    "date": "2026-09-18",
+    "minTemp": 11.3,
+    "maxTemp": 18.9,
+    "avgTemp": 15.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-19-18-1792465151072",
+    "date": "2026-09-19",
+    "minTemp": 10.9,
+    "maxTemp": 20.5,
+    "avgTemp": 15.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-20-19-1792465151072",
+    "date": "2026-09-20",
+    "minTemp": 13.4,
+    "maxTemp": 18.4,
+    "avgTemp": 15.9,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-21-20-1792465151072",
+    "date": "2026-09-21",
+    "minTemp": 10.2,
+    "maxTemp": 15,
+    "avgTemp": 12.6,
+    "rain": 6.34,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-22-21-1792465151072",
+    "date": "2026-09-22",
+    "minTemp": 9.1,
+    "maxTemp": 16.4,
+    "avgTemp": 12.75,
+    "rain": 7.7,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-23-22-1792465151072",
+    "date": "2026-09-23",
+    "minTemp": 7,
+    "maxTemp": 17.4,
+    "avgTemp": 12.2,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-24-23-1792465151072",
+    "date": "2026-09-24",
+    "minTemp": 10.4,
+    "maxTemp": 15.8,
+    "avgTemp": 13.1,
+    "rain": 12.35,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-25-24-1792465151072",
+    "date": "2026-09-25",
+    "minTemp": 8.7,
+    "maxTemp": 13.2,
+    "avgTemp": 10.95,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-26-25-1792465151072",
+    "date": "2026-09-26",
+    "minTemp": 7.6,
+    "maxTemp": 21.6,
+    "avgTemp": 14.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-27-26-1792465151072",
+    "date": "2026-09-27",
+    "minTemp": 11,
+    "maxTemp": 22.4,
+    "avgTemp": 16.7,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-28-27-1792465151072",
+    "date": "2026-09-28",
+    "minTemp": 12.9,
+    "maxTemp": 22.5,
+    "avgTemp": 17.7,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-29-28-1792465151072",
+    "date": "2026-09-29",
+    "minTemp": 11.7,
+    "maxTemp": 23.3,
+    "avgTemp": 17.5,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-09-30-29-1792465151072",
+    "date": "2026-09-30",
+    "minTemp": 13.5,
+    "maxTemp": 22.3,
+    "avgTemp": 17.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": ""
+  },
+  {
+    "id": "excel-2026-10-01-0-1792465151072",
+    "date": "2026-10-01",
+    "minTemp": 14,
+    "maxTemp": 22.8,
+    "avgTemp": 18.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": "283 Temperaturmessungen; 3 Temperaturwerte fehlen; 3 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-02-1-1792465151072",
+    "date": "2026-10-02",
+    "minTemp": 13.7,
+    "maxTemp": 18.5,
+    "avgTemp": 16.1,
+    "rain": 0,
+    "snow": 0,
+    "notes": "283 Temperaturmessungen; 5 Temperaturwerte fehlen; 4 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-03-2-1792465151072",
+    "date": "2026-10-03",
+    "minTemp": 13.9,
+    "maxTemp": 21.6,
+    "avgTemp": 17.75,
+    "rain": 0,
+    "snow": 0,
+    "notes": "279 Temperaturmessungen; 7 Temperaturwerte fehlen; 6 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-04-3-1792465151072",
+    "date": "2026-10-04",
+    "minTemp": 12.5,
+    "maxTemp": 18.7,
+    "avgTemp": 15.6,
+    "rain": 0,
+    "snow": 0,
+    "notes": "284 Temperaturmessungen; 4 Temperaturwerte fehlen; 4 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-05-4-1792465151072",
+    "date": "2026-10-05",
+    "minTemp": 9.5,
+    "maxTemp": 21.1,
+    "avgTemp": 15.3,
+    "rain": 0.16,
+    "snow": 0,
+    "notes": "279 Temperaturmessungen; 5 Temperaturwerte fehlen; 4 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-06-5-1792465151072",
+    "date": "2026-10-06",
+    "minTemp": 9.9,
+    "maxTemp": 21.9,
+    "avgTemp": 15.9,
+    "rain": 0,
+    "snow": 0,
+    "notes": "282 Temperaturmessungen; 5 Temperaturwerte fehlen; 5 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-07-6-1792465151072",
+    "date": "2026-10-07",
+    "minTemp": 10,
+    "maxTemp": 21.3,
+    "avgTemp": 15.65,
+    "rain": 0,
+    "snow": 0,
+    "notes": "283 Temperaturmessungen; 3 Temperaturwerte fehlen; 3 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-08-7-1792465151072",
+    "date": "2026-10-08",
+    "minTemp": 10.5,
+    "maxTemp": 20.2,
+    "avgTemp": 15.35,
+    "rain": 7.06,
+    "snow": 0,
+    "notes": "279 Temperaturmessungen; 9 Temperaturwerte fehlen; 5 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-09-8-1792465151072",
+    "date": "2026-10-09",
+    "minTemp": 6.9,
+    "maxTemp": 13.4,
+    "avgTemp": 10.15,
+    "rain": 0.88,
+    "snow": 0,
+    "notes": "282 Temperaturmessungen; 6 Temperaturwerte fehlen; 4 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-10-9-1792465151072",
+    "date": "2026-10-10",
+    "minTemp": 8.1,
+    "maxTemp": 14,
+    "avgTemp": 11.05,
+    "rain": 1.92,
+    "snow": 0,
+    "notes": "280 Temperaturmessungen; 7 Temperaturwerte fehlen; 4 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-11-10-1792465151072",
+    "date": "2026-10-11",
+    "minTemp": 7.2,
+    "maxTemp": 12.7,
+    "avgTemp": 9.95,
+    "rain": 1.44,
+    "snow": 0,
+    "notes": "282 Temperaturmessungen; 6 Temperaturwerte fehlen; 4 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-12-11-1792465151072",
+    "date": "2026-10-12",
+    "minTemp": 6.3,
+    "maxTemp": 12.7,
+    "avgTemp": 9.5,
+    "rain": 1.12,
+    "snow": 0,
+    "notes": "280 Temperaturmessungen; 8 Temperaturwerte fehlen; 4 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-13-12-1792465151072",
+    "date": "2026-10-13",
+    "minTemp": 4.3,
+    "maxTemp": 15.3,
+    "avgTemp": 9.8,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": "284 Temperaturmessungen; 4 Temperaturwerte fehlen; 4 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-14-13-1792465151072",
+    "date": "2026-10-14",
+    "minTemp": 7.6,
+    "maxTemp": 15,
+    "avgTemp": 11.3,
+    "rain": 0.48,
+    "snow": 0,
+    "notes": "282 Temperaturmessungen; 6 Temperaturwerte fehlen; 5 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-15-14-1792465151072",
+    "date": "2026-10-15",
+    "minTemp": 5,
+    "maxTemp": 15.7,
+    "avgTemp": 10.35,
+    "rain": 0,
+    "snow": 0,
+    "notes": "283 Temperaturmessungen; 5 Temperaturwerte fehlen; 2 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-16-15-1792465151072",
+    "date": "2026-10-16",
+    "minTemp": 7.9,
+    "maxTemp": 17.4,
+    "avgTemp": 12.65,
+    "rain": 0,
+    "snow": 0,
+    "notes": "280 Temperaturmessungen; 6 Temperaturwerte fehlen; 1 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-17-16-1792465151072",
+    "date": "2026-10-17",
+    "minTemp": 9.7,
+    "maxTemp": 14.6,
+    "avgTemp": 12.15,
+    "rain": 0.64,
+    "snow": 0,
+    "notes": "278 Temperaturmessungen; 9 Temperaturwerte fehlen; 5 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-18-17-1792465151072",
+    "date": "2026-10-18",
+    "minTemp": 8.8,
+    "maxTemp": 11.4,
+    "avgTemp": 10.1,
+    "rain": 0.08,
+    "snow": 0,
+    "notes": "284 Temperaturmessungen; 4 Temperaturwerte fehlen; 3 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  },
+  {
+    "id": "excel-2026-10-19-18-1792465151072",
+    "date": "2026-10-19",
+    "minTemp": 4.6,
+    "maxTemp": 10.2,
+    "avgTemp": 7.4,
+    "rain": 0,
+    "snow": 0,
+    "notes": "280 Temperaturmessungen; 8 Temperaturwerte fehlen; 4 Niederschlagswerte fehlen; Schneehöhe nicht in Quelldaten enthalten"
+  }
+]
