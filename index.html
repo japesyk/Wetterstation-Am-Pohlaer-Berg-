@@ -1,0 +1,2803 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wetterstation "Am Pohlaer Berg"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Diagramme lassen sich durch Anklicken im Vollbild öffnen. */
+        .chart-card:fullscreen {
+            background: #fff;
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            padding: 2rem;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0;
+        }
+        .chart-card:fullscreen .chart-area {
+            height: calc(100vh - 7rem) !important;
+            min-height: 300px;
+            flex: 1;
+        }
+        .chart-card canvas { cursor: zoom-in; }
+        .chart-card:fullscreen canvas { cursor: zoom-out; }
+        /* Excel-Ansicht für alle Auswertungstabellen */
+        .excel-view { font-family: Calibri, Arial, sans-serif !important; font-size: 12px !important; border-collapse: collapse !important; }
+        .excel-view th, .excel-view td { border: 1px solid #a8b4c2 !important; padding: 5px 8px !important; white-space: nowrap; }
+        .excel-view thead th, .excel-view tr:first-child th { background: #dbeafe !important; color: #1e3a8a !important; font-weight: 700 !important; }
+        .excel-view tbody tr:nth-child(even) td, .excel-view tbody tr:nth-child(even) th { background-color: #f8fafc; }
+        /* Temperatur-Grenzwerte in der Excel-Ansicht */
+        .excel-view td.temp-band-red { color: #dc2626 !important; font-weight: 700 !important; }
+        .excel-view td.temp-band-black { color: #111827 !important; font-weight: 700 !important; }
+        .excel-view td.temp-band-blue { color: #2563eb !important; font-weight: 700 !important; }
+        @media print {
+            header, .no-print, button, input[type="file"], select, label[for="import-file-input"] {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            main {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .bg-indigo-900, .bg-indigo-600, .bg-indigo-950\/60, .bg-slate-50, .bg-white {
+                background: transparent !important;
+                color: black !important;
+                border-color: #ccc !important;
+                box-shadow: none !important;
+            }
+            .text-white, .text-indigo-200, .text-indigo-100 {
+                color: black !important;
+            }
+            .print-header {
+                display: block !important;
+                border-bottom: 2px solid #333;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            .hidden-on-print {
+                display: none !important;
+            }
+            canvas {
+                max-width: 100% !important;
+                max-height: 300px !important;
+            }
+            table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+            }
+            th, td {
+                border: 1px solid #ddd !important;
+                padding: 6px 8px !important;
+                color: black !important;
+            }
+            .break-inside-avoid {
+                page-break-inside: avoid;
+            }
+        }
+        .print-header {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <div class="print-header">
+        <h1 class="text-2xl font-bold">🌡️ Wetterstation "Am Pohlaer Berg"</h1>
+        <p class="text-sm text-slate-600">Ausdruck vom: <span id="print-date"></span></p>
+    </div>
+
+    <header class="bg-indigo-600 text-white shadow-md no-print">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl">🌡️</span>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight">Wetterstation "Am Pohlaer Berg"</h1>
+                    <p class="text-indigo-200 text-sm">Min-, Max- & Durchschnittstemperaturen erfassen & auswerten</p>
+                </div>
+            </div>
+            <div class="flex bg-indigo-700 p-1 rounded-xl flex-wrap justify-center gap-1">
+                <button onclick="switchTab('dashboard')" id="btn-tab-dashboard" class="px-3.5 py-2 text-sm font-medium rounded-lg transition bg-white text-indigo-700 shadow-sm">📊 Dashboard</button>
+                <button onclick="switchTab('form')" id="btn-tab-form" class="px-3.5 py-2 text-sm font-medium rounded-lg transition text-indigo-100 hover:text-white">✍️ Eingabemaske</button>
+                <button onclick="switchTab('table')" id="btn-tab-table" class="px-3.5 py-2 text-sm font-medium rounded-lg transition text-indigo-100 hover:text-white">📋 Abfragen & Tabelle</button>
+                <button onclick="switchTab('analysis')" id="btn-tab-analysis" class="px-3.5 py-2 text-sm font-medium rounded-lg transition text-indigo-100 hover:text-white">🎯 Auswertungen & Extremwerte</button>
+                <button onclick="switchTab('templates')" id="btn-tab-templates" class="px-3.5 py-2 text-sm font-medium rounded-lg transition text-indigo-100 hover:text-white">📝 Textvorlagen</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6 sm:px-6 lg:px-8">
+
+        <!-- Toast-Benachrichtigung -->
+        <div id="toast" class="hidden fixed bottom-5 right-5 z-50 px-5 py-3 rounded-xl shadow-lg text-white font-medium transition transform duration-300 no-print"></div>
+
+        <!-- Bearbeiten Modal -->
+        <div id="edit-modal" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto no-print">
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-100 max-w-xl w-full p-6 space-y-4 my-8">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                    <h3 class="text-lg font-bold text-slate-800">✏️ Datensatz bearbeiten</h3>
+                    <button onclick="closeEditModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
+                </div>
+                <form id="edit-weather-form" onsubmit="handleEditFormSubmit(event)" class="space-y-4">
+                    <input type="hidden" id="edit-record-id">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Datum *</label>
+                        <input type="date" id="edit-input-date" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+
+                    <div class="p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100 space-y-3">
+                        <h4 class="text-xs font-bold text-indigo-900 uppercase tracking-wider">Temperaturen (°C)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-indigo-700 uppercase mb-1">Min Temp *</label>
+                                <input type="number" step="0.1" id="edit-input-mintemp" required oninput="calculateEditPreviewAvg()" class="w-full bg-white border border-indigo-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-indigo-700 uppercase mb-1">Max Temp *</label>
+                                <input type="number" step="0.1" id="edit-input-maxtemp" required oninput="calculateEditPreviewAvg()" class="w-full bg-white border border-indigo-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-indigo-700 uppercase mb-1">Ø Berechnet</label>
+                                <input type="text" id="edit-preview-avg" readonly placeholder="–" class="w-full bg-indigo-100/60 border border-indigo-200 rounded-xl px-3 py-2 text-sm font-bold text-indigo-800 cursor-not-allowed">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Niederschlag (mm)</label>
+                            <input type="number" step="0.1" min="0" id="edit-input-rain" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Schneehöhe (cm)</label>
+                            <input type="number" step="0.1" min="0" id="edit-input-snow" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-semibold text-slate-500 uppercase">Notizen</label>
+                            <select onchange="insertTemplateIntoEdit(this.value)" class="text-xs border border-slate-200 rounded-lg px-2 py-1 bg-slate-50 focus:outline-none focus:ring-1 focus:ring-indigo-500 template-dropdown">
+                                <option value="">+ Vorlage einfügen...</option>
+                            </select>
+                        </div>
+                        <textarea id="edit-input-notes" rows="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                        <div id="edit-template-picker" class="mt-3 space-y-3"></div>
+                    </div>
+
+                    <div class="pt-2 flex justify-end gap-2">
+                        <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition">Abbrechen</button>
+                        <button type="submit" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-xl transition shadow-sm">Änderungen speichern</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 1. VIEW: DASHBOARD & STATISTIKEN -->
+        <div id="view-dashboard" class="space-y-6">
+            
+            <!-- Dashboard Filter Banner -->
+            <div class="bg-indigo-900 text-white p-5 rounded-2xl shadow-sm space-y-4">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-indigo-800 pb-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-3xl">📅</span>
+                        <div>
+                            <h2 class="text-lg font-bold">Auswertungszeitraum</h2>
+                            <p class="text-indigo-200 text-xs" id="dashboard-timeframe-label">Gesamter Zeitraum</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="loadDemoData()" class="text-xs bg-emerald-600 hover:bg-emerald-500 px-3.5 py-2 rounded-xl text-white transition flex items-center gap-1.5 shadow-sm font-semibold no-print" id="load-demo-data-button">
+                            🧪 Demo-Daten laden
+                        </button>
+                        <button onclick="deleteDemoData()" class="text-xs bg-rose-600 hover:bg-rose-500 px-3.5 py-2 rounded-xl text-white transition flex items-center gap-1.5 shadow-sm font-semibold no-print" id="delete-demo-data-button" style="display:none">
+                            🗑️ Demo-Daten löschen
+                        </button>
+                        <button onclick="window.print()" class="text-xs bg-indigo-700 hover:bg-indigo-600 px-3.5 py-2 rounded-xl text-white transition flex items-center gap-1.5 shadow-sm font-semibold no-print">
+                            🖨️ Dashboard drucken
+                        </button>
+                        <button onclick="resetFilters()" class="text-xs bg-indigo-800 hover:bg-indigo-700 px-3 py-2 rounded-xl text-indigo-100 transition no-print">Filter zurücksetzen</button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-1 no-print">
+                    <div>
+                        <label class="block text-xs font-medium text-indigo-200 mb-1">Jahr auswählen</label>
+                        <select id="dashboard-filter-year" onchange="syncDashboardFilter('year', this.value)" class="w-full bg-indigo-950/70 border border-indigo-700/60 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                            <option value="">Alle Jahre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-indigo-200 mb-1">Jahreszeit auswählen</label>
+                        <select id="dashboard-filter-season" onchange="syncDashboardFilter('season', this.value)" class="w-full bg-indigo-950/70 border border-indigo-700/60 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                            <option value="">Alle Jahreszeiten</option>
+                            <option value="spring">🌸 Frühjahr (März – Mai)</option>
+                            <option value="summer">☀️ Sommer (Juni – August)</option>
+                            <option value="autumn">🍂 Herbst (Sept – Nov)</option>
+                            <option value="winter">❄️ Winter (Dez – Feb)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-indigo-200 mb-1">Monat auswählen</label>
+                        <select id="dashboard-filter-month" onchange="syncDashboardFilter('month', this.value)" class="w-full bg-indigo-950/70 border border-indigo-700/60 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                            <option value="">Alle Monate</option>
+                            <option value="01">Januar</option>
+                            <option value="02">Februar</option>
+                            <option value="03">März</option>
+                            <option value="04">April</option>
+                            <option value="05">Mai</option>
+                            <option value="06">Juni</option>
+                            <option value="07">Juli</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Dezember</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-indigo-200 mb-1">Dekade auswählen</label>
+                        <select id="dashboard-filter-decade" onchange="syncDashboardFilter('decade', this.value)" class="w-full bg-indigo-950/70 border border-indigo-700/60 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                            <option value="">Alle Dekaden</option>
+                            <option value="1">1. Dekade (1. – 10.)</option>
+                            <option value="2">2. Dekade (11. – 20.)</option>
+                            <option value="3">3. Dekade (21. – Ende)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kennzahlen-Karten (KPIs) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 break-inside-avoid">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Ø Durchschnittstemperatur</p>
+                        <h3 id="stat-avg-temp" class="text-2xl font-bold text-indigo-600 mt-1">0.0 °C</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-2xl">📊</div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Absolute Höchsttemp.</p>
+                        <h3 id="stat-max-temp" class="text-2xl font-bold text-rose-600 mt-1">0.0 °C</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl">🔥</div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Absolute Tiefsttemp.</p>
+                        <h3 id="stat-min-temp" class="text-2xl font-bold text-blue-600 mt-1">0.0 °C</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-2xl">❄️</div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Gesamtniederschlag</p>
+                        <h3 id="stat-total-rain" class="text-2xl font-bold text-sky-600 mt-1">0.0 mm</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-sky-50 rounded-xl flex items-center justify-center text-2xl">🌧️</div>
+                </div>
+            </div>
+
+            <!-- Diagramme Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 break-inside-avoid">
+                <div class="chart-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold text-slate-800">📈 Temperaturverlauf</h2>
+                        <span class="text-xs text-slate-400">Min / Max / Ø</span>
+                    </div>
+                    <div class="chart-area relative h-72 w-full">
+                        <canvas id="tempChart" title="Klicken, um das Diagramm im Vollbild zu öffnen" onclick="openChartFullscreen('tempChart')"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold text-slate-800">🌧️ Niederschlag (Regen)</h2>
+                        <span class="text-xs text-slate-400">in mm</span>
+                    </div>
+                    <div class="chart-area relative h-72 w-full">
+                        <canvas id="rainChart" title="Klicken, um das Diagramm im Vollbild zu öffnen" onclick="openChartFullscreen('rainChart')"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 2. VIEW: DATENMASKE (FORMULAR) -->
+        <div id="view-form" class="max-w-2xl mx-auto hidden no-print">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div class="mb-6">
+                    <h2 class="text-xl font-bold text-slate-800">✍️ Neuen Wetterdatensatz erfassen</h2>
+                    <p class="text-sm text-slate-500 mt-1">Geben Sie die Temperaturwerte, Niederschlag und Schneehöhe für den Tag ein. Der Tagesdurchschnitt wird automatisch berechnet.</p>
+                </div>
+                
+                <form id="weather-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Datum *</label>
+                        <input type="date" id="input-date" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+
+                    <div class="p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100 space-y-4">
+                        <h3 class="text-xs font-bold text-indigo-900 uppercase tracking-wider">Temperaturen (°C)</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-indigo-700 uppercase mb-1">Minimum-Temp *</label>
+                                <input type="number" step="0.1" id="input-mintemp" placeholder="z.B. 12.0" required oninput="calculatePreviewAvg()" class="w-full bg-white border border-indigo-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-indigo-700 uppercase mb-1">Maximum-Temp *</label>
+                                <input type="number" step="0.1" id="input-maxtemp" placeholder="z.B. 24.5" required oninput="calculatePreviewAvg()" class="w-full bg-white border border-indigo-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-indigo-700 uppercase mb-1">Ø Berechnet</label>
+                                <input type="text" id="preview-avg" readonly placeholder="–" class="w-full bg-indigo-100/60 border border-indigo-200 rounded-xl px-3 py-2.5 text-sm font-bold text-indigo-800 cursor-not-allowed">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Niederschlag (mm)</label>
+                            <input type="number" step="0.1" min="0" id="input-rain" placeholder="z.B. 0.0" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Schneehöhe (cm)</label>
+                            <input type="number" step="0.1" min="0" id="input-snow" placeholder="z.B. 5.0" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-semibold text-slate-500 uppercase">Notizen / Bemerkungen</label>
+                            <select onchange="insertTemplateIntoForm(this.value)" class="text-xs border border-slate-200 rounded-lg px-2 py-1 bg-slate-50 focus:outline-none focus:ring-1 focus:ring-indigo-500 template-dropdown">
+                                <option value="">+ Vorlage einfügen...</option>
+                            </select>
+                        </div>
+                        <textarea id="input-notes" rows="2" placeholder="Optionaler Text oder Vorlage wählen..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                        <div id="form-template-picker" class="mt-3 space-y-3"></div>
+                    </div>
+
+                    <div class="pt-4 flex justify-end gap-3">
+                        <button type="button" onclick="switchTab('dashboard')" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition">Abbrechen</button>
+                        <button type="submit" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-xl transition shadow-sm">Datensatz speichern</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 3. VIEW: ABFRAGEN & TABELLE -->
+        <div id="view-table" class="space-y-6 hidden">
+            
+            <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <h2 class="text-lg font-bold text-slate-800">🔍 Daten abfragen & filtern</h2>
+                    <div class="flex gap-2">
+                        <button onclick="window.print()" class="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-xl transition flex items-center gap-1.5 shadow-sm no-print">
+                            🖨️ Tabelle drucken
+                        </button>
+                        <button onclick="resetFilters()" class="text-sm text-indigo-600 hover:text-indigo-800 font-medium no-print">Filter zurücksetzen</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 no-print">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Nach Jahr</label>
+                        <select id="filter-year" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Alle Jahre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Jahreszeit</label>
+                        <select id="filter-season" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Alle Jahreszeiten</option>
+                            <option value="spring">🌸 Frühjahr (März–Mai)</option>
+                            <option value="summer">☀️ Sommer (Juni–Aug)</option>
+                            <option value="autumn">🍂 Herbst (Sept–Nov)</option>
+                            <option value="winter">❄️ Winter (Dez–Feb)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Nach Monat</label>
+                        <select id="filter-month" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Alle Monate</option>
+                            <option value="01">Januar</option>
+                            <option value="02">Februar</option>
+                            <option value="03">März</option>
+                            <option value="04">April</option>
+                            <option value="05">Mai</option>
+                            <option value="06">Juni</option>
+                            <option value="07">Juli</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Dezember</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Nach Dekade</label>
+                        <select id="filter-decade" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Alle Dekaden</option>
+                            <option value="1">1. Dekade (1. – 10.)</option>
+                            <option value="2">2. Dekade (11. – 20.)</option>
+                            <option value="3">3. Dekade (21. – Ende)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Von Datum</label>
+                        <input type="date" id="filter-date-from" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Bis Datum</label>
+                        <input type="date" id="filter-date-to" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. VIEW: DATENTABELLE & BACKUP SEKTION -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <div class="p-5 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-lg font-bold text-slate-800">📋 Datensätze (<span id="record-count">0</span>)</h2>
+                        <button onclick="clearAllRecords()" class="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold rounded-xl transition flex items-center gap-1.5 no-print" title="Alle Datensätze löschen">
+                            🗑️ Alle Daten löschen
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap gap-2 no-print">
+                        <button onclick="exportData()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-xl transition flex items-center gap-1.5">💾 Backup exportieren</button>
+                        <button onclick="exportMonthlyWorkbook()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition flex items-center gap-1.5">📊 Excel mit Monatsblättern exportieren</button>
+                        <label class="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-sm font-medium rounded-xl transition cursor-pointer flex items-center gap-1.5">
+                            📂 Backup importieren
+                            <input type="file" id="import-file-input" accept=".json" onchange="importData(event)" class="hidden">
+                        </label>
+                        <label class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition cursor-pointer flex items-center gap-1.5 shadow-sm">
+                            📊 Excel / CSV einlesen
+                            <input type="file" id="import-excel-input" accept=".xlsx,.xls,.csv" onchange="importExcelData(event)" class="hidden">
+                        </label>
+                        <label class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition cursor-pointer flex items-center gap-1.5 shadow-sm">
+                            📷 Foto / Tabellenseite einlesen
+                            <input type="file" id="import-photo-input" accept="image/*" onchange="importPhotoData(event)" class="hidden">
+                        </label>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 text-slate-400 text-xs uppercase tracking-wider border-b border-slate-100">
+                                <th class="p-4 font-semibold">Datum</th>
+                                <th class="p-4 font-semibold">Min Temp</th>
+                                <th class="p-4 font-semibold">Max Temp</th>
+                                <th class="p-4 font-semibold">Ø Temp</th>
+                                <th class="p-4 font-semibold">Niederschlag</th>
+                                <th class="p-4 font-semibold">Schnee</th>
+                                <th class="p-4 font-semibold">Notizen</th>
+                                <th class="p-4 font-semibold text-right no-print">Aktionen</th>
+                            </tr>
+                        </thead>
+                        <tbody id="weather-table-body" class="divide-y divide-slate-100 text-sm text-slate-600">
+                            <!-- Dynamisch generiert -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="empty-state" class="p-12 text-center text-slate-400 hidden">
+                    <p class="text-3xl mb-2">📭</p>
+                    <p class="text-sm font-medium">Keine Wetterdatensätze für die gewählten Filter gefunden.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 4. VIEW: AUSWERTUNGEN & EXTREMWERTE -->
+        <div id="view-analysis" class="space-y-6 hidden">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">🎯 Auswertungen & Extremwerte abfragen</h2>
+                        <p class="text-sm text-slate-500 mt-1">Lassen Sie sich schnell Höchstwerte, Tiefstwerte oder Niederschlagssummen nach verschiedenen Zeiträumen anzeigen.</p>
+                    </div>
+                </div>
+
+                <!-- Filter für Auswertungen: ergänzt die Abfrage, ohne das bestehende Kartenlayout zu verändern -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 no-print">
+                    <div>
+                        <label for="analysis-filter-year" class="block text-xs font-semibold text-slate-500 uppercase mb-1">Jahr</label>
+                        <select id="analysis-filter-year" onchange="refreshAnalysisQueryIfNeeded()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"><option value="">Alle Jahre</option></select>
+                    </div>
+                    <div>
+                        <label for="analysis-filter-month" class="block text-xs font-semibold text-slate-500 uppercase mb-1">Monat</label>
+                        <select id="analysis-filter-month" onchange="refreshAnalysisQueryIfNeeded()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="">Alle Monate</option><option value="01">Januar</option><option value="02">Februar</option><option value="03">März</option><option value="04">April</option><option value="05">Mai</option><option value="06">Juni</option><option value="07">Juli</option><option value="08">August</option><option value="09">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Dezember</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="analysis-filter-day" class="block text-xs font-semibold text-slate-500 uppercase mb-1">Tag</label>
+                        <select id="analysis-filter-day" onchange="refreshAnalysisQueryIfNeeded()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"><option value="">Alle Tage</option></select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">☀️ Maximumtemperaturen</h3>
+                        <div class="flex flex-col gap-1.5">
+                            <button onclick="runCustomQuery('max', 'day')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">📅 Alle Wärmetage</button>
+                            <button onclick="runCustomQuery('max', 'season')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">🌸 Nach Jahreszeiten</button>
+                            <button onclick="runCustomQuery('max', 'month')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">📆 Nach Monaten</button>
+                            <button onclick="showMonthlyMaximumByYear()" class="text-left text-xs bg-white hover:bg-rose-50 text-rose-700 font-semibold p-2 rounded-xl border border-rose-200 transition">📈 Monatsmaximum im Jahresvergleich</button>
+                            <button onclick="runCustomQuery('max', 'year')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">📊 Nach Jahren</button>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">🔥 Minimumtemperaturen</h3>
+                        <div class="flex flex-col gap-1.5">
+                            <button onclick="runCustomQuery('min', 'day')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">📅 Alle Kältetage</button>
+                            <button onclick="runCustomQuery('min', 'season')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">🌸 Nach Jahreszeiten</button>
+                            <button onclick="runCustomQuery('min', 'month')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">📆 Nach Monaten</button>
+                            <button onclick="runCustomQuery('min', 'year')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">📊 Nach Jahren</button>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">🌧️ Niederschlag (Regen)</h3>
+                        <div class="flex flex-col gap-1.5">
+                            <button onclick="runCustomQuery('rain', 'day')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">📅 Regenreichste Tage</button>
+                            <button onclick="runCustomQuery('rain', 'season_sums')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">🌸 Jahreszeitensummen</button>
+                            <button onclick="runCustomQuery('rain', 'month')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">📆 Monatssummen</button>
+                            <button onclick="runCustomQuery('rain', 'year')" class="text-left text-xs bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-medium p-2 rounded-xl border border-slate-200 transition">📊 Jahressummen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temperatur-Abweichungsmatrizen -->
+                <div class="flex flex-col sm:flex-row gap-3 no-print">
+                    <button type="button" onclick="showTemperatureDeviationMatrix('monthly')" class="text-left text-sm bg-white hover:bg-rose-50 text-slate-700 hover:text-rose-700 font-semibold px-4 py-3 rounded-xl border border-slate-200 transition">🌡️ Abweichung Monatsmittelwert</button>
+                    <button type="button" onclick="showTemperatureDeviationMatrix('longterm')" class="text-left text-sm bg-white hover:bg-indigo-50 text-slate-700 hover:text-indigo-700 font-semibold px-4 py-3 rounded-xl border border-slate-200 transition">📅 Abweichung langjährige Abweichung</button>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 no-print">
+                    <button type="button" onclick="showMonthlyTemperatureMatrix('max')" class="text-left text-sm bg-white hover:bg-rose-50 text-rose-700 font-semibold px-4 py-3 rounded-xl border border-rose-200 transition">🌡️ Höchsttemperaturen</button>
+                    <button type="button" onclick="showMonthlyTemperatureMatrix('min')" class="text-left text-sm bg-white hover:bg-blue-50 text-blue-700 font-semibold px-4 py-3 rounded-xl border border-blue-200 transition">❄️ Tiefsttemperaturen</button>
+                </div>
+                <div class="flex gap-3 no-print">
+                    <button type="button" onclick="showPrecipitationMeanMatrix()" class="text-left text-sm bg-white hover:bg-sky-50 text-sky-700 font-semibold px-4 py-3 rounded-xl border border-sky-200 transition">🌧️ Niederschlagsmittel</button>
+                </div>
+                <div id="precipitation-mean-matrix" class="hidden border border-slate-100 rounded-2xl overflow-hidden bg-white shadow-sm">
+                    <div class="p-4 bg-slate-50 border-b border-slate-100 flex flex-wrap justify-between items-center gap-2">
+                        <h3 id="precipitation-mean-matrix-title" class="text-sm font-bold text-sky-700">Niederschlagsmittel</h3>
+                        <div class="flex flex-wrap gap-2 no-print"><button type="button" onclick="toggleExcelView('precipitation-mean-matrix-table', this)" class="text-xs font-semibold px-3 py-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-50">Excel-Ansicht</button><button type="button" onclick="exportPrecipitationMeanMatrixExcel()" class="text-xs font-semibold px-3 py-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700">Excel exportieren</button></div>
+                    </div>
+                    <p id="precipitation-mean-matrix-description" class="p-3 text-xs text-slate-500">Tage in Zeilen, Monate in Spalten; Werte in mm.</p>
+                    <div class="overflow-auto max-h-[32rem]">
+                        <table class="w-full text-center border-collapse text-xs" id="precipitation-mean-matrix-table"><tbody id="precipitation-mean-matrix-body"></tbody></table>
+                    </div>
+                    <div class="chart-card bg-white p-5 border-t border-slate-100">
+                        <h4 class="text-sm font-semibold text-slate-700 mb-3">Niederschlag – Säulendiagramm <span class="text-xs font-normal text-slate-400">(zum Vergrößern anklicken)</span></h4>
+                        <div class="chart-area relative h-80 w-full"><canvas id="precipitation-mean-chart" onclick="openChartFullscreen('precipitation-mean-chart')" aria-label="Niederschlags-Säulendiagramm; anklicken für Vollbild"></canvas></div>
+                    </div>
+                </div>
+
+                <div id="monthly-temperature-matrix" class="hidden border border-slate-100 rounded-2xl overflow-hidden bg-white shadow-sm">
+                    <div class="p-4 bg-slate-50 border-b border-slate-100 flex flex-wrap justify-between items-center gap-2">
+                        <h3 id="monthly-temperature-matrix-title" class="text-sm font-bold">Monatstemperaturen</h3>
+                        <div class="flex flex-wrap gap-2 no-print"><button type="button" onclick="toggleExcelView('monthly-temperature-matrix-table', this)" class="text-xs font-semibold px-3 py-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-50">Excel-Ansicht</button><button type="button" onclick="exportMonthlyTemperatureMatrixExcel()" class="text-xs font-semibold px-3 py-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700">Excel exportieren</button></div>
+                    </div>
+                    <p id="monthly-temperature-matrix-description" class="p-3 text-xs text-slate-500">Jahre in Zeilen, Tage 1–31 in Spalten.</p>
+                    <div class="overflow-auto max-h-[32rem]">
+                        <table class="w-full text-center border-collapse text-xs" id="monthly-temperature-matrix-table"><tbody id="monthly-temperature-matrix-body"></tbody></table>
+                    </div>
+                    <div id="monthly-temperature-threshold-legend" class="p-4 border-t border-slate-100 bg-white" aria-live="polite"></div>
+                    <div class="chart-card bg-white p-5 border-t border-slate-100">
+                        <h4 class="text-sm font-semibold text-slate-700 mb-3">Temperaturverlauf – Liniendiagramm <span class="text-xs font-normal text-slate-400">(zum Vergrößern anklicken)</span></h4>
+                        <div class="chart-area relative h-80 w-full"><canvas id="monthly-temperature-chart" onclick="openChartFullscreen('monthly-temperature-chart')" aria-label="Temperatur-Liniendiagramm; anklicken für Vollbild"></canvas></div>
+                    </div>
+                </div>
+
+                <div id="temperature-deviation-matrix" class="hidden border border-slate-100 rounded-2xl overflow-hidden bg-white shadow-sm">
+                    <div class="p-4 bg-indigo-50/50 border-b border-indigo-100 flex flex-wrap justify-between items-center gap-2">
+                        <h3 id="deviation-matrix-title" class="text-sm font-bold text-indigo-900">Temperaturabweichungen</h3>
+                        <div class="flex flex-wrap gap-2 no-print"><button type="button" onclick="toggleExcelView('deviation-matrix-table', this)" class="text-xs font-semibold px-3 py-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-50">Excel-Ansicht</button><button type="button" onclick="exportDeviationMatrixExcel()" class="text-xs font-semibold px-3 py-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700">Excel exportieren</button></div>
+                    </div>
+                    <p id="deviation-matrix-description" class="p-3 text-xs text-slate-500">Rot: mindestens +5 °C · Blau: höchstens −5 °C.</p>
+                    <div class="overflow-auto max-h-[32rem]">
+                        <table class="w-full text-center border-collapse text-xs" id="deviation-matrix-table"><tbody id="deviation-matrix-body"></tbody></table>
+                    </div>
+                    <div class="chart-card bg-white p-5 border-t border-slate-100">
+                        <h4 class="text-sm font-semibold text-slate-700 mb-3">Temperaturabweichung – Liniendiagramm <span class="text-xs font-normal text-slate-400">(zum Vergrößern anklicken)</span></h4>
+                        <div class="chart-area relative h-80 w-full"><canvas id="deviation-chart" onclick="openChartFullscreen('deviation-chart')" aria-label="Temperaturabweichungs-Liniendiagramm; anklicken für Vollbild"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Ergebnisbox -->
+                <div id="query-result-panel" class="border border-slate-100 rounded-2xl overflow-hidden bg-white shadow-sm">
+                    <div class="p-4 bg-indigo-50/50 border-b border-indigo-100 flex justify-between items-center">
+                        <h3 id="query-result-title" class="text-sm font-bold text-indigo-900">Auswertungsergebnis</h3>
+                        <div class="flex flex-wrap items-center gap-2"><span id="query-result-count" class="text-xs font-semibold text-indigo-700 bg-indigo-100 px-2.5 py-1 rounded-lg">0 Ergebnisse</span><button type="button" onclick="toggleExcelView('query-result-table', this)" class="no-print text-xs font-semibold px-3 py-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-50">Excel-Ansicht</button><button type="button" onclick="exportQueryResultsExcel()" class="no-print text-xs font-semibold px-3 py-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700">Excel exportieren</button></div>
+                    </div>
+                    <div class="overflow-x-auto max-h-96">
+                        <table id="query-result-table" class="w-full text-left border-collapse">
+                            <tbody id="query-result-tbody" class="divide-y divide-slate-100 text-sm text-slate-600">
+                                <tr>
+                                    <td colspan="3" class="p-8 text-center text-slate-400">
+                                        <p class="text-3xl mb-1">🔍</p>
+                                        <p class="text-sm font-medium">Klicken Sie oben auf einen der Buttons, um Top-Ergebnisse und Extremwerte anzuzeigen.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="chart-card bg-white p-5 border-t border-slate-100">
+                        <h4 id="query-result-chart-title" class="text-sm font-semibold text-slate-700 mb-3">Diagramm zur Auswertung <span class="text-xs font-normal text-slate-400">(zum Vergrößern anklicken)</span></h4>
+                        <div class="chart-area relative h-80 w-full"><canvas id="query-result-chart" onclick="openChartFullscreen('query-result-chart')" aria-label="Auswertungsdiagramm; anklicken für Vollbild"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. VIEW: TEXTVORLAGEN VERWALTUNG -->
+        <div id="view-templates" class="hidden max-w-3xl mx-auto space-y-6 no-print">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-100 space-y-6">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">📝 Notiz-Textvorlagen verwalten</h2>
+                    <p class="text-sm text-slate-500 mt-1">Erstelle Textbausteine für wiederkehrende Ereignisse (z.B. „Bodenfrost“, „Starker Wind“, „Klarer Sternenhimmel“), um sie schnell auszuwählen.</p>
+                </div>
+
+                <form onsubmit="handleAddCategory(event)" class="flex flex-col sm:flex-row gap-2">
+                    <input type="text" id="new-template-category" placeholder="Neue Kategorie, z. B. Sonne" required class="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button type="submit" class="px-4 py-2.5 bg-slate-700 hover:bg-slate-800 text-white font-medium text-sm rounded-xl transition whitespace-nowrap">+ Kategorie anlegen</button>
+                </form>
+                <form onsubmit="handleAddTemplate(event)" class="flex flex-col sm:flex-row gap-2">
+                    <select id="new-template-category-select" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm"></select>
+                    <input type="text" id="new-template-text" placeholder="Neuer Textbaustein..." required class="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button type="submit" class="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm rounded-xl transition whitespace-nowrap">+ Textbaustein</button>
+                </form>
+
+                <div class="border border-slate-100 rounded-xl overflow-hidden divide-y divide-slate-100 bg-slate-50/50" id="templates-list">
+                    <!-- Dynamisch generiert -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const STORAGE_KEY = 'weather_stats_pohlaer_berg_v2';
+        const TEMPLATES_KEY = 'weather_stats_note_templates';
+        const DEMO_BACKUP_KEY = 'weather_stats_pohlaer_berg_demo_backup_v1';
+        const DEMO_ACTIVE_KEY = 'weather_stats_pohlaer_berg_demo_active_v1';
+        let weatherData = [];
+        let noteTemplates = [];
+        let tempChartInstance = null;
+        let rainChartInstance = null;
+
+        window.onload = function() {
+            loadFromLocalStorage();
+            loadTemplates();
+            setDefaultFormDate();
+            setPrintDate();
+            renderApp();
+        };
+
+        function loadFromLocalStorage() {
+            updateDemoButtons();
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed)) {
+                        weatherData = parsed.map(item => {
+                            const minT = typeof item.minTemp === 'number' ? item.minTemp : (parseFloat(item.minTemp) || 0);
+                            const maxT = typeof item.maxTemp === 'number' ? item.maxTemp : (parseFloat(item.maxTemp) || 0);
+                            const avgT = typeof item.avgTemp === 'number' ? item.avgTemp : Number(((minT + maxT) / 2).toFixed(2));
+                            const rainVal = typeof item.rain === 'number' ? item.rain : (parseFloat(item.rain) || 0);
+                            const snowVal = typeof item.snow === 'number' ? item.snow : (parseFloat(item.snow) || 0);
+                            
+                            return {
+                                ...item,
+                                minTemp: minT,
+                                maxTemp: maxT,
+                                avgTemp: avgT,
+                                rain: rainVal,
+                                snow: snowVal
+                            };
+                        });
+                    } else {
+                        weatherData = [];
+                    }
+                } else {
+                    weatherData = [];
+                }
+                // Sofortige Sortierung nach Datum aufsteigend sicherstellen
+                weatherData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            } catch (e) {
+                console.error("Fehler beim Laden:", e);
+                weatherData = [];
+            }
+        }
+
+        function updateDemoButtons() {
+            const active = localStorage.getItem(DEMO_ACTIVE_KEY) === 'true';
+            const loadBtn = document.getElementById('load-demo-data-button');
+            const deleteBtn = document.getElementById('delete-demo-data-button');
+            if (loadBtn) loadBtn.style.display = active ? 'none' : '';
+            if (deleteBtn) deleteBtn.style.display = active ? '' : 'none';
+        }
+
+        function loadDemoData() {
+            if (localStorage.getItem(DEMO_ACTIVE_KEY) === 'true') {
+                showToast('Demo-Daten sind bereits geladen.', 'bg-amber-600');
+                return;
+            }
+            if (!confirm('Demo-Daten laden? Deine bisherigen Wetterdaten werden vorübergehend gesichert und beim Löschen der Demo-Daten wiederhergestellt.')) return;
+            try {
+                localStorage.setItem(DEMO_BACKUP_KEY, JSON.stringify(weatherData));
+                const demo = [];
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const startDate = new Date(1994, 11, 1); // 01.12.1994
+                let index = 0;
+                for (const d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
+                    const year = d.getFullYear();
+                    const dayOfYear = Math.floor((d - new Date(year, 0, 1)) / 86400000);
+                    const seasonal = Math.sin(((d.getMonth() + 1) / 12) * Math.PI * 2 - Math.PI / 2);
+                    const wave = Math.sin(dayOfYear * 0.19 + year) * 5;
+                    const minTemp = Number((-1 + seasonal * 10 + wave + (Math.random() * 5 - 2.5)).toFixed(1));
+                    const maxTemp = Number((minTemp + 4 + Math.random() * 9).toFixed(1));
+                    demo.push({
+                        id: 'demo-' + d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0') + '-' + index++,
+                        date: d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'),
+                        minTemp, maxTemp, avgTemp: Number(((minTemp + maxTemp) / 2).toFixed(2)),
+                        rain: Number((Math.random() < 0.32 ? 0 : Math.random() * 18).toFixed(1)),
+                        snow: Number((d.getMonth() <= 2 || d.getMonth() === 11 ? Math.random() * 4 : 0).toFixed(1)),
+                        notes: 'Automatisch erzeugter Demo-Datensatz'
+                    });
+                }
+                weatherData = demo;
+                localStorage.setItem(DEMO_ACTIVE_KEY, 'true');
+                saveToLocalStorage();
+                renderApp();
+                updateDemoButtons();
+                showToast('Demo-Daten geladen. Deine bisherigen Daten sind gesichert.', 'bg-emerald-600');
+            } catch (e) {
+                console.error('Demo-Daten konnten nicht geladen werden:', e);
+                showToast('Demo-Daten konnten nicht geladen werden.', 'bg-rose-600');
+            }
+        }
+
+        function deleteDemoData() {
+            if (localStorage.getItem(DEMO_ACTIVE_KEY) !== 'true') return;
+            if (!confirm('Demo-Daten löschen und die zuvor gespeicherten Wetterdaten wiederherstellen?')) return;
+            try {
+                const backup = localStorage.getItem(DEMO_BACKUP_KEY);
+                weatherData = backup ? JSON.parse(backup) : [];
+                localStorage.removeItem(DEMO_BACKUP_KEY);
+                localStorage.removeItem(DEMO_ACTIVE_KEY);
+                saveToLocalStorage();
+                renderApp();
+                updateDemoButtons();
+                showToast('Demo-Daten gelöscht; ursprüngliche Wetterdaten wiederhergestellt.', 'bg-emerald-600');
+            } catch (e) {
+                console.error('Demo-Daten konnten nicht gelöscht werden:', e);
+                showToast('Wiederherstellung fehlgeschlagen. Bitte nicht neu laden und die Daten prüfen.', 'bg-rose-600');
+            }
+        }
+
+        function setPrintDate() {
+            const printDateEl = document.getElementById('print-date');
+            if (printDateEl) {
+                const now = new Date();
+                printDateEl.textContent = `${now.toLocaleDateString('de-DE')} um ${now.toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'})}`;
+            }
+        }
+
+        function setDefaultFormDate() {
+            const today = new Date().toISOString().split('T')[0];
+            const inputDate = document.getElementById('input-date');
+            if (inputDate) inputDate.value = today;
+        }
+
+        function calculatePreviewAvg() {
+            const minEl = document.getElementById('input-mintemp');
+            const maxEl = document.getElementById('input-maxtemp');
+            const previewEl = document.getElementById('preview-avg');
+
+            if (minEl && maxEl && previewEl) {
+                const min = parseFloat(minEl.value);
+                const max = parseFloat(maxEl.value);
+
+                if (!isNaN(min) && !isNaN(max)) {
+                    const avg = (min + max) / 2;
+                    previewEl.value = avg.toFixed(1) + ' °C';
+                } else {
+                    previewEl.value = '–';
+                }
+            }
+        }
+
+        function calculateEditPreviewAvg() {
+            const minEl = document.getElementById('edit-input-mintemp');
+            const maxEl = document.getElementById('edit-input-maxtemp');
+            const previewEl = document.getElementById('edit-preview-avg');
+
+            if (minEl && maxEl && previewEl) {
+                const min = parseFloat(minEl.value);
+                const max = parseFloat(maxEl.value);
+
+                if (!isNaN(min) && !isNaN(max)) {
+                    const avg = (min + max) / 2;
+                    previewEl.value = avg.toFixed(1) + ' °C';
+                } else {
+                    previewEl.value = '–';
+                }
+            }
+        }
+
+        function populateYearDropdown() {
+            const yearSelects = [
+                document.getElementById('filter-year'),
+                document.getElementById('dashboard-filter-year'),
+                document.getElementById('analysis-filter-year')
+            ];
+
+            const years = new Set();
+
+            weatherData.forEach(item => {
+                if (item.date) {
+                    const y = item.date.split('-')[0];
+                    if (y) years.add(y);
+                }
+            });
+
+            const sortedYears = Array.from(years).sort((a, b) => b - a);
+
+            yearSelects.forEach(select => {
+                if (!select) return;
+                const currentVal = select.value;
+                let html = '<option value="">Alle Jahre</option>';
+                sortedYears.forEach(y => {
+                    html += `<option value="${y}">${y}</option>`;
+                });
+                select.innerHTML = html;
+                select.value = currentVal;
+            });
+        }
+
+        function openEditModal(id) {
+            const record = weatherData.find(item => item.id === id);
+            if (!record) return;
+
+            document.getElementById('edit-record-id').value = record.id;
+            document.getElementById('edit-input-date').value = record.date;
+            document.getElementById('edit-input-mintemp').value = record.minTemp;
+            document.getElementById('edit-input-maxtemp').value = record.maxTemp;
+            document.getElementById('edit-input-rain').value = record.rain || 0;
+            document.getElementById('edit-input-snow').value = record.snow || 0;
+            document.getElementById('edit-input-notes').value = record.notes || '';
+
+            calculateEditPreviewAvg();
+
+            const modal = document.getElementById('edit-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeEditModal() {
+            const modal = document.getElementById('edit-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function handleEditFormSubmit(event) {
+            event.preventDefault();
+
+            const id = document.getElementById('edit-record-id').value;
+            const minTemp = parseFloat(document.getElementById('edit-input-mintemp').value);
+            const maxTemp = parseFloat(document.getElementById('edit-input-maxtemp').value);
+            const rain = parseFloat(document.getElementById('edit-input-rain').value) || 0;
+            const snow = parseFloat(document.getElementById('edit-input-snow').value) || 0;
+
+            const index = weatherData.findIndex(item => item.id === id);
+            if (index !== -1) {
+                weatherData[index] = {
+                    ...weatherData[index],
+                    date: document.getElementById('edit-input-date').value,
+                    minTemp: minTemp,
+                    maxTemp: maxTemp,
+                    avgTemp: Number(((minTemp + maxTemp) / 2).toFixed(2)),
+                    rain: rain,
+                    snow: snow,
+                    notes: document.getElementById('edit-input-notes').value.trim()
+                };
+
+                weatherData.sort((a, b) => new Date(a.date) - new Date(b.date));
+                saveToLocalStorage();
+                closeEditModal();
+                renderApp();
+                showToast("Datensatz erfolgreich aktualisiert! ✏️", "bg-indigo-600");
+            }
+        }
+
+        function syncDashboardFilter(type, value) {
+            if (type === 'year') {
+                const tableYear = document.getElementById('filter-year');
+                if (tableYear) tableYear.value = value;
+            } else if (type === 'season') {
+                const tableSeason = document.getElementById('filter-season');
+                if (tableSeason) tableSeason.value = value;
+            } else if (type === 'month') {
+                const tableMonth = document.getElementById('filter-month');
+                if (tableMonth) tableMonth.value = value;
+            } else if (type === 'decade') {
+                const tableDecade = document.getElementById('filter-decade');
+                if (tableDecade) tableDecade.value = value;
+            }
+            renderTableAndStats();
+        }
+
+        function escapeTemplateHtml(value) {
+            return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+        }
+
+        function loadTemplates() {
+            try {
+                const stored = localStorage.getItem(TEMPLATES_KEY);
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    noteTemplates = Array.isArray(parsed) ? parsed.map(item => typeof item === 'string' ? {category:'Allgemein', text:item} : {category:item.category || 'Allgemein', text:item.text || ''}).filter(item => item.text) : [];
+                } else {
+                    noteTemplates = [
+                        {category:'Allgemein', text:'Bodenfrost am Morgen'},
+                        {category:'Wind', text:'Starke Sturmböen'},
+                        {category:'Niederschlag', text:'Dauerregen den ganzen Tag'},
+                        {category:'Himmel', text:'Klarer Sternenhimmel'},
+                        {category:'Schnee', text:'Erster Schneefall'}
+                    ];
+                    saveTemplates();
+                }
+            } catch(e) { noteTemplates = []; }
+            updateTemplateDropdowns();
+            renderTemplatesList();
+        }
+
+        function templateCategories() {
+            return [...new Set(['Allgemein', ...noteTemplates.map(t => t.category || 'Allgemein')])];
+        }
+
+        function saveTemplates() {
+            try { localStorage.setItem(TEMPLATES_KEY, JSON.stringify(noteTemplates)); }
+            catch(e) { console.error('Fehler beim Speichern der Vorlagen:', e); }
+            updateTemplateDropdowns();
+            renderTemplatesList();
+        }
+
+        function handleAddCategory(event) {
+            event.preventDefault();
+            const input = document.getElementById('new-template-category');
+            const category = input.value.trim();
+            if (!category) return;
+            if (templateCategories().some(c => c.toLowerCase() === category.toLowerCase())) {
+                showToast('Diese Kategorie gibt es bereits.', 'bg-amber-600'); return;
+            }
+            // Store a category marker so empty categories are retained.
+            noteTemplates.push({category, text:'', categoryOnly:true});
+            saveTemplates(); input.value = '';
+            showToast('Kategorie angelegt!', 'bg-emerald-600');
+        }
+
+        function handleAddTemplate(event) {
+            event.preventDefault();
+            const input = document.getElementById('new-template-text');
+            const categorySelect = document.getElementById('new-template-category-select');
+            const val = input.value.trim();
+            if (val) {
+                noteTemplates.push({category: categorySelect.value || 'Allgemein', text:val});
+                saveTemplates(); input.value = '';
+                showToast('Textbaustein hinzugefügt!', 'bg-emerald-600');
+            }
+        }
+
+        function deleteTemplate(index) {
+            noteTemplates.splice(index, 1);
+            saveTemplates();
+            showToast('Eintrag entfernt.', 'bg-slate-700');
+        }
+
+        function deleteTemplateCategory(category) {
+            noteTemplates = noteTemplates.filter(t => t.category !== category);
+            saveTemplates();
+            showToast('Kategorie und ihre Textbausteine entfernt.', 'bg-slate-700');
+        }
+
+        function renderTemplatesList() {
+            const listEl = document.getElementById('templates-list');
+            if (!listEl) return;
+            const categories = templateCategories();
+            if (!noteTemplates.length) {
+                listEl.innerHTML = '<div class="p-4 text-center text-xs text-slate-400">Keine Textvorlagen vorhanden.</div>';
+            } else {
+                listEl.innerHTML = categories.map(category => {
+                    const entries = noteTemplates.map((t, idx) => ({...t, idx})).filter(t => t.category === category && t.text);
+                    const categoryHasMarker = noteTemplates.some(t => t.category === category && t.categoryOnly);
+                    return `<section class="p-3 sm:p-4 space-y-2"><div class="flex items-center justify-between"><h3 class="text-sm font-bold text-indigo-900">📁 ${escapeTemplateHtml(category)}</h3><button onclick="deleteTemplateCategory('${escapeTemplateHtml(category).replace(/'/g, '&#39;')}')" class="text-xs text-rose-600 hover:text-rose-800">Kategorie löschen</button></div>${entries.length ? entries.map(t => `<div class="pl-3 flex justify-between items-center gap-3"><span class="text-sm text-slate-700">${escapeTemplateHtml(t.text)}</span><button onclick="deleteTemplate(${t.idx})" class="text-slate-400 hover:text-rose-600 text-xs font-semibold px-2 py-1 rounded">🗑️</button></div>`).join('') : '<p class="pl-3 text-xs text-slate-400">Noch keine Textbausteine.</p>'}</section>`;
+                }).join('');
+            }
+            const select = document.getElementById('new-template-category-select');
+            if (select) {
+                const current = select.value;
+                select.innerHTML = templateCategories().map(c => `<option value="${escapeTemplateHtml(c)}">${escapeTemplateHtml(c)}</option>`).join('');
+                if (templateCategories().includes(current)) select.value = current;
+            }
+        }
+
+        function updateTemplateDropdowns() {
+            const dropdowns = document.querySelectorAll('.template-dropdown');
+            dropdowns.forEach(select => {
+                let html = '<option value="">+ Vorlage einfügen...</option>';
+                templateCategories().forEach(category => {
+                    const entries = noteTemplates.filter(t => t.category === category && t.text);
+                    if (entries.length) html += `<optgroup label="${escapeTemplateHtml(category)}">` + entries.map(t => `<option value="${escapeTemplateHtml(t.text)}">${escapeTemplateHtml(t.text)}</option>`).join('') + '</optgroup>';
+                });
+                select.innerHTML = html;
+            });
+            renderTemplatePickers();
+        }
+
+        function renderTemplatePickers() {
+            [['form-template-picker','input-notes'],['edit-template-picker','edit-input-notes']].forEach(([containerId]) => {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                const cats = templateCategories().filter(category => noteTemplates.some(t => t.category === category && t.text));
+                container.innerHTML = cats.map(category => `<div><div class="text-xs font-bold text-slate-500 mb-1">${escapeTemplateHtml(category)}</div><div class="flex flex-wrap gap-2">${noteTemplates.filter(t => t.category === category && t.text).map(t => `<button type="button" onclick="appendTemplateToNotes('${containerId === 'form-template-picker' ? 'input-notes' : 'edit-input-notes'}', '${escapeTemplateHtml(t.text).replace(/\\/g,'\\\\').replace(/'/g,"\\'")}')" class="px-2.5 py-1.5 text-xs rounded-lg border border-indigo-200 bg-white text-indigo-700 hover:bg-indigo-50">+ ${escapeTemplateHtml(t.text)}</button>`).join('')}</div></div>`).join('');
+            });
+        }
+
+        function appendTemplateToNotes(fieldId, text) {
+            const notesEl = document.getElementById(fieldId);
+            if (!notesEl || !text) return;
+            const current = notesEl.value.trim();
+            if (current.split(/[,;\n]+/).map(s => s.trim()).includes(text)) return;
+            notesEl.value = current ? `${current}; ${text}` : text;
+            notesEl.dispatchEvent(new Event('input', {bubbles:true}));
+        }
+
+        function insertTemplateIntoForm(text) {
+            if (text) appendTemplateToNotes('input-notes', text);
+            const select = document.querySelector('#view-form .template-dropdown'); if (select) select.value = '';
+        }
+
+        function insertTemplateIntoEdit(text) {
+            if (text) appendTemplateToNotes('edit-input-notes', text);
+            const select = document.querySelector('#edit-modal .template-dropdown'); if (select) select.value = '';
+        }
+
+        function switchTab(tab) {
+            const views = {
+                dashboard: document.getElementById('view-dashboard'),
+                form: document.getElementById('view-form'),
+                table: document.getElementById('view-table'),
+                analysis: document.getElementById('view-analysis'),
+                templates: document.getElementById('view-templates')
+            };
+            const buttons = {
+                dashboard: document.getElementById('btn-tab-dashboard'),
+                form: document.getElementById('btn-tab-form'),
+                table: document.getElementById('btn-tab-table'),
+                analysis: document.getElementById('btn-tab-analysis'),
+                templates: document.getElementById('btn-tab-templates')
+            };
+
+            Object.keys(views).forEach(key => {
+                if (views[key]) {
+                    if (key === tab) {
+                        views[key].classList.remove('hidden');
+                        if (buttons[key]) {
+                            buttons[key].className = "px-3.5 py-2 text-sm font-medium rounded-lg transition bg-white text-indigo-700 shadow-sm";
+                        }
+                        if (key === 'dashboard') {
+                            setTimeout(() => {
+                                updateChart(getFilteredData());
+                                updateRainChart(getFilteredData());
+                            }, 50);
+                        }
+                    } else {
+                        views[key].classList.add('hidden');
+                        if (buttons[key]) {
+                            buttons[key].className = "px-3.5 py-2 text-sm font-medium rounded-lg transition text-indigo-100 hover:text-white";
+                        }
+                    }
+                }
+            });
+        }
+
+        function saveToLocalStorage() {
+            try {
+                weatherData.sort((a, b) => new Date(a.date) - new Date(b.date));
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(weatherData));
+            } catch (e) {
+                console.error("Fehler beim Speichern:", e);
+                showToast("Fehler beim Speichern der Daten!", "bg-rose-600");
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const minTempInput = document.getElementById('input-mintemp');
+            const maxTempInput = document.getElementById('input-maxtemp');
+            const dateInput = document.getElementById('input-date');
+            const rainInput = document.getElementById('input-rain');
+            const snowInput = document.getElementById('input-snow');
+            const notesInput = document.getElementById('input-notes');
+
+            if (!minTempInput || !maxTempInput || !dateInput) return;
+
+            const minTemp = parseFloat(minTempInput.value);
+            const maxTemp = parseFloat(maxTempInput.value);
+
+            const newEntry = {
+                id: Date.now().toString(),
+                date: dateInput.value,
+                minTemp: minTemp,
+                maxTemp: maxTemp,
+                avgTemp: Number(((minTemp + maxTemp) / 2).toFixed(2)),
+                rain: rainInput && rainInput.value ? parseFloat(rainInput.value) : 0,
+                snow: snowInput && snowInput.value ? parseFloat(snowInput.value) : 0,
+                notes: notesInput ? notesInput.value.trim() : ''
+            };
+
+            weatherData.push(newEntry);
+            weatherData.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            saveToLocalStorage();
+            
+            const formEl = document.getElementById('weather-form');
+            if (formEl) formEl.reset();
+            const previewAvgEl = document.getElementById('preview-avg');
+            if (previewAvgEl) previewAvgEl.value = '';
+            setDefaultFormDate();
+
+            showToast("Wetterdatensatz erfolgreich gespeichert! ✨", "bg-emerald-600");
+            switchTab('dashboard');
+        }
+
+        function deleteRecord(id) {
+            showCustomConfirm("Möchten Sie diesen Datensatz wirklich löschen?", () => {
+                weatherData = weatherData.filter(item => item.id !== id);
+                saveToLocalStorage();
+                renderApp();
+                showToast("Datensatz gelöscht.", "bg-slate-700");
+            });
+        }
+
+        function clearAllRecords() {
+            if (weatherData.length === 0) {
+                showToast("Es sind keine Datensätze zum Löschen vorhanden.", "bg-slate-700");
+                return;
+            }
+            showCustomConfirm("Möchten Sie wirklich ALLE Wetterdatensätze unwiderruflich löschen?", () => {
+                weatherData = [];
+                saveToLocalStorage();
+                renderApp();
+                showToast("Alle Datensätze wurden gelöscht. 🗑️", "bg-rose-600");
+            });
+        }
+
+        function showCustomConfirm(message, onConfirm) {
+            let existingModal = document.getElementById('custom-confirm-modal');
+            if (existingModal) existingModal.remove();
+
+            const modal = document.createElement('div');
+            modal.id = 'custom-confirm-modal';
+            modal.className = 'fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 no-print';
+            modal.innerHTML = `
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-100 max-w-sm w-full p-6 space-y-4 text-center">
+                    <div class="text-3xl">⚠️</div>
+                    <h3 class="text-base font-bold text-slate-800">Bestätigung erforderlich</h3>
+                    <p class="text-sm text-slate-600">${message}</p>
+                    <div class="pt-2 flex justify-center gap-2">
+                        <button type="button" id="confirm-cancel-btn" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition">Abbrechen</button>
+                        <button type="button" id="confirm-ok-btn" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white text-sm font-semibold rounded-xl transition shadow-sm">Ja, löschen</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            document.getElementById('confirm-cancel-btn').onclick = () => modal.remove();
+            document.getElementById('confirm-ok-btn').onclick = () => {
+                modal.remove();
+                onConfirm();
+            };
+        }
+
+        function getFilteredData() {
+            const yearFilterEl = document.getElementById('filter-year');
+            const seasonFilterEl = document.getElementById('filter-season');
+            const monthFilterEl = document.getElementById('filter-month');
+            const decadeFilterEl = document.getElementById('filter-decade');
+            const dateFromEl = document.getElementById('filter-date-from');
+            const dateToEl = document.getElementById('filter-date-to');
+
+            const yearFilter = yearFilterEl ? yearFilterEl.value : '';
+            const seasonFilter = seasonFilterEl ? seasonFilterEl.value : '';
+            const monthFilter = monthFilterEl ? monthFilterEl.value : '';
+            const decadeFilter = decadeFilterEl ? decadeFilterEl.value : '';
+            const dateFrom = dateFromEl ? dateFromEl.value : '';
+            const dateTo = dateToEl ? dateToEl.value : '';
+
+            const seasonMonths = {
+                spring: ['03', '04', '05'],
+                summer: ['06', '07', '08'],
+                autumn: ['09', '10', '11'],
+                winter: ['12', '01', '02']
+            };
+
+            return weatherData.filter(item => {
+                if (!item.date) return false;
+                const [itemYear, itemMonth, itemDayStr] = item.date.split('-');
+                const dayNum = parseInt(itemDayStr, 10);
+
+                if (yearFilter && itemYear !== yearFilter) return false;
+                if (seasonFilter && seasonMonths[seasonFilter] && !seasonMonths[seasonFilter].includes(itemMonth)) return false;
+                if (monthFilter && itemMonth !== monthFilter) return false;
+                
+                if (decadeFilter) {
+                    if (decadeFilter === '1' && (dayNum < 1 || dayNum > 10)) return false;
+                    if (decadeFilter === '2' && (dayNum < 11 || dayNum > 20)) return false;
+                    if (decadeFilter === '3' && dayNum < 21) return false;
+                }
+
+                if (dateFrom && item.date < dateFrom) return false;
+                if (dateTo && item.date > dateTo) return false;
+                return true;
+            });
+        }
+
+        function applyFilters() {
+            renderTableAndStats();
+        }
+
+        function resetFilters() {
+            const year = document.getElementById('filter-year');
+            const season = document.getElementById('filter-season');
+            const month = document.getElementById('filter-month');
+            const decade = document.getElementById('filter-decade');
+            const from = document.getElementById('filter-date-from');
+            const to = document.getElementById('filter-date-to');
+
+            const dashYear = document.getElementById('dashboard-filter-year');
+            const dashSeason = document.getElementById('dashboard-filter-season');
+            const dashMonth = document.getElementById('dashboard-filter-month');
+            const dashDecade = document.getElementById('dashboard-filter-decade');
+
+            if (year) year.value = '';
+            if (season) season.value = '';
+            if (month) month.value = '';
+            if (decade) decade.value = '';
+            if (from) from.value = '';
+            if (to) to.value = '';
+
+            if (dashYear) dashYear.value = '';
+            if (dashSeason) dashSeason.value = '';
+            if (dashMonth) dashMonth.value = '';
+            if (dashDecade) dashDecade.value = '';
+
+            renderApp();
+        }
+
+        function renderApp() {
+            weatherData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            populateYearDropdown();
+            renderTableAndStats();
+        }
+
+        function renderTableAndStats() {
+            const filtered = getFilteredData();
+            const tableBody = document.getElementById('weather-table-body');
+            const emptyState = document.getElementById('empty-state');
+            const recordCount = document.getElementById('record-count');
+            const timeframeLabel = document.getElementById('dashboard-timeframe-label');
+
+            const yearVal = document.getElementById('filter-year')?.value || '';
+            const seasonVal = document.getElementById('filter-season')?.value || '';
+            const monthVal = document.getElementById('filter-month')?.value || '';
+            const decadeVal = document.getElementById('filter-decade')?.value || '';
+
+            const dashYear = document.getElementById('dashboard-filter-year');
+            const dashSeason = document.getElementById('dashboard-filter-season');
+            const dashMonth = document.getElementById('dashboard-filter-month');
+            const dashDecade = document.getElementById('dashboard-filter-decade');
+
+            if (dashYear && dashYear.value !== yearVal) dashYear.value = yearVal;
+            if (dashSeason && dashSeason.value !== seasonVal) dashSeason.value = seasonVal;
+            if (dashMonth && dashMonth.value !== monthVal) dashMonth.value = monthVal;
+            if (dashDecade && dashDecade.value !== decadeVal) dashDecade.value = decadeVal;
+
+            if (timeframeLabel) {
+                const monthNames = { "01": "Januar", "02": "Februar", "03": "März", "04": "April", "05": "Mai", "06": "Juni", "07": "Juli", "08": "August", "09": "September", "10": "Oktober", "11": "November", "12": "Dezember" };
+                const seasonNames = { spring: "🌸 Frühjahr", summer: "☀️ Sommer", autumn: "🍂 Herbst", winter: "❄️ Winter" };
+                const decadeNames = { "1": "1. Dekade (1.–10.)", "2": "2. Dekade (11.–20.)", "3": "3. Dekade (21.–Ende)" };
+
+                let parts = [];
+                if (decadeVal) parts.push(decadeNames[decadeVal]);
+                if (seasonVal) parts.push(seasonNames[seasonVal]);
+                if (monthVal) parts.push(monthNames[monthVal]);
+                if (yearVal) parts.push(yearVal);
+
+                if (parts.length > 0) {
+                    timeframeLabel.textContent = parts.join(' • ');
+                } else {
+                    timeframeLabel.textContent = `Gesamter Zeitraum`;
+                }
+            }
+
+            if (recordCount) recordCount.textContent = filtered.length;
+            if (tableBody) tableBody.innerHTML = '';
+
+            if (filtered.length === 0) {
+                if (emptyState) emptyState.classList.remove('hidden');
+            } else {
+                if (emptyState) emptyState.classList.add('hidden');
+                // Tabellenansicht zeigt chronologisch aufsteigend die Tage an
+                filtered.forEach(item => {
+                    const minT = typeof item.minTemp === 'number' ? item.minTemp : 0;
+                    const maxT = typeof item.maxTemp === 'number' ? item.maxTemp : 0;
+                    const avgT = typeof item.avgTemp === 'number' ? item.avgTemp : (minT + maxT) / 2;
+                    const rainVal = typeof item.rain === 'number' ? item.rain : 0;
+                    const snowVal = typeof item.snow === 'number' ? item.snow : 0;
+
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-slate-50/80 transition border-b border-slate-50";
+                    tr.innerHTML = `
+                        <td class="p-4 font-medium text-slate-700">${formatDate(item.date)}</td>
+                        <td class="p-4 font-semibold text-blue-600">${minT.toFixed(1)} °C</td>
+                        <td class="p-4 font-semibold text-rose-600">${maxT.toFixed(1)} °C</td>
+                        <td class="p-4 font-bold text-indigo-600">${avgT.toFixed(1)} °C</td>
+                        <td class="p-4">${rainVal.toFixed(1)} mm</td>
+                        <td class="p-4">${snowVal > 0 ? snowVal.toFixed(1) + ' cm' : '–'}</td>
+                        <td class="p-4 text-xs text-slate-500 max-w-xs truncate" title="${(item.notes || '').replace(/"/g, '&quot;')}">${item.notes || '–'}</td>
+                        <td class="p-4 text-right space-x-1 no-print">
+                            <button onclick="openEditModal('${item.id}')" class="text-indigo-600 hover:text-indigo-800 transition p-1" title="Bearbeiten">✏️</button>
+                            <button onclick="deleteRecord('${item.id}')" class="text-slate-400 hover:text-rose-600 transition p-1" title="Löschen">🗑️</button>
+                        </td>
+                    `;
+                    if (tableBody) tableBody.appendChild(tr);
+                });
+            }
+
+            updateStatistics(filtered);
+            updateChart(filtered);
+            updateRainChart(filtered);
+        }
+
+        let lastAnalysisQuery = null;
+
+        function populateAnalysisDayDropdown() {
+            const select = document.getElementById('analysis-filter-day');
+            if (!select) return;
+            const current = select.value;
+            let html = '<option value="">Alle Tage</option>';
+            for (let day = 1; day <= 31; day++) html += `<option value="${String(day).padStart(2, '0')}">${day}</option>`;
+            select.innerHTML = html;
+            select.value = current;
+        }
+
+        function getAnalysisFilteredData() {
+            const year = document.getElementById('analysis-filter-year')?.value || '';
+            const month = document.getElementById('analysis-filter-month')?.value || '';
+            const day = document.getElementById('analysis-filter-day')?.value || '';
+            return weatherData.filter(item => {
+                if (!item.date) return false;
+                const parts = item.date.split('-');
+                if (parts.length !== 3) return false;
+                return (!year || parts[0] === year) && (!month || parts[1] === month) && (!day || parts[2] === day);
+            });
+        }
+
+        function refreshAnalysisQueryIfNeeded() {
+            if (lastAnalysisQuery) runCustomQuery(lastAnalysisQuery.metric, lastAnalysisQuery.grouping, true);
+        }
+
+        // Tabellen in der Auswertung lassen sich durch erneutes Klicken auf denselben Button ausblenden.
+        let activeAnalysisPanel = null;
+        function toggleAnalysisPanel(panelId, panelKey) {
+            const panel = document.getElementById(panelId);
+            if (!panel) return false;
+            if (!panel.classList.contains('hidden') && activeAnalysisPanel === panelKey) {
+                panel.classList.add('hidden');
+                activeAnalysisPanel = null;
+                return true;
+            }
+            [
+                'precipitation-mean-matrix',
+                'monthly-temperature-matrix',
+                'temperature-deviation-matrix',
+                'query-result-panel'
+            ].forEach(id => {
+                const el = document.getElementById(id);
+                if (el && id !== panelId) el.classList.add('hidden');
+            });
+            activeAnalysisPanel = panelKey;
+            panel.classList.remove('hidden');
+            return false;
+        }
+
+        let currentQueryResultsMatrix = [];
+        let currentQueryResultsFilename = 'auswertung';
+        const analysisChartInstances = {};
+
+        function renderAnalysisChart(canvasId, chartType, labels, datasets, yAxisTitle) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas || typeof Chart === 'undefined') return;
+            if (analysisChartInstances[canvasId]) {
+                analysisChartInstances[canvasId].destroy();
+                delete analysisChartInstances[canvasId];
+            }
+            const cleanDatasets = (datasets || []).map((ds, i) => ({
+                ...ds,
+                data: (ds.data || []).map(v => v === null || v === undefined || v === '' || !Number.isFinite(Number(v)) ? null : Number(v)),
+                borderWidth: ds.borderWidth ?? 2,
+                tension: ds.tension ?? 0.2,
+                spanGaps: false,
+                ...(chartType === 'line' ? { pointRadius: (labels || []).length > 80 ? 0 : 2, pointHoverRadius: 4, fill: false } : { borderRadius: 3 })
+            }));
+            analysisChartInstances[canvasId] = new Chart(canvas.getContext('2d'), {
+                type: chartType,
+                data: { labels: labels || [], datasets: cleanDatasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: { legend: { display: cleanDatasets.length > 1 || chartType === 'line', position: 'bottom' } },
+                    scales: {
+                        y: { title: { display: Boolean(yAxisTitle), text: yAxisTitle || '' }, beginAtZero: chartType === 'bar', grid: { color: '#f1f5f9' } },
+                        x: { grid: { display: false }, ticks: { maxRotation: 65, minRotation: 0, autoSkip: true, maxTicksLimit: 24 } }
+                    },
+                }
+            });
+        }
+
+        function showMonthlyMaximumByYear() {
+            switchTab('analysis');
+            const monthSelect = document.getElementById('analysis-filter-month');
+            const selectedMonth = monthSelect?.value || '';
+            if (!selectedMonth) {
+                alert('Bitte wählen Sie zuerst oben einen Monat aus. Die Auswertung vergleicht diesen Monat über alle verfügbaren Jahre.');
+                monthSelect?.focus();
+                return;
+            }
+            const monthNames = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+            const monthName = monthNames[Number(selectedMonth) - 1];
+            const panel = document.getElementById('query-result-panel');
+            const title = document.getElementById('query-result-title');
+            const count = document.getElementById('query-result-count');
+            const tbody = document.getElementById('query-result-tbody');
+            const chartTitle = document.getElementById('query-result-chart-title');
+            if (!panel || !tbody) return;
+
+            // Absichtlich nur den Monatsfilter verwenden: der Vergleich umfasst alle Jahre.
+            const yearly = new Map();
+            (Array.isArray(weatherData) ? weatherData : []).forEach(d => {
+                if (typeof d?.date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(d.date) || d.date.slice(5,7) !== selectedMonth) return;
+                if (d.maxTemp === null || d.maxTemp === undefined || d.maxTemp === '' || !Number.isFinite(Number(d.maxTemp))) return;
+                const year = d.date.slice(0,4);
+                const value = Number(d.maxTemp);
+                const current = yearly.get(year) || { value: -Infinity, count: 0 };
+                current.value = Math.max(current.value, value);
+                current.count++;
+                yearly.set(year, current);
+            });
+            const years = [...yearly.keys()].sort((a,b) => Number(a)-Number(b));
+            const results = years.map(year => ({ year, val: yearly.get(year).value, sub: `${yearly.get(year).count} gültige Messwerte` }));
+            title.textContent = `Monatsmaximum ${monthName} – alle Jahre`;
+            if (count) count.textContent = `${results.length} Jahre`;
+            if (!results.length) {
+                tbody.innerHTML = '<tr><td colspan="3" class="p-6 text-center text-slate-500">Für diesen Monat wurden keine gültigen Maximumtemperaturen gefunden.</td></tr>';
+            } else {
+                tbody.innerHTML = results.map((r,i) => `<tr class="hover:bg-slate-50 transition border-b border-slate-50"><td class="p-4 font-medium text-slate-800">${r.year}</td><td class="p-4 font-bold text-right text-rose-700">${r.val.toFixed(1).replace('.', ',')} °C</td><td class="p-4 text-xs text-right text-slate-400">${r.sub}</td></tr>`).join('');
+            }
+            currentQueryResultsMatrix = [['Jahr', `Höchste Tages-Maximumtemperatur im ${monthName} (°C)`, 'Gültige Messwerte'], ...results.map(r => [r.year, Number(r.val.toFixed(1)), yearly.get(r.year).count])];
+            currentQueryResultsFilename = `monatsmaximum_${monthName.toLowerCase()}`;
+            if (chartTitle) chartTitle.innerHTML = `Monatsmaximum ${monthName} – Liniendiagramm über alle Jahre <span class="text-xs font-normal text-slate-400">(zum Vergrößern anklicken)</span>`;
+            renderAnalysisChart('query-result-chart', 'line', results.map(r => r.year), [{
+                label: `Höchste Tages-Maximumtemperatur im ${monthName} (°C)`,
+                data: results.map(r => r.val),
+                borderColor: '#dc2626',
+                backgroundColor: '#dc2626',
+                tension: 0.15
+            }], 'Temperatur (°C)');
+            panel.classList.remove('hidden');
+            panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+            activeAnalysisPanel = 'query-max-monthly-year';
+        }
+
+        function runCustomQuery(metric, grouping, forceRefresh = false) {
+            const queryKey = `query-${metric}-${grouping}`;
+            if (!forceRefresh && toggleAnalysisPanel('query-result-panel', queryKey)) return;
+            if (forceRefresh) {
+                activeAnalysisPanel = queryKey;
+                const panel = document.getElementById('query-result-panel');
+                if (panel) panel.classList.remove('hidden');
+            }
+            lastAnalysisQuery = { metric, grouping };
+            populateAnalysisDayDropdown();
+            switchTab('analysis');
+
+            const titleEl = document.getElementById('query-result-title');
+            const countEl = document.getElementById('query-result-count');
+            const tbody = document.getElementById('query-result-tbody');
+
+            const queryData = getAnalysisFilteredData();
+            if (!queryData || queryData.length === 0) {
+                currentQueryResultsMatrix = [];
+                currentQueryResultsFilename = 'auswertung';
+                if (countEl) countEl.textContent = '0 Ergebnisse';
+                if (tbody) tbody.innerHTML = `<tr><td colspan="3" class="p-6 text-center text-slate-400">Keine Wetterdaten für Jahr, Monat und Tag gefunden.</td></tr>`;
+                return;
+            }
+
+            const metricLabels = {
+                min: { title: "Minimumtemperaturen", unit: "°C", color: "text-blue-600" },
+                max: { title: "Maximumtemperaturen", unit: "°C", color: "text-rose-600" },
+                rain: { title: "Niederschlag (Regen)", unit: "mm", color: "text-sky-600" }
+            };
+
+            const groupLabels = {
+                day: "nach Einzel-Tagen (alle Werte, alle Jahre)",
+                season: "nach Jahreszeiten (Durchschnittswerte)",
+                season_sums: "Saisonsummen (Frühjahr, Sommer, Herbst, Winter)",
+                month: "nach Monaten (Aggregiert / Monatssummen)",
+                year: "nach Jahren (Fortlaufende Jahressummen & Jahreswerte)"
+            };
+
+            if (titleEl) titleEl.textContent = `${metricLabels[metric].title} ${groupLabels[grouping]}`;
+
+            let results = [];
+
+            if (grouping === 'day') {
+                const sorted = [...queryData].sort((a, b) => {
+                    if (metric === 'min') return a.minTemp - b.minTemp;
+                    if (metric === 'max') return b.maxTemp - a.maxTemp;
+                    if (metric === 'rain') return b.rain - a.rain;
+                    return 0;
+                });
+
+                results = sorted.map(item => ({
+                    label: formatDate(item.date),
+                    val: metric === 'min' ? item.minTemp : (metric === 'max' ? item.maxTemp : item.rain),
+                    sub: item.notes || 'Keine Notiz'
+                }));
+            } 
+            else if (grouping === 'season' || grouping === 'season_sums') {
+                const map = {};
+                queryData.forEach(item => {
+                    const [y, mStr] = item.date.split('-');
+                    const m = parseInt(mStr, 10);
+                    let seasonKey = '';
+                    let seasonName = '';
+
+                    if (m === 3 || m === 4 || m === 5) { seasonKey = `${y}-spring`; seasonName = `🌸 Frühjahr ${y} (März–Mai)`; }
+                    else if (m === 6 || m === 7 || m === 8) { seasonKey = `${y}-summer`; seasonName = `☀️ Sommer ${y} (Juni–Aug)`; }
+                    else if (m === 9 || m === 10 || m === 11) { seasonKey = `${y}-autumn`; seasonName = `🍂 Herbst ${y} (Sept–Nov)`; }
+                    else { seasonKey = `${y}-winter`; seasonName = `❄️ Winter ${y} (Dez–Feb)`; }
+
+                    if (!map[seasonKey]) {
+                        map[seasonKey] = { name: seasonName, min: item.minTemp, max: item.maxTemp, rainSum: item.rain, count: 1 };
+                    } else {
+                        map[seasonKey].min = Math.min(map[seasonKey].min, item.minTemp);
+                        map[seasonKey].max = Math.max(map[seasonKey].max, item.maxTemp);
+                        map[seasonKey].rainSum += item.rain;
+                        map[seasonKey].count++;
+                    }
+                });
+
+                results = Object.keys(map).map(k => ({
+                    label: map[k].name,
+                    val: metric === 'rain' ? Number(map[k].rainSum.toFixed(1)) : (metric === 'min' ? map[k].min : map[k].max),
+                    sub: `${map[k].count} Tage erfasst`
+                }));
+
+                results.sort((a, b) => metric === 'min' ? a.val - b.val : b.val - a.val);
+            }
+            else if (grouping === 'month') {
+                const map = {};
+                const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+
+                queryData.forEach(item => {
+                    const [y, m] = item.date.split('-');
+                    const mIdx = parseInt(m, 10) - 1;
+                    const key = `${monthNames[mIdx]} ${y}`;
+
+                    if (!map[key]) map[key] = { min: item.minTemp, max: item.maxTemp, rainSum: item.rain, count: 1 };
+                    else {
+                        map[key].min = Math.min(map[key].min, item.minTemp);
+                        map[key].max = Math.max(map[key].max, item.maxTemp);
+                        map[key].rainSum += item.rain;
+                        map[key].count++;
+                    }
+                });
+
+                results = Object.keys(map).map(k => ({
+                    label: k,
+                    val: metric === 'rain' ? Number(map[k].rainSum.toFixed(1)) : (metric === 'min' ? map[k].min : map[k].max),
+                    sub: `${map[k].count} Tage ausgewertet`
+                }));
+
+                results.sort((a, b) => metric === 'min' ? a.val - b.val : b.val - a.val);
+            }
+            else if (grouping === 'year') {
+                const map = {};
+                queryData.forEach(item => {
+                    const y = item.date.split('-')[0];
+                    if (!map[y]) map[y] = { min: item.minTemp, max: item.maxTemp, rainSum: item.rain, count: 1 };
+                    else {
+                        map[y].min = Math.min(map[y].min, item.minTemp);
+                        map[y].max = Math.max(map[y].max, item.maxTemp);
+                        map[y].rainSum += item.rain;
+                        map[y].count++;
+                    }
+                });
+
+                results = Object.keys(map).map(k => ({
+                    label: `Jahr ${k}`,
+                    val: metric === 'rain' ? Number(map[k].rainSum.toFixed(1)) : (metric === 'min' ? map[k].min : map[k].max),
+                    sub: `${map[k].count} Messungen`
+                }));
+
+                results.sort((a, b) => metric === 'min' ? a.val - b.val : b.val - a.val);
+            }
+
+            if (countEl) countEl.textContent = `${results.length} Ergebnisse`;
+            currentQueryResultsMatrix = [["Rang", "Bezeichnung", `${metricLabels[metric].title} (${metricLabels[metric].unit})`, "Zusatzinformation"], ...results.map((r, i) => [i + 1, r.label, Number(Number(r.val).toFixed(1)), r.sub])];
+            currentQueryResultsFilename = (titleEl?.textContent || 'auswertung').toLowerCase().replace(/[^a-z0-9äöüß]+/gi, '_').replace(/^_|_$/g, '') || 'auswertung';
+
+            if (tbody) {
+                tbody.innerHTML = results.map((r, i) => `
+                    <tr class="hover:bg-slate-50 transition border-b border-slate-50">
+                        <td class="p-4 font-medium text-slate-800 flex items-center gap-2">
+                            <span class="text-xs bg-slate-100 font-bold px-2 py-0.5 rounded text-slate-500">${i + 1}.</span>
+                            ${r.label}
+                        </td>
+                        <td class="p-4 font-bold text-right ${metricLabels[metric].color}">
+                            ${r.val.toFixed(1)} ${metricLabels[metric].unit}
+                        </td>
+                        <td class="p-4 text-xs text-right text-slate-400">
+                            ${r.sub}
+                        </td>
+                    </tr>
+                `).join('');
+            }
+            const chartLabels = results.map(r => r.label);
+            const chartValues = results.map(r => Number.isFinite(Number(r.val)) ? Number(r.val) : null);
+            const isRain = metric === 'rain';
+            const chartTitle = document.getElementById('query-result-chart-title');
+            if (chartTitle) chartTitle.innerHTML = `${isRain ? 'Niederschlag – Säulendiagramm' : 'Temperatur – Liniendiagramm'} <span class="text-xs font-normal text-slate-400">(zum Vergrößern anklicken)</span>`;
+            renderAnalysisChart('query-result-chart', isRain ? 'bar' : 'line', chartLabels, [{
+                label: `${metricLabels[metric].title} (${metricLabels[metric].unit})`,
+                data: chartValues,
+                borderColor: isRain ? '#0284c7' : (metric === 'min' ? '#2563eb' : '#dc2626'),
+                backgroundColor: isRain ? '#38bdf8' : (metric === 'min' ? '#2563eb' : '#dc2626')
+            }], metricLabels[metric].unit);
+        }
+
+        let currentDeviationMatrix = [];
+
+        function showTemperatureDeviationMatrix(mode) {
+            switchTab('analysis');
+            if (toggleAnalysisPanel('temperature-deviation-matrix', `deviation-${mode}`)) return;
+            const filtered = getAnalysisFilteredData();
+            const matrix = document.getElementById('temperature-deviation-matrix');
+            const tbody = document.getElementById('deviation-matrix-body');
+            const title = document.getElementById('deviation-matrix-title');
+            const description = document.getElementById('deviation-matrix-description');
+            if (!matrix || !tbody) return;
+
+            const monthNames = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+            const isValidDate = d => typeof d?.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d.date);
+            const getTemp = d => {
+                const avg = d?.avgTemp;
+                if (avg !== null && avg !== undefined && avg !== '' && Number.isFinite(Number(avg))) return Number(avg);
+                const min = d?.minTemp, max = d?.maxTemp;
+                if (min !== null && min !== undefined && min !== '' && max !== null && max !== undefined && max !== '' && Number.isFinite(Number(min)) && Number.isFinite(Number(max))) {
+                    return (Number(min) + Number(max)) / 2;
+                }
+                return null;
+            };
+            const valid = filtered.filter(d => isValidDate(d) && getTemp(d) !== null);
+
+            // Mittelwert des jeweiligen Monats/Jahres aus den aktuell gefilterten Datensätzen.
+            const monthlyMeans = {};
+            valid.forEach(d => {
+                const key = d.date.slice(0, 7);
+                (monthlyMeans[key] ||= []).push(getTemp(d));
+            });
+            Object.keys(monthlyMeans).forEach(k => monthlyMeans[k] = monthlyMeans[k].reduce((a,b)=>a+b,0)/monthlyMeans[k].length);
+
+            // Langjähriges Referenzmittel: gleicher Kalendertag/-monat aus allen geladenen Jahren.
+            const monthDayMeans = {};
+            const longTermValid = weatherData.filter(d => isValidDate(d) && getTemp(d) !== null);
+            longTermValid.forEach(d => {
+                const md = d.date.slice(5);
+                (monthDayMeans[md] ||= []).push(getTemp(d));
+            });
+            Object.keys(monthDayMeans).forEach(k => monthDayMeans[k] = monthDayMeans[k].reduce((a,b)=>a+b,0)/monthDayMeans[k].length);
+
+            const selectedYear = document.getElementById('analysis-filter-year')?.value || '';
+            const selectedMonth = document.getElementById('analysis-filter-month')?.value || '';
+            const rows = {};
+            const rowMonthIndices = {};
+            valid.forEach(d => {
+                const y=d.date.slice(0,4), m=d.date.slice(5,7), day=Number(d.date.slice(8,10));
+                if (selectedYear && y !== selectedYear) return;
+                if (selectedMonth && m !== selectedMonth) return;
+                const key = `${monthNames[Number(m)-1]} ${y}`;
+                const reference = mode === 'monthly' ? monthlyMeans[d.date.slice(0,7)] : monthDayMeans[d.date.slice(5)];
+                if (!Number.isFinite(reference)) return;
+                rows[key] ||= {year:y, month:m, values:Array(31).fill(null)};
+                rows[key].values[day-1] = {temp:getTemp(d), deviation:getTemp(d)-reference};
+            });
+
+            const rowKeys=Object.keys(rows).sort((a,b)=>rows[a].year.localeCompare(rows[b].year)||rows[a].month.localeCompare(rows[b].month));
+            currentDeviationMatrix = [['Monat / Jahr',...Array.from({length:31},(_,i)=>String(i+1))]];
+            rowKeys.forEach(k => currentDeviationMatrix.push([k,...rows[k].values.map(v => v ? Number(v.deviation.toFixed(1)) : '')]));
+            title.textContent = mode==='monthly' ? 'Abweichung Monatsmittelwert' : 'Abweichung zum langjährigen Mittel';
+            description.textContent = mode==='monthly'
+                ? 'Tagesmitteltemperatur minus Monatsmittelwert der ausgewählten Daten. Rot: ≥ +5 °C · Blau: ≤ −5 °C.'
+                : 'Tagesmitteltemperatur minus Durchschnitt desselben Kalendertags/-monats über alle verfügbaren Jahre. Rot: ≥ +5 °C · Blau: ≤ −5 °C.';
+            if (!rowKeys.length) {
+                const message = weatherData.length
+                    ? 'Keine passenden Temperaturdaten gefunden. Bitte prüfen Sie die Filter und ob für die Datensätze Tagesmitteltemperatur oder Minimum und Maximum vorhanden sind.'
+                    : 'Es sind noch keine Wetterdaten geladen. Bitte importieren Sie Wetterdaten oder laden Sie die Demo-Daten.';
+                tbody.innerHTML = `<tr><td colspan="32" class="p-4 text-slate-500">${message}</td></tr>`;
+            } else {
+                let html='<tr class="sticky top-0 bg-slate-50"><th class="p-2 text-left min-w-28">Monat / Jahr</th>'+Array.from({length:31},(_,i)=>`<th class="p-1 min-w-10">${i+1}</th>`).join('')+'</tr>';
+                rowKeys.forEach(k=>{
+                    html+=`<tr class="border-t border-slate-100"><th class="p-2 text-left whitespace-nowrap bg-slate-50">${k}</th>`;
+                    rows[k].values.forEach(v=>{
+                        if(!v) { html+='<td class="p-1 text-slate-300">—</td>'; return; }
+                        const delta=v.deviation, bg=delta>=5?'#dc2626':delta<=-5?'#2563eb':'#f1f5f9', fg=Math.abs(delta)>=5?'#fff':'#334155';
+                        html+=`<td class="p-1" style="background:${bg};color:${fg}" title="Messwert: ${v.temp.toFixed(1)} °C">${delta>0?'+':''}${delta.toFixed(1).replace('.',',')}</td>`;
+                    });
+                    html+='</tr>';
+                });
+                tbody.innerHTML=html;
+            }
+            const deviationLabels = [];
+            const deviationValues = [];
+            rowKeys.forEach(k => rows[k].values.forEach((v, i) => {
+                if (v) { deviationLabels.push(`${k} · ${i + 1}.`); deviationValues.push(Number(v.deviation.toFixed(1))); }
+            }));
+            renderAnalysisChart('deviation-chart', 'line', deviationLabels, [{
+                label: mode === 'monthly' ? 'Abweichung zum Monatsmittel (°C)' : 'Abweichung zum langjährigen Mittel (°C)',
+                data: deviationValues, borderColor: '#4f46e5', backgroundColor: 'rgba(79,70,229,0.12)'
+            }], 'Abweichung (°C)');
+            matrix.classList.remove('hidden');
+            matrix.scrollIntoView({behavior:'smooth',block:'nearest'});
+        }
+
+        let currentPrecipitationMeanMatrix = [];
+        function showPrecipitationMeanMatrix() {
+            if (toggleAnalysisPanel('precipitation-mean-matrix', 'precipitation-mean')) return;
+            const matrix = document.getElementById('precipitation-mean-matrix');
+            const tbody = document.getElementById('precipitation-mean-matrix-body');
+            const title = document.getElementById('precipitation-mean-matrix-title');
+            const description = document.getElementById('precipitation-mean-matrix-description');
+            const selectedYear = document.getElementById('analysis-filter-year')?.value || '';
+            const selectedMonth = document.getElementById('analysis-filter-month')?.value || '';
+            const selectedDay = document.getElementById('analysis-filter-day')?.value || '';
+            const months = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+            const valid = weatherData.filter(d => d.date && /^\d{4}-\d{2}-\d{2}$/.test(d.date) && d.rain !== null && d.rain !== undefined && d.rain !== '' && Number.isFinite(Number(d.rain)));
+            const sums = Array.from({length:31},()=>Array.from({length:12},()=>({sum:0,count:0})));
+            valid.forEach(d => {
+                const y=d.date.slice(0,4), m=Number(d.date.slice(5,7)), day=Number(d.date.slice(8,10));
+                if (selectedYear && y !== selectedYear) return;
+                if (selectedMonth && d.date.slice(5,7) !== selectedMonth) return;
+                if (selectedDay && String(day) !== String(Number(selectedDay))) return;
+                const cell=sums[day-1][m-1]; cell.sum+=Number(d.rain); cell.count++;
+            });
+            const shownYear = selectedYear || 'Alle Jahre';
+            title.textContent = `${shownYear} – Niederschlagsmittel`;
+            title.style.color = '#0369a1';
+            description.textContent = 'Mittlerer Niederschlag je Kalendertag und Monat in mm. Die Filter für Jahr, Monat und Tag werden berücksichtigt.';
+            currentPrecipitationMeanMatrix = [['Tag',...months]];
+            let html = `<tr class="sticky top-0 bg-slate-50"><th class="p-2 min-w-12">Tag</th>${months.map((m,i)=>`<th class="p-2 min-w-12">${m}</th>`).join('')}</tr>`;
+            let rowCount=0;
+            for(let day=1;day<=31;day++) {
+                if(selectedDay && day !== Number(selectedDay)) continue;
+                const values=[];
+                let hasAny=false;
+                for(let month=1;month<=12;month++) {
+                    if(selectedMonth && month !== Number(selectedMonth)) { values.push(''); continue; }
+                    const cell=sums[day-1][month-1];
+                    const value=cell.count ? Number((cell.sum/cell.count).toFixed(2)) : '';
+                    values.push(value);
+                    if(value !== '') hasAny=true;
+                }
+                if(!hasAny && selectedYear) { /* retain day rows to keep the calendar matrix stable */ }
+                currentPrecipitationMeanMatrix.push([day,...values]);
+                html += `<tr class="border-t border-slate-100"><th class="p-1 bg-slate-50">${day}</th>`;
+                values.forEach(v=>{ html += v === '' ? '<td class="p-1 text-slate-300">—</td>' : `<td class="p-1">${Number(v).toLocaleString('de-DE',{minimumFractionDigits:1,maximumFractionDigits:2})}</td>`; });
+                html += '</tr>'; rowCount++;
+            }
+            if(!valid.length) html='<tr><td class="p-4 text-slate-500">Keine Niederschlagsdaten vorhanden.</td></tr>';
+            tbody.innerHTML=html;
+            const chartLabels = Array.from({length:31}, (_,i) => String(i + 1));
+            const chartDatasets = months.map((month, mi) => ({
+                label: month,
+                data: chartLabels.map((_, di) => {
+                    if (selectedMonth && Number(selectedMonth) !== mi + 1) return null;
+                    if (selectedDay && Number(selectedDay) !== di + 1) return null;
+                    const cell = sums[di][mi];
+                    return cell.count ? Number((cell.sum / cell.count).toFixed(2)) : null;
+                }),
+                backgroundColor: `hsl(${195 + mi * 8} 75% 55%)`
+            }));
+            renderAnalysisChart('precipitation-mean-chart', 'bar', chartLabels, chartDatasets, 'Niederschlag (mm)');
+            matrix.classList.remove('hidden');
+            matrix.scrollIntoView({behavior:'smooth',block:'nearest'});
+        }
+
+        function exportPrecipitationMeanMatrixExcel() {
+            exportMatrixAsExcel(currentPrecipitationMeanMatrix, 'niederschlagsmittel');
+        }
+
+        let currentMonthlyTemperatureMatrix = [];
+        function showMonthlyTemperatureMatrix(kind) {
+            if (toggleAnalysisPanel('monthly-temperature-matrix', `monthly-temperature-${kind}`)) return;
+            const matrix = document.getElementById('monthly-temperature-matrix');
+            const tbody = document.getElementById('monthly-temperature-matrix-body');
+            const title = document.getElementById('monthly-temperature-matrix-title');
+            const description = document.getElementById('monthly-temperature-matrix-description');
+            const monthSelect = document.getElementById('analysis-filter-month');
+            const selectedMonth = monthSelect?.value || '';
+            const monthNames = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+            const monthName = selectedMonth ? monthNames[Number(selectedMonth)-1] : 'Alle Monate';
+            const yearFilter = document.getElementById('analysis-filter-year')?.value || '';
+            const metric = kind === 'max' ? 'maxTemp' : 'minTemp';
+            const label = kind === 'max' ? 'Höchsttemperatur' : 'Tiefsttemperatur';
+            const color = kind === 'max' ? '#dc2626' : '#2563eb';
+            const valid = weatherData.filter(d => d.date && /^\d{4}-\d{2}-\d{2}$/.test(d.date) && d[metric] !== null && d[metric] !== undefined && d[metric] !== '' && Number.isFinite(Number(d[metric])));
+            const rows = {};
+            // Monat für jeden Kalendertag merken, damit Grenzwerte auch bei "Alle Monate" stimmen.
+            const rowMonthIndices = {};
+            valid.forEach(d => {
+                const y=d.date.slice(0,4), m=d.date.slice(5,7), day=Number(d.date.slice(8,10));
+                if (selectedMonth && m !== selectedMonth) return;
+                if (yearFilter && y !== yearFilter) return;
+                rows[y] ||= Array(31).fill(null);
+                rowMonthIndices[y] ||= Array(31).fill(null);
+                rows[y][day-1] = Number(d[metric]);
+                rowMonthIndices[y][day-1] = Number(m) - 1;
+            });
+            title.textContent = `${monthName} – ${label}`;
+            title.style.color = color;
+            description.textContent = `Alle erfassten ${kind === 'max' ? 'Höchsttemperaturen' : 'Tiefsttemperaturen'} in °C. Jahre stehen links, Kalendertage 1–31 oben.`;
+            const years = Object.keys(rows).sort();
+            // Grenzwerte aus Grenzwerte.xlsx; die Legende verwendet dieselben Monatswerte.
+            const thresholdLegend = document.getElementById('monthly-temperature-threshold-legend');
+            const legendMonths = [
+                ['Januar','≥ 0 °C','—','< 0 °C','> 0 °C','—','< 0 °C'],
+                ['Februar','≥ 0 °C','—','< 0 °C','> 0 °C','—','< 0 °C'],
+                ['März','≥ 10 °C','0 bis 9,9 °C','< 0 °C','> 0 °C','—','< 0 °C'],
+                ['April','≥ 15 °C','10 bis 14,9 °C','< 10 °C','≥ 10 °C','0 bis 9,9 °C','< 0 °C'],
+                ['Mai','≥ 20 °C','—','< 20 °C','≥ 10 °C','—','< 10 °C'],
+                ['Juni','≥ 20 °C','—','< 20 °C','≥ 15 °C','10 bis 14,9 °C','< 10 °C'],
+                ['Juli','≥ 20 °C','—','< 20 °C','≥ 15 °C','—','< 15 °C'],
+                ['August','≥ 20 °C','—','< 20 °C','≥ 15 °C','—','< 15 °C'],
+                ['September','≥ 20 °C','—','< 20 °C','≥ 10 °C','—','< 10 °C'],
+                ['Oktober','≥ 15 °C','—','< 15 °C','≥ 10 °C','0 bis 9,9 °C','< 0 °C'],
+                ['November','≥ 10 °C','0 bis 9,9 °C','—','≥ 5 °C','0 bis 4,9 °C','< 0 °C'],
+                ['Dezember','≥ 0 °C','—','< 0 °C','≥ 5 °C','—','< 0 °C']
+            ];
+            const legendRows = selectedMonth ? legendMonths.filter((r, i) => i === Number(selectedMonth)-1) : legendMonths;
+            const redCol = kind === 'max' ? 1 : 4, blackCol = kind === 'max' ? 2 : 5, blueCol = kind === 'max' ? 3 : 6;
+            thresholdLegend.innerHTML = `<h4 class="text-sm font-bold text-slate-800 mb-2">Grenzwerte für ${kind === 'max' ? 'Höchsttemperaturen' : 'Tiefsttemperaturen'} (°C)</h4><p class="text-xs text-slate-500 mb-3">${selectedMonth ? 'Grenzwerte für den ausgewählten Monat.' : 'Monatliche Grenzwerte laut Grenzwerte.xlsx.'} Rot, Schwarz und Blau entsprechen der Einfärbung der Tabellenwerte. „—“ bedeutet, dass in der Grenzwertdatei kein Bereich angegeben ist.</p><div class="overflow-auto"><table class="excel-view w-full text-center"><thead><tr><th>Monat</th><th class="temp-band-red">Rot</th><th class="temp-band-black">Schwarz</th><th class="temp-band-blue">Blau</th></tr></thead><tbody>${legendRows.map(r => `<tr><th class="text-left">${r[0]}</th><td class="temp-band-red">${r[redCol]}</td><td class="temp-band-black">${r[blackCol]}</td><td class="temp-band-blue">${r[blueCol]}</td></tr>`).join('')}</tbody></table></div>`;
+            // Grenzwerte für die Einfärbung der Temperaturwerte.
+            const maxRed = [0,0,10,15,20,20,20,20,20,15,10,0];
+            const maxBlue = [0,0,0,10,20,20,20,20,20,15,null,0];
+            const minRed = [0,0,0,10,10,15,15,15,10,10,5,5];
+            const minBlue = [0,0,0,0,10,10,15,15,10,0,0,0];
+            const minBlackRanges = {3:[0,10],5:[10,15],9:[0,10],10:[0,5]}; // Monatsindex 0-basiert
+            function temperatureBand(value, monthIndex) {
+                if (kind === 'max') {
+                    if (value >= maxRed[monthIndex]) return 'red';
+                    if (maxBlue[monthIndex] !== null && value < maxBlue[monthIndex]) return 'blue';
+                    if ((monthIndex === 2 && value >= 0 && value < 10) || (monthIndex === 3 && value >= 10 && value < 15) || (monthIndex === 10 && value >= 0 && value < 10)) return 'black';
+                    return '';
+                }
+                if (value >= minRed[monthIndex] && (monthIndex !== 0 && monthIndex !== 1 && monthIndex !== 2 || value > 0)) return 'red';
+                if (value < minBlue[monthIndex]) return 'blue';
+                const range = minBlackRanges[monthIndex];
+                if (range && value >= range[0] && value < range[1]) return 'black';
+                return '';
+            }
+            currentMonthlyTemperatureMatrix = [['Jahr',...Array.from({length:31},(_,i)=>String(i+1))]];
+            years.forEach(y => currentMonthlyTemperatureMatrix.push([y,...rows[y].map(v => v === null ? '' : Number(v.toFixed(1)))]));
+            if (!years.length) {
+                tbody.innerHTML = '<tr><td class="p-4 text-slate-500">Keine passenden Temperaturdaten vorhanden. Bitte wählen Sie einen Monat im Dropdown aus oder prüfen Sie die vorhandenen Daten.</td></tr>';
+            } else {
+                let html = `<tr class="sticky top-0 bg-slate-50"><th class="p-2 text-left min-w-20">Jahr</th>${Array.from({length:31},(_,i)=>`<th class="p-1 min-w-10">${i+1}</th>`).join('')}</tr>`;
+                years.forEach(y => {
+                    html += `<tr class="border-t border-slate-100"><th class="p-2 text-left bg-slate-50">${y}</th>`;
+                    rows[y].forEach((v, dayIndex) => {
+                        if (v === null) { html += '<td class="p-1 text-slate-300">—</td>'; return; }
+                        const dateMonthIndex = selectedMonth ? Number(selectedMonth) - 1 : (rowMonthIndices[y]?.[dayIndex] ?? 0);
+                        const band = temperatureBand(v, dateMonthIndex);
+                        html += `<td class="p-1 ${band ? `temp-band-${band}` : ''}" style="color:${color}">${v.toFixed(1).replace('.',',')}</td>`;
+                    });
+                    html += '</tr>';
+                });
+                tbody.innerHTML = html;
+            }
+            const chartDatasets = years.map((year, i) => ({
+                label: year,
+                data: rows[year].map(v => v === null ? null : Number(v.toFixed(1))),
+                borderColor: years.length === 1 ? color : `hsl(${(i * 47) % 360} 65% 45%)`,
+                backgroundColor: 'transparent'
+            }));
+            renderAnalysisChart('monthly-temperature-chart', 'line', Array.from({length:31},(_,i)=>String(i+1)), chartDatasets, 'Temperatur (°C)');
+            matrix.classList.remove('hidden');
+            matrix.scrollIntoView({behavior:'smooth',block:'nearest'});
+        }
+
+        function exportMonthlyTemperatureMatrixExcel() {
+            exportMatrixAsExcel(currentMonthlyTemperatureMatrix, 'monatliche_temperaturen');
+        }
+
+        function exportDeviationMatrixExcel() {
+            exportMatrixAsExcel(currentDeviationMatrix, 'temperaturabweichungen');
+        }
+
+        function exportQueryResultsExcel() {
+            exportMatrixAsExcel(currentQueryResultsMatrix, currentQueryResultsFilename || 'auswertung');
+        }
+
+        // Schaltet zwischen der normalen Darstellung und einer tabellenkalkulationsähnlichen Ansicht um.
+        function toggleExcelView(tableId, button) {
+            const table = document.getElementById(tableId);
+            if (!table) return;
+            const enabled = table.classList.toggle('excel-view');
+            if (button) button.textContent = enabled ? 'Normale Ansicht' : 'Excel-Ansicht';
+        }
+
+        // Erzeugt eine Excel-kompatible .xls-Datei im SpreadsheetML-Format, ohne Zusatzbibliothek.
+        function exportMatrixAsExcel(matrix, filename) {
+            if (!Array.isArray(matrix) || !matrix.length) {
+                alert('Für diese Auswertung liegen noch keine exportierbaren Daten vor.');
+                return;
+            }
+            const xmlEscape = value => String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+            const rowsXml = matrix.map((row, rowIndex) => '<Row>' + row.map(value => {
+                if (typeof value === 'number' && Number.isFinite(value)) return `<Cell><Data ss:Type="Number">${value}</Data></Cell>`;
+                return `<Cell${rowIndex === 0 ? ' ss:StyleID="Header"' : ''}><Data ss:Type="String">${xmlEscape(value)}</Data></Cell>`;
+            }).join('') + '</Row>').join('');
+            const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"><Styles><Style ss:ID="Header"><Font ss:Bold="1"/><Interior ss:Color="#D9EAF7" ss:Pattern="Solid"/></Style></Styles><Worksheet ss:Name="Auswertung"><Table>${rowsXml}</Table></Worksheet></Workbook>`;
+            const blob = new Blob([xml], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${(filename || 'auswertung').replace(/[\\/:*?"<>|]+/g, '_')}.xls`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+
+        function updateStatistics(data) {
+            const avgTempEl = document.getElementById('stat-avg-temp');
+            const maxTempEl = document.getElementById('stat-max-temp');
+            const minTempEl = document.getElementById('stat-min-temp');
+            const totalRainEl = document.getElementById('stat-total-rain');
+
+            if (!data || data.length === 0) {
+                if (avgTempEl) avgTempEl.textContent = '0.0 °C';
+                if (maxTempEl) maxTempEl.textContent = '0.0 °C';
+                if (minTempEl) minTempEl.textContent = '0.0 °C';
+                if (totalRainEl) totalRainEl.textContent = '0.0 mm';
+                return;
+            }
+
+            let sumAvgTemp = 0;
+            let absoluteMax = typeof data[0].maxTemp === 'number' ? data[0].maxTemp : 0;
+            let absoluteMin = typeof data[0].minTemp === 'number' ? data[0].minTemp : 0;
+            let totalRain = 0;
+
+            data.forEach(item => {
+                const minT = typeof item.minTemp === 'number' ? item.minTemp : 0;
+                const maxT = typeof item.maxTemp === 'number' ? item.maxTemp : 0;
+                const avgT = typeof item.avgTemp === 'number' ? item.avgTemp : (minT + maxT) / 2;
+                const rVal = typeof item.rain === 'number' ? item.rain : 0;
+
+                sumAvgTemp += avgT;
+                if (maxT > absoluteMax) absoluteMax = maxT;
+                if (minT < absoluteMin) absoluteMin = minT;
+                totalRain += rVal;
+            });
+
+            const overallAvg = sumAvgTemp / data.length;
+
+            if (avgTempEl) avgTempEl.textContent = overallAvg.toFixed(1) + ' °C';
+            if (maxTempEl) maxTempEl.textContent = absoluteMax.toFixed(1) + ' °C';
+            if (minTempEl) minTempEl.textContent = absoluteMin.toFixed(1) + ' °C';
+            if (totalRainEl) totalRainEl.textContent = totalRain.toFixed(1) + ' mm';
+        }
+
+        async function openChartFullscreen(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const card = canvas ? canvas.closest('.chart-card') : null;
+            if (!card) return;
+            try {
+                if (document.fullscreenElement === card) {
+                    await document.exitFullscreen();
+                } else if (document.fullscreenElement) {
+                    await document.exitFullscreen();
+                    await card.requestFullscreen();
+                } else {
+                    await card.requestFullscreen();
+                }
+            } catch (error) {
+                showToast('Vollbildmodus wird von diesem Browser nicht unterstützt.', 'bg-rose-600');
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            setTimeout(() => {
+                if (tempChartInstance) tempChartInstance.resize();
+                if (rainChartInstance) rainChartInstance.resize();
+                Object.values(analysisChartInstances).forEach(chart => { if (chart) chart.resize(); });
+            }, 150);
+        });
+
+        function updateChart(data) {
+            const canvasEl = document.getElementById('tempChart');
+            if (!canvasEl) return;
+            const ctx = canvasEl.getContext('2d');
+            
+            const sortedData = [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
+            const labels = sortedData.map(item => formatDate(item.date));
+            const maxTemps = sortedData.map(item => typeof item.maxTemp === 'number' ? item.maxTemp : 0);
+            const minTemps = sortedData.map(item => typeof item.minTemp === 'number' ? item.minTemp : 0);
+            const avgTemps = sortedData.map(item => typeof item.avgTemp === 'number' ? item.avgTemp : 0);
+
+            if (tempChartInstance) {
+                tempChartInstance.destroy();
+            }
+
+            tempChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Maximum Temp (°C)',
+                            data: maxTemps,
+                            borderColor: '#e11d48',
+                            backgroundColor: 'rgba(225, 29, 72, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.2,
+                            fill: false
+                        },
+                        {
+                            label: 'Durchschnitt (°C)',
+                            data: avgTemps,
+                            borderColor: '#000000',
+                            backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.2,
+                            fill: true
+                        },
+                        {
+                            label: 'Minimum Temp (°C)',
+                            data: minTemps,
+                            borderColor: '#2563eb',
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.2,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    },
+                    scales: {
+                        y: { beginAtZero: false, grid: { color: '#f1f5f9' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function updateRainChart(data) {
+            const canvasEl = document.getElementById('rainChart');
+            if (!canvasEl) return;
+            const ctx = canvasEl.getContext('2d');
+
+            const sortedData = [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
+            const labels = sortedData.map(item => formatDate(item.date));
+            const rains = sortedData.map(item => typeof item.rain === 'number' ? item.rain : 0);
+
+            if (rainChartInstance) {
+                rainChartInstance.destroy();
+            }
+
+            rainChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Niederschlag (mm)',
+                            data: rains,
+                            backgroundColor: '#0ea5e9',
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: '#f1f5f9' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const parts = dateStr.split('-');
+            if (parts.length !== 3) return dateStr;
+            return `${parts[2]}.${parts[1]}.${parts[0]}`;
+        }
+
+        function exportData() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(weatherData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            const dateStamp = new Date().toISOString().split('T')[0];
+            downloadAnchor.setAttribute("download", `wetterstatistik_pohlaer_berg_backup_${dateStamp}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("Backup erfolgreich heruntergeladen! 💾", "bg-emerald-600");
+        }
+
+        // Exportiert sämtliche Rohdaten in eine Excel-Datei mit zwölf Monatsblättern je Jahr.
+        // Vorhandene Datensätze werden übernommen; fehlende Tage bleiben zur Eingabe leer.
+        // Beim nächsten Export wird das aktuelle Jahr automatisch ergänzt.
+        function exportMonthlyWorkbook() {
+            if (typeof XLSX === 'undefined') {
+                showToast('Excel-Bibliothek konnte nicht geladen werden. Bitte Internetverbindung prüfen.', 'bg-rose-600');
+                return;
+            }
+            const monthNames = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+            const currentYear = new Date().getFullYear();
+            const yearsInData = weatherData.map(item => Number(String(item.date || '').slice(0,4))).filter(y => Number.isInteger(y) && y >= 1900 && y <= 9999);
+            const firstYear = yearsInData.length ? Math.min(...yearsInData, currentYear) : currentYear;
+            const lastYear = Math.max(currentYear, ...(yearsInData.length ? yearsInData : [currentYear]));
+            const byDate = new Map(weatherData.map(item => [item.date, item]));
+            const workbook = XLSX.utils.book_new();
+            const headers = ['Datum','Minimumtemperatur (°C)','Maximumtemperatur (°C)','Durchschnittstemperatur (°C)','Niederschlag (mm)','Schneehöhe (cm)','Notizen'];
+
+            for (let year = firstYear; year <= lastYear; year++) {
+                for (let month = 1; month <= 12; month++) {
+                    const rows = [headers];
+                    const days = new Date(year, month, 0).getDate();
+                    for (let day = 1; day <= days; day++) {
+                        const date = `${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+                        const item = byDate.get(date);
+                        const rowNumber = day + 1;
+                        rows.push([
+                            date,
+                            item ? item.minTemp : '',
+                            item ? item.maxTemp : '',
+                            item ? Number(((Number(item.minTemp) + Number(item.maxTemp)) / 2).toFixed(2)) : { f: `IF(OR(B${rowNumber}="",C${rowNumber}=""),"",ROUND((B${rowNumber}+C${rowNumber})/2,2))` },
+                            item ? (item.rain ?? 0) : '',
+                            item ? (item.snow ?? 0) : '',
+                            item ? (item.notes || '') : ''
+                        ]);
+                    }
+                    const sheet = XLSX.utils.aoa_to_sheet(rows);
+                    sheet['!cols'] = [{wch:13},{wch:21},{wch:21},{wch:25},{wch:18},{wch:16},{wch:42}];
+                    sheet['!autofilter'] = { ref: `A1:G${days + 1}` };
+                    sheet['!freeze'] = { xSplit: 0, ySplit: 1, topLeftCell: 'A2', activePane: 'bottomLeft', state: 'frozen' };
+                    const sheetName = `${year}-${monthNames[month-1]}`;
+                    XLSX.utils.book_append_sheet(workbook, sheet, sheetName.slice(0,31));
+                }
+            }
+            const dateStamp = new Date().toISOString().split('T')[0];
+            XLSX.writeFile(workbook, `Wetterstation_Pohlaer_Berg_Monatsblaetter_${dateStamp}.xlsx`);
+            showToast(`Excel-Datei mit ${workbook.SheetNames.length} Monatsblättern erstellt.`, 'bg-emerald-600');
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if (Array.isArray(imported)) {
+                        weatherData = imported;
+                        weatherData.sort((a, b) => new Date(a.date) - new Date(b.date));
+                        saveToLocalStorage();
+                        renderApp();
+                        showToast(`Erfolgreich ${imported.length} Datensätze importiert! 📂`, "bg-emerald-600");
+                    } else {
+                        showToast("Ungültiges Backup-Format.", "bg-rose-600");
+                    }
+                } catch(err) {
+                    showToast("Fehler beim Lesen der Datei.", "bg-rose-600");
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // Importiert Wetterdaten aus Excel (.xlsx/.xls) oder CSV.
+        // Sucht die eigentliche Tabellen-Kopfzeile auch dann, wenn oberhalb Titel,
+        // Stationsdaten oder Zusammenfassungen stehen (z. B. Wetterstation-Export).
+        function importExcelData(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+            if (typeof XLSX === 'undefined') {
+                showToast('Excel-Bibliothek konnte nicht geladen werden. Bitte Internetverbindung prüfen.', 'bg-rose-600');
+                event.target.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const bytes = new Uint8Array(e.target.result);
+                    const isCsv = /\.csv$/i.test(file.name);
+                    const workbook = XLSX.read(bytes, { type: 'array', cellDates: true });
+                    if (!workbook.SheetNames.length) throw new Error('Keine Tabellenblätter gefunden');
+
+                    const normalizeHeader = value => String(value ?? '')
+                        .toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                        .replace(/[°º]/g, '').replace(/[^a-z0-9]/g, '');
+                    const aliases = {
+                        date: ['datum', 'date', 'tag', 'messdatum', 'zeitstempel', 'timestamp'],
+                        minTemp: ['mintemp', 'minimumtemp', 'minimumtemperatur', 'temperaturmin', 'minimale temperatur', 'min', 'tmin', 'tn'],
+                        maxTemp: ['maxtemp', 'maximumtemp', 'maximumtemperatur', 'temperaturmax', 'maximale temperatur', 'max', 'tmax', 'tx'],
+                        avgTemp: ['avgtemp', 'mitteltemp', 'mitteltemperatur', 'durchschnittstemperatur', 'temperaturmittel', 'mittel', 'tmittel'],
+                        rain: ['niederschlag', 'niederschlagmm', 'regen', 'regenmm', 'rain', 'precipitation', 'rr'],
+                        snow: ['schnee', 'schneehoehe', 'schneehöhe', 'schneecm', 'snow', 'snowdepth'],
+                        notes: ['notizen', 'notiz', 'bemerkungen', 'bemerkung', 'notizenbemerkungen', 'notes', 'beschreibung']
+                    };
+                    const normalizedAliases = Object.fromEntries(
+                        Object.entries(aliases).map(([key, values]) => [key, values.map(normalizeHeader)])
+                    );
+                    const matchesHeader = (header, key) => {
+                        const h = normalizeHeader(header);
+                        return normalizedAliases[key].some(alias => h === alias || (alias.length >= 4 && h.startsWith(alias)));
+                    };
+
+                    // Alle passenden Tabellenblätter einlesen. Damit können Monatsblätter
+                    // einer kompletten Jahres-/Mehrjahresdatei gemeinsam importiert werden.
+                    const chosenSheets = [];
+                    for (const sheetName of workbook.SheetNames) {
+                        const sheet = workbook.Sheets[sheetName];
+                        const matrix = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '', raw: true });
+                        const scanLimit = Math.min(matrix.length, 40);
+                        let foundHeader = -1;
+                        let bestScore = -1;
+                        for (let r = 0; r < scanLimit; r++) {
+                            const cells = matrix[r] || [];
+                            const hasDate = cells.some(v => matchesHeader(v, 'date'));
+                            const hasMin = cells.some(v => matchesHeader(v, 'minTemp'));
+                            const hasMax = cells.some(v => matchesHeader(v, 'maxTemp'));
+                            const hasTemp = cells.some(v => /temperatur|temp/i.test(String(v ?? '')));
+                            const score = (hasDate ? 4 : 0) + (hasMin ? 3 : 0) + (hasMax ? 3 : 0) +
+                                (cells.some(v => matchesHeader(v, 'rain')) ? 1 : 0);
+                            if (hasDate && hasMin && hasMax && score > bestScore) {
+                                bestScore = score;
+                                foundHeader = r;
+                            } else if (hasDate && hasTemp && score > bestScore && !hasMin && !hasMax) {
+                                bestScore = score;
+                                foundHeader = r;
+                            }
+                        }
+                        if (foundHeader >= 0) chosenSheets.push({ name: sheetName, sheet, headerRowIndex: foundHeader });
+                    }
+
+                    if (!chosenSheets.length) {
+                        showToast('Keine passende Tabelle gefunden. Benötigt werden Spalten für Datum, Minimum- und Maximumtemperatur.', 'bg-rose-600');
+                        return;
+                    }
+
+                    const parseNumber = value => {
+                        if (value === '' || value === null || value === undefined) return null;
+                        if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+                        const cleaned = String(value).trim().replace(/\s/g, '').replace(',', '.').replace(/[^\d.+-]/g, '');
+                        if (!cleaned) return null;
+                        const number = Number(cleaned);
+                        return Number.isFinite(number) ? number : null;
+                    };
+                    const parseDate = value => {
+                        if (value instanceof Date && !isNaN(value)) {
+                            return `${value.getFullYear()}-${String(value.getMonth()+1).padStart(2,'0')}-${String(value.getDate()).padStart(2,'0')}`;
+                        }
+                        if (typeof value === 'number' && value > 20000 && value < 80000) {
+                            const d = XLSX.SSF.parse_date_code(value);
+                            if (d) return `${d.y}-${String(d.m).padStart(2,'0')}-${String(d.d).padStart(2,'0')}`;
+                        }
+                        const text = String(value ?? '').trim();
+                        let m = text.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/);
+                        if (m) return `${m[3]}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;
+                        m = text.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+                        if (m) return `${m[1]}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`;
+                        const d = new Date(text);
+                        if (!isNaN(d)) return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+                        return '';
+                    };
+
+                    const imported = [];
+                    let skipped = 0;
+                    chosenSheets.forEach(({ name: sheetName, sheet, headerRowIndex }) => {
+                        const rows = XLSX.utils.sheet_to_json(sheet, { range: headerRowIndex, defval: '', raw: true });
+                        if (!rows.length) return;
+                        const headers = Object.keys(rows[0]);
+                        const headerMap = {};
+                        for (const key of Object.keys(aliases)) headerMap[key] = headers.find(h => matchesHeader(h, key));
+                        if (!headerMap.date || !headerMap.minTemp || !headerMap.maxTemp) return;
+                        rows.forEach((row, index) => {
+                            const date = parseDate(row[headerMap.date]);
+                            const minTemp = parseNumber(row[headerMap.minTemp]);
+                            const maxTemp = parseNumber(row[headerMap.maxTemp]);
+                            // Leere vorbereitete Kalendertage werden ignoriert, nicht als Fehler gezählt.
+                            if (!date && (row[headerMap.minTemp] === '' || row[headerMap.minTemp] == null) &&
+                                (row[headerMap.maxTemp] === '' || row[headerMap.maxTemp] == null)) return;
+                            if (!date || minTemp === null || maxTemp === null || minTemp > maxTemp) {
+                                skipped++;
+                                return;
+                            }
+                            const avgGiven = headerMap.avgTemp ? parseNumber(row[headerMap.avgTemp]) : null;
+                            imported.push({
+                                id: 'excel-' + date + '-' + index + '-' + Date.now(),
+                                date,
+                                minTemp,
+                                maxTemp,
+                                avgTemp: avgGiven !== null ? avgGiven : Number(((minTemp + maxTemp) / 2).toFixed(2)),
+                                rain: headerMap.rain ? (parseNumber(row[headerMap.rain]) ?? 0) : 0,
+                                snow: headerMap.snow ? (parseNumber(row[headerMap.snow]) ?? 0) : 0,
+                                notes: headerMap.notes ? String(row[headerMap.notes] ?? '').trim() : ''
+                            });
+                        });
+                    });
+
+                    if (!imported.length) {
+                        showToast('Keine gültigen Tageswerte gefunden. Prüfe Datum sowie Minimum- und Maximumtemperatur.', 'bg-rose-600');
+                        return;
+                    }
+
+                    const byDate = new Map(weatherData.map(item => [item.date, item]));
+                    let added = 0, updated = 0;
+                    imported.forEach(item => {
+                        if (byDate.has(item.date)) updated++;
+                        else added++;
+                        byDate.set(item.date, item);
+                    });
+                    weatherData = Array.from(byDate.values()).sort((a, b) => a.date.localeCompare(b.date));
+                    saveToLocalStorage();
+                    renderApp();
+                    showToast(`Excel-Import aus ${chosenSheets.length} Tabellenblättern fertig: ${added} neu, ${updated} aktualisiert${skipped ? `, ${skipped} übersprungen` : ''}.`, 'bg-emerald-600');
+                } catch (err) {
+                    console.error('Excel-Import fehlgeschlagen:', err);
+                    showToast('Datei konnte nicht gelesen werden. Bitte XLSX, XLS oder CSV verwenden.', 'bg-rose-600');
+                } finally {
+                    event.target.value = '';
+                }
+            };
+            reader.onerror = function() {
+                showToast('Datei konnte nicht gelesen werden.', 'bg-rose-600');
+                event.target.value = '';
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function importPhotoData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            showToast("Foto wird vorbereitet und analysiert …", "bg-indigo-600");
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                const imgDataUrl = e.target.result;
+                try {
+                    // Zwei Durchläufe: Original für Handschrift, kontrastverstärkte Graustufen für Zahlen.
+                    const prepared = await preprocessOcrImage(imgDataUrl);
+                    const result = await Tesseract.recognize(prepared, 'deu+eng', {
+                        logger: m => {
+                            if (m.status === 'recognizing text') {
+                                const prog = Math.round(m.progress * 100);
+                                if (prog % 25 === 0) showToast(`OCR analysiert Bild... ${prog}%`, "bg-indigo-600");
+                            }
+                        }
+                    });
+                    console.log("OCR-Text:", result.data.text);
+                    console.log("OCR-Wörter mit Positionen:", result.data.words);
+                    parseOcrTextAndShowModal(imgDataUrl, result.data);
+                } catch (err) {
+                    console.error("OCR Fehler:", err);
+                    showToast("OCR konnte das Bild nicht zuverlässig lesen. Bitte Monat auswählen und Werte in der Vorschau prüfen.", "bg-rose-600");
+                    detectTableDataFromImageFallback(imgDataUrl);
+                }
+            };
+            reader.readAsDataURL(file);
+            event.target.value = '';
+        }
+
+        function preprocessOcrImage(src) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    // Vergrößern hilft Tesseract bei kleinen handschriftlichen Ziffern.
+                    const scale = Math.min(2, 2600 / Math.max(img.naturalWidth, img.naturalHeight));
+                    canvas.width = Math.round(img.naturalWidth * scale);
+                    canvas.height = Math.round(img.naturalHeight * scale);
+                    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    const image = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    for (let i = 0; i < image.data.length; i += 4) {
+                        const gray = 0.299 * image.data[i] + 0.587 * image.data[i+1] + 0.114 * image.data[i+2];
+                        // Moderate Kontrastverstärkung, damit blaue Schrift erhalten bleibt.
+                        const value = Math.max(0, Math.min(255, (gray - 128) * 1.35 + 128));
+                        image.data[i] = image.data[i+1] = image.data[i+2] = value;
+                    }
+                    ctx.putImageData(image, 0, 0);
+                    resolve(canvas.toDataURL('image/png'));
+                };
+                img.onerror = reject;
+                img.src = src;
+            });
+        }
+
+        function parseOcrTextAndShowModal(imgDataUrl, ocrData) {
+            const ocrText = typeof ocrData === 'string' ? ocrData : (ocrData.text || '');
+            const words = (typeof ocrData === 'object' && ocrData.words) ? ocrData.words : [];
+            const now = new Date();
+            let year = now.getFullYear();
+            let month = now.getMonth() + 1;
+            // Monat/Jahr nur übernehmen, wenn im OCR-Text tatsächlich ein eindeutiger Hinweis vorkommt.
+            const monthNames = { januar:1, februar:2, märz:3, maerz:3, april:4, mai:5, juni:6, juli:7, august:8, september:9, oktober:10, november:11, dezember:12 };
+            const monthMatch = ocrText.toLowerCase().match(/(januar|februar|märz|maerz|april|mai|juni|juli|august|september|oktober|november|dezember)[\s,.-]*(20\d{2})/);
+            if (monthMatch) { month = monthNames[monthMatch[1]]; year = Number(monthMatch[2]); }
+            const monthValue = `${year}-${String(month).padStart(2,'0')}`;
+            const daysInMonth = new Date(year, month, 0).getDate();
+            const rowsByDay = new Map();
+
+            // Tesseract-Wörter nach vertikaler Lage gruppieren und die x-Position zur Spaltenzuordnung nutzen.
+            // Die Spaltenpositionen entsprechen dem Wetterblatt: Tag | Ø | Max | Min | ... | Regen | Schnee.
+            if (words.length) {
+                const valid = words.filter(w => w && w.bbox && String(w.text || '').trim());
+                const heights = valid.map(w => Math.max(1, w.bbox.y1 - w.bbox.y0)).sort((a,b)=>a-b);
+                const rowTolerance = Math.max(8, (heights[Math.floor(heights.length/2)] || 12) * 1.35);
+                const sorted = valid.slice().sort((a,b) => ((a.bbox.y0+a.bbox.y1)/2) - ((b.bbox.y0+b.bbox.y1)/2));
+                const bands = [];
+                sorted.forEach(w => {
+                    const cy = (w.bbox.y0 + w.bbox.y1) / 2;
+                    let band = bands.find(b => Math.abs(b.y - cy) <= rowTolerance);
+                    if (!band) { band = { y: cy, words: [] }; bands.push(band); }
+                    band.words.push(w); band.y = band.words.reduce((sum,x)=>sum+(x.bbox.y0+x.bbox.y1)/2,0)/band.words.length;
+                });
+                const imageWidth = Math.max(...valid.map(w => w.bbox.x1), 1);
+                bands.forEach(band => {
+                    const lineWords = band.words.slice().sort((a,b)=>a.bbox.x0-b.bbox.x0);
+                    for (const w of lineWords) {
+                        const x = ((w.bbox.x0 + w.bbox.x1) / 2) / imageWidth;
+                        const token = String(w.text).trim().replace(/[|]/g,'1');
+                        const dayMatch = token.match(/^(?:[|Il])?(\d{1,2})(?:[.,]0)?$/);
+                        const day = dayMatch ? Number(dayMatch[1]) : NaN;
+                        if (x < 0.29 && day >= 1 && day <= daysInMonth) {
+                            if (!rowsByDay.has(day)) rowsByDay.set(day, { day, minTemp:'', maxTemp:'', rain:'', seen: new Set() });
+                            const row = rowsByDay.get(day);
+                            // Alle Tokens dieser Zeile anschließend anhand ihrer Spaltenposition zuordnen.
+                            lineWords.forEach(cell => {
+                                const cx = ((cell.bbox.x0 + cell.bbox.x1) / 2) / imageWidth;
+                                const raw = String(cell.text).trim().replace(/−/g,'-').replace(',', '.').replace(/[^0-9.\-]/g,'');
+                                if (!/^[-]?\d{1,2}(?:\.\d{1,2})?$/.test(raw)) return;
+                                const val = Number(raw);
+                                if (!Number.isFinite(val)) return;
+                                if (cx >= 0.32 && cx < 0.44 && val >= -40 && val <= 50 && !row.seen.has('max')) { row.maxTemp = val; row.seen.add('max'); }
+                                else if (cx >= 0.44 && cx < 0.56 && val >= -40 && val <= 50 && !row.seen.has('min')) { row.minTemp = val; row.seen.add('min'); }
+                                else if (cx >= 0.62 && cx < 0.76 && val >= 0 && val <= 300 && !row.seen.has('rain')) { row.rain = val; row.seen.add('rain'); }
+                            });
+                            break;
+                        }
+                    }
+                });
+            }
+
+            // Kein blindes Verteilen beliebiger Zahlen: unbekannte Werte bleiben leer und müssen geprüft werden.
+            const detectedRows = Array.from(rowsByDay.values()).sort((a,b)=>a.day-b.day).map(r => ({
+                date: `${year}-${String(month).padStart(2,'0')}-${String(r.day).padStart(2,'0')}`,
+                minTemp: r.minTemp === '' ? '' : r.minTemp,
+                maxTemp: r.maxTemp === '' ? '' : r.maxTemp,
+                rain: r.rain === '' ? '' : r.rain,
+                notes: (r.minTemp === '' || r.maxTemp === '' || r.rain === '') ? 'OCR prüfen – Werte teilweise nicht erkannt' : 'OCR erkannt – bitte prüfen'
+            }));
+
+            if (!detectedRows.length) {
+                showToast("Keine sicheren Tageszeilen erkannt. Bitte Monat auswählen und Werte in der Vorschau manuell prüfen.", "bg-amber-600");
+                detectTableDataFromImageFallback(imgDataUrl);
+                return;
+            }
+            showMultiDayPhotoImportModal(imgDataUrl, detectedRows, `${String(month).padStart(2,'0')}.${year}`);
+            const monthInput = document.getElementById('import-target-month');
+            if (monthInput) monthInput.value = monthValue;
+            showToast(`${detectedRows.length} mögliche Tageszeilen erkannt. Bitte Vorschau kontrollieren.`, "bg-emerald-600");
+        }
+
+        function detectTableDataFromImageFallback(imgDataUrl) {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonthNum = String(now.getMonth() + 1).padStart(2, '0');
+            const daysInMonth = new Date(currentYear, now.getMonth() + 1, 0).getDate();
+            const detectedRows = [];
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayStr = String(day).padStart(2, '0');
+                const dateVal = `${currentYear}-${currentMonthNum}-${dayStr}`;
+                detectedRows.push({
+                    date: dateVal,
+                    minTemp: "",
+                    maxTemp: "",
+                    rain: "",
+                    notes: "Nicht erkannt – bitte manuell eintragen"
+                });
+            }
+            showMultiDayPhotoImportModal(imgDataUrl, detectedRows, `${currentMonthNum}.${currentYear}`);
+        }
+
+        function showMultiDayPhotoImportModal(imgDataUrl, detectedRows = [], detectedMonthLabel = "") {
+            let modal = document.getElementById('photo-import-modal');
+
+            const rowsHtml = detectedRows.map((row, idx) => `
+                <tr class="border-b border-slate-100 text-xs" id="multi-row-${idx}">
+                    <td class="p-2"><input type="date" value="${row.date}" id="multi-date-${idx}" class="w-full bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                    <td class="p-2"><input type="number" step="0.1" value="${row.minTemp ?? ''}" id="multi-min-${idx}" class="w-20 bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                    <td class="p-2"><input type="number" step="0.1" value="${row.maxTemp ?? ''}" id="multi-max-${idx}" class="w-20 bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                    <td class="p-2"><input type="number" step="0.1" value="${row.rain ?? ''}" id="multi-rain-${idx}" class="w-20 bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                    <td class="p-2 flex items-center gap-1">
+                        <input type="text" value="${row.notes}" id="multi-notes-${idx}" placeholder="Notiz..." class="w-full bg-slate-50 border border-slate-200 rounded px-2 py-1">
+                        <button type="button" onclick="removeMultiRow(${idx})" class="text-slate-400 hover:text-rose-600 px-1 font-bold" title="Zeile löschen">&times;</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'photo-import-modal';
+                modal.className = 'fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto no-print';
+                modal.innerHTML = `
+                    <div class="bg-white rounded-2xl shadow-2xl border border-slate-100 max-w-4xl w-full p-6 space-y-4 my-8">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800">📷 OCR-Tabellen-Import vom Foto</h3>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <label class="text-xs text-slate-500 font-semibold">Ziel-Monat wählen:</label>
+                                    <input type="month" id="import-target-month" value="${new Date().getFullYear()}-${String(new Date().getMonth()+1).padStart(2,'0')}" onchange="updateImportMonth(this.value)" class="bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                                </div>
+                            </div>
+                            <button onclick="closePhotoModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                            <div>
+                                <p class="text-xs font-semibold text-slate-500 uppercase mb-2">Gescanntes Tabellenblatt:</p>
+                                <div class="bg-slate-100 rounded-xl overflow-hidden border border-slate-200 h-64 flex items-center justify-center">
+                                    <img id="photo-preview-tag" src="${imgDataUrl}" class="max-h-full max-w-full object-contain">
+                                </div>
+                                <div class="mt-3">
+                                    <button type="button" onclick="addEmptyMultiRow()" class="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl transition">+ Zeile hinzufügen</button>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-2 space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <p class="text-xs font-semibold text-slate-500 uppercase">Erkannte Tage: (<span id="multi-row-count">${detectedRows.length}</span> Tage)</p>
+                                    <button type="button" onclick="clearAllMultiRows()" class="text-xs text-rose-600 hover:text-rose-800 font-medium">Alle löschen</button>
+                                </div>
+                                <div class="max-h-64 overflow-y-auto border border-slate-200 rounded-xl">
+                                    <table class="w-full text-left border-collapse">
+                                        <thead>
+                                            <tr class="bg-slate-50 text-slate-400 text-[10px] uppercase border-b border-slate-200 sticky top-0">
+                                                <th class="p-2">Datum</th>
+                                                <th class="p-2">Min (°C)</th>
+                                                <th class="p-2">Max (°C)</th>
+                                                <th class="p-2">Regen (mm)</th>
+                                                <th class="p-2">Notiz</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="multi-import-tbody">
+                                            ${rowsHtml}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="text-[11px] text-slate-400">Einträge werden beim Import automatisch chronologisch nach Datum aufsteigend sortiert.</p>
+                            </div>
+                        </div>
+                        <div class="pt-3 flex justify-end gap-2 border-t border-slate-100">
+                            <button type="button" onclick="closePhotoModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition">Abbrechen</button>
+                            <button type="button" onclick="confirmMultiPhotoImport()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition shadow-sm">Ganze Monatstabelle importieren</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            } else {
+                document.getElementById('photo-preview-tag').src = imgDataUrl;
+                document.getElementById('multi-import-tbody').innerHTML = rowsHtml;
+                document.getElementById('multi-row-count').textContent = detectedRows.length;
+                modal.classList.remove('hidden');
+            }
+            window._currentMultiImportCount = detectedRows.length;
+        }
+
+        function updateImportMonth(yearMonthStr) {
+            if (!yearMonthStr) return;
+            const [year, month] = yearMonthStr.split('-');
+            const daysInMonth = new Date(parseInt(year, 10), parseInt(month, 10), 0).getDate();
+            const tbody = document.getElementById('multi-import-tbody');
+            if (!tbody) return;
+
+            let rowsHtml = '';
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayStr = String(day).padStart(2, '0');
+                const dateVal = `${year}-${month}-${dayStr}`;
+                const idx = day - 1;
+                rowsHtml += `
+                    <tr class="border-b border-slate-100 text-xs" id="multi-row-${idx}">
+                        <td class="p-2"><input type="date" value="${dateVal}" id="multi-date-${idx}" class="w-full bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                        <td class="p-2"><input type="number" step="0.1" value="0.0" id="multi-min-${idx}" class="w-20 bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                        <td class="p-2"><input type="number" step="0.1" value="0.0" id="multi-max-${idx}" class="w-20 bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                        <td class="p-2"><input type="number" step="0.1" value="0.0" id="multi-rain-${idx}" class="w-20 bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                        <td class="p-2 flex items-center gap-1">
+                            <input type="text" value="" id="multi-notes-${idx}" placeholder="Notiz..." class="w-full bg-slate-50 border border-slate-200 rounded px-2 py-1">
+                            <button type="button" onclick="removeMultiRow(${idx})" class="text-slate-400 hover:text-rose-600 px-1 font-bold" title="Zeile löschen">&times;</button>
+                        </td>
+                    </tr>
+                `;
+            }
+            tbody.innerHTML = rowsHtml;
+            window._currentMultiImportCount = daysInMonth;
+            updateMultiRowCount();
+        }
+
+        function removeMultiRow(idx) {
+            const row = document.getElementById(`multi-row-${idx}`);
+            if (row) {
+                row.remove();
+                updateMultiRowCount();
+            }
+        }
+
+        function addEmptyMultiRow() {
+            const tbody = document.getElementById('multi-import-tbody');
+            if (!tbody) return;
+            const idx = window._currentMultiImportCount || 0;
+            window._currentMultiImportCount = idx + 1;
+
+            const todayStr = new Date().toISOString().split('T')[0];
+            const tr = document.createElement('tr');
+            tr.className = "border-b border-slate-100 text-xs";
+            tr.id = `multi-row-${idx}`;
+            tr.innerHTML = `
+                <td class="p-2"><input type="date" value="${todayStr}" id="multi-date-${idx}" class="w-full bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                <td class="p-2"><input type="number" step="0.1" value="0.0" id="multi-min-${idx}" class="w-20 bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                <td class="p-2"><input type="number" step="0.1" value="0.0" id="multi-max-${idx}" class="w-20 bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                <td class="p-2"><input type="number" step="0.1" value="0.0" id="multi-rain-${idx}" class="w-20 bg-slate-50 border border-slate-200 rounded px-2 py-1"></td>
+                <td class="p-2 flex items-center gap-1">
+                    <input type="text" value="" id="multi-notes-${idx}" placeholder="Notiz..." class="w-full bg-slate-50 border border-slate-200 rounded px-2 py-1">
+                    <button type="button" onclick="removeMultiRow(${idx})" class="text-slate-400 hover:text-rose-600 px-1 font-bold" title="Zeile löschen">&times;</button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+            updateMultiRowCount();
+        }
+
+        function clearAllMultiRows() {
+            const tbody = document.getElementById('multi-import-tbody');
+            if (tbody) tbody.innerHTML = '';
+            updateMultiRowCount();
+        }
+
+        function updateMultiRowCount() {
+            const tbody = document.getElementById('multi-import-tbody');
+            const countEl = document.getElementById('multi-row-count');
+            if (tbody && countEl) {
+                countEl.textContent = tbody.children.length;
+            }
+        }
+
+        function closePhotoModal() {
+            const modal = document.getElementById('photo-import-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function confirmMultiPhotoImport() {
+            const tbody = document.getElementById('multi-import-tbody');
+            if (!tbody) return;
+
+            const rows = tbody.querySelectorAll('tr');
+            let addedCount = 0;
+
+            rows.forEach((row, index) => {
+                const dateInput = row.querySelector('input[type="date"]');
+                const numberInputs = row.querySelectorAll('input[type="number"]');
+                const textInput = row.querySelector('input[type="text"]');
+
+                if (dateInput && numberInputs.length >= 3) {
+                    const dateVal = dateInput.value;
+                    const minVal = parseFloat(numberInputs[0].value);
+                    const maxVal = parseFloat(numberInputs[1].value);
+                    const rainVal = parseFloat(numberInputs[2].value);
+                    const notesVal = textInput ? textInput.value : '';
+
+                    const rawInputs = Array.from(numberInputs).map(input => input.value.trim());
+                    if (dateVal && rawInputs.some(value => value !== '')) {
+                        const minTemp = rawInputs[0] === '' || isNaN(minVal) ? null : minVal;
+                        const maxTemp = rawInputs[1] === '' || isNaN(maxVal) ? null : maxVal;
+                        const rain = rawInputs[2] === '' || isNaN(rainVal) ? null : rainVal;
+
+                        const newEntry = {
+                            id: 'photo_multi_' + Date.now() + '_' + index,
+                            date: dateVal,
+                            minTemp: minTemp,
+                            maxTemp: maxTemp,
+                            avgTemp: minTemp === null || maxTemp === null ? null : Number(((minTemp + maxTemp) / 2).toFixed(2)),
+                            rain: rain === null ? 0 : rain,
+                            snow: 0,
+                            notes: notesVal ? notesVal.trim() : 'OCR-Scan Import'
+                        };
+
+                        const existingIdx = weatherData.findIndex(item => item.date === newEntry.date);
+                        if (existingIdx !== -1) {
+                            weatherData[existingIdx] = newEntry;
+                        } else {
+                            weatherData.push(newEntry);
+                        }
+                        addedCount++;
+                    }
+                }
+            });
+
+            // Strengste chronologische Aufsteigende Sortierung nach Datum
+            weatherData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            saveToLocalStorage();
+            closePhotoModal();
+            renderApp();
+            showToast(`Erfolgreich ${addedCount} Monatstage importiert und sortiert! 📷✨`, "bg-emerald-600");
+        }
+
+        function showToast(message, bgColorClass) {
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+            toast.textContent = message;
+            toast.className = `fixed bottom-5 right-5 z-50 px-5 py-3 rounded-xl shadow-lg text-white font-medium transition transform duration-300 ${bgColorClass}`;
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
